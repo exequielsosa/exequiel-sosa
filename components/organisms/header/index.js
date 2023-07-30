@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
 
 const Layout = styled.div`
   width: 100%;
