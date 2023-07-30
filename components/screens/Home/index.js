@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TitleHome, HomeSnipets } from "@/components/atoms";
 
 const Layout = styled.div`
   width: 100%;
@@ -32,11 +33,23 @@ const NoneArea = styled.div`
   background: #011627;
 `;
 
+const LayoutBody = styled.div`
+display: flex;
+background: transparent;
+width: 100%;
+
+`;
+
 const Home = () => {
   return (
     <Layout>
       <Column>Hola</Column>
-      <Body>HOME</Body>
+      <Body>
+        <LayoutBody>          
+        <TitleHome />
+        <HomeSnipets />
+        </LayoutBody>
+        </Body>
       <NoneArea />
     </Layout>
   );
