@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const Layout = styled.div`
   width: 100%;
@@ -62,16 +64,35 @@ const AlignContact = styled.div`
 `;
 
 export const Header = () => {
+  const router = useRouter();
+  const route = router.asPath;
   return (
     <Layout>
       <Name>exequiel-sosa</Name>
       <AlignContent>
-        <MenuCenter isSelected>_hello</MenuCenter>
-        <MenuCenter>_about-me</MenuCenter>
-        <MenuCenter>_projects</MenuCenter>
+        <MenuCenter isSelected={route === "/"} onClick={() => router.push("/")}>
+          _hello
+        </MenuCenter>
+        <MenuCenter
+          isSelected={route === "/about-me"}
+          onClick={() => router.push("/about-me")}
+        >
+          _about-me
+        </MenuCenter>
+        <MenuCenter
+          isSelected={route === "/projects"}
+          onClick={() => router.push("/projects")}
+        >
+          _projects
+        </MenuCenter>
       </AlignContent>
       <AlignContact>
-        <MenuEnd>_contact-me</MenuEnd>
+        <MenuEnd
+          isSelected={route === "/contact-me"}
+          onClick={() => router.push("/contact-me")}
+        >
+          _contact-me
+        </MenuEnd>
       </AlignContact>
     </Layout>
   );
