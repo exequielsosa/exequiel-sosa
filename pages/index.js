@@ -1,15 +1,12 @@
-import { Inter } from 'next/font/google'
-import { Button } from 'flowbite-react';
+import Home from '../components/screens/Home';
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+
+
+export default function HomeScreen() {
   return (
-    <main>
-     Initial page
-     <div>
-      <Button>Click me</Button>
-    </div>
-    </main>
+    
+     <Home />
+    
   )
 }
