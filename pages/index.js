@@ -1,4 +1,4 @@
-import Home from '../components/screens/Home';
+
 
 
 
@@ -6,7 +6,7 @@ import Home from '../components/screens/Home';
 export default function HomeScreen() {
   return (
     
-     <Home />
+<p>HOME</p>
     
   )
 }

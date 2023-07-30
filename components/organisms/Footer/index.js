@@ -5,33 +5,37 @@ const Layout = styled.div`
   border: 1px solid rgba(96, 123, 150, 0.4);
   background-color: rgba(30, 45, 61, 0.1);
   display: flex;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   flex-direction: row;
   align-items: center;
 `;
 
 const Name = styled.div`
+  display: flex;
   padding: 18px 22px;
-  width: 24%;
-  border-right: 1px solid rgba(96, 123, 150, 0.4);
   color: rgba(96, 123, 150, 1);
   font-weight: 500px;
   font-size: 16px;
   background-color: transparent;
 `;
 
-const MenuCenter = styled.div`
-  padding: 18px 22px;
-  border-right: 1px solid rgba(96, 123, 150, 0.4);
-  color: ${(props) => (props.isSelected ? "#fff" : "rgba(96, 123, 150, 1)")};
-  border-bottom: ${(props) =>
-    props.isSelected && "3px solid rgba(254, 165, 95, 1)"};
+const Logo = styled.div`
+display: flex;
+  border-left: 1px solid rgba(96, 123, 150, 0.4);
+  border-right: ${(props) =>
+    props.right && "1px solid rgba(96, 123, 150, 0.4)"};
   background-color: transparent;
+  padding-left: 14px;
+  padding-right: 14px;
   &:hover {
-    color: #fff;
+    background: rgba(30, 45, 61, 0.6);
     cursor: pointer;
-  }
+`;
+
+const ImageLogo = styled.img`
+  width: 43px;
+  background-color: transparent;
 `;
 
 const MenuEnd = styled.div`
@@ -50,31 +54,43 @@ const MenuEnd = styled.div`
 
 const AlignContent = styled.div`
   display: flex;
-  width: 50%;
+  width: 24%;
   background-color: transparent;
 `;
 
 const AlignContact = styled.div`
   display: flex;
-  width: 26%;
+  width: 76%;
   background-color: transparent;
   justify-content: flex-end;
 `;
 
-export const Header = () => {
+const Image = styled.img`
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  margin-left: 8px;
+`;
+
+export const Footer = () => {
   return (
     <Layout>
-      <Name>exequiel-sosa</Name>
       <AlignContent>
-        <MenuCenter isSelected>_hello</MenuCenter>
-        <MenuCenter>_about-me</MenuCenter>
-        <MenuCenter>_projects</MenuCenter>
+        <Name>find me in:</Name>
+        <Logo>
+          <ImageLogo src="/twitter.svg" />
+        </Logo>
+        <Logo right>
+          <ImageLogo src="/facebook.svg" />
+        </Logo>
       </AlignContent>
       <AlignContact>
-        <MenuEnd>_contact-me</MenuEnd>
+        <MenuEnd>
+          @exequielsosa <Image src="/github.svg" />
+        </MenuEnd>
       </AlignContact>
     </Layout>
   );
 };
 
-export default Header;
+export default Footer;
