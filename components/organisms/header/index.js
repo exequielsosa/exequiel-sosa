@@ -23,6 +23,7 @@ const Name = styled.div`
 `;
 
 const MenuCenter = styled.div`
+  z-index: 6;
   padding: 18px 22px;
   border-right: 1px solid rgba(96, 123, 150, 0.4);
   color: ${(props) => (props.isSelected ? "#fff" : "rgba(96, 123, 150, 1)")};
@@ -36,6 +37,7 @@ const MenuCenter = styled.div`
 `;
 
 const MenuEnd = styled.div`
+  z-index: 6;
   display: flex;
   padding: 18px 22px;
   border-left: 1px solid rgba(96, 123, 150, 0.4);

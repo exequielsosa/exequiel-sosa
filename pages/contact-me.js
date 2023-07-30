@@ -1,12 +1,5 @@
-
-
-
-
+import ContactMe from "../components/screens/ContactMe";
 
 export default function ContactMeScreen() {
-  return (
-<p>contact-me</p>
-     
-    
-  )
+  return <ContactMe />;
 }

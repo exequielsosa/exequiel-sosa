@@ -18,6 +18,8 @@ const LayoutSnipet = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 56px;
+  z-index: 5;
+  justify-content: space-between;
 `;
 
 export const HomeSnipets = () => {

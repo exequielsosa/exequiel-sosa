@@ -38,6 +38,7 @@ const ImageLogo = styled.img`
 `;
 
 const MenuEnd = styled.div`
+z-index: 6;
   display: flex;
   padding: 18px 22px;
   border-left: 1px solid rgba(96, 123, 150, 0.4);

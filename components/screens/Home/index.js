@@ -1,6 +1,25 @@
 import styled from "styled-components";
 import { TitleHome, HomeSnipets } from "@/components/atoms";
 
+const ImageBlurBlue = styled.img`
+  position: absolute;
+  background: transparent;
+  opacity: 0.4000000059604645;
+  filter: blur(87px);
+  fill: #4d5bce;
+  margin-top: 100px;
+`;
+
+const ImageBlurGreen = styled.img`
+  position: absolute;
+  background: transparent;
+  fill: #43d9ad;
+  opacity: 0.4000000059604645;
+  filter: blur(87px);
+  margin-top: -200px;
+  margin-left: -200px;
+`;
+
 const Layout = styled.div`
   width: 100%;
   min-height: 700px;
@@ -34,22 +53,31 @@ const NoneArea = styled.div`
 `;
 
 const LayoutBody = styled.div`
-display: flex;
-background: transparent;
-width: 100%;
+  display: flex;
+  background: transparent;
+  width: 100%;
+`;
 
+const LayoutSnipets = styled.div`
+  display: flex;
+  background: transparent;
+  width: 100%;
 `;
 
 const Home = () => {
   return (
     <Layout>
-      <Column>Hola</Column>
+      <Column></Column>
       <Body>
-        <LayoutBody>          
-        <TitleHome />
-        <HomeSnipets />
+        <LayoutBody>
+          <TitleHome />
+          <LayoutSnipets>
+            <ImageBlurBlue src="/blueBack.svg" />
+            <ImageBlurGreen src="/greenBack.svg" />
+            <HomeSnipets />
+          </LayoutSnipets>
         </LayoutBody>
-        </Body>
+      </Body>
       <NoneArea />
     </Layout>
   );

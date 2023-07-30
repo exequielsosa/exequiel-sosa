@@ -6,6 +6,7 @@ const Layout = styled.div`
   background: transparent;
   justify-content: center;
   padding-left: 4px;
+  z-index: 5;
 `;
 
 const Hi = styled.div`
@@ -46,6 +47,8 @@ const CanSee = styled.div`
   font-weight: 450;
   line-height: normal;
   background: transparent;
+  margin-top: 80px;
+  margin-bottom: 8px;
 `;
 
 const Const = styled.div`
@@ -95,7 +98,6 @@ const LayoutLink = styled.div`
   display: flex;
   width: 100%;
   background: transparent;
-  margin-top: 80px;
   cursor: pointer;
 `;
 
