@@ -1,12 +1,12 @@
 
-
+import Home from '../components/screens/Home'
 
 
 
 export default function HomeScreen() {
   return (
     
-<p>HOME</p>
+<Home />
     
   )
 }

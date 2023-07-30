@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const Layout = styled.div`
   width: 100%;
   border: 1px solid rgba(96, 123, 150, 0.4);
-  background-color: rgba(30, 45, 61, 0.1);
+  background-color: #011627;
   display: flex;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -50,14 +50,15 @@ const MenuEnd = styled.div`
 `;
 
 const AlignContent = styled.div`
+  background-image: url("grid.png");
   display: flex;
-  width: 50%;
+  width: 59%;
   background-color: transparent;
 `;
 
 const AlignContact = styled.div`
   display: flex;
-  width: 26%;
+  width: 17%;
   background-color: transparent;
   justify-content: flex-end;
 `;

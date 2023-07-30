@@ -3,12 +3,11 @@ import styled from "styled-components";
 const Layout = styled.div`
   width: 100%;
   border: 1px solid rgba(96, 123, 150, 0.4);
-  background-color: rgba(30, 45, 61, 0.1);
+  background-color: #011627;
   display: flex;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   flex-direction: row;
-  align-items: center;
 `;
 
 const Name = styled.div`
@@ -60,7 +59,7 @@ const AlignContent = styled.div`
 
 const AlignContact = styled.div`
   display: flex;
-  width: 76%;
+  width: 17%;
   background-color: transparent;
   justify-content: flex-end;
 `;
@@ -72,20 +71,41 @@ const Image = styled.img`
   margin-left: 8px;
 `;
 
+const NoneArea = styled.div`
+  background-image: url("grid.png");
+  display: flex;
+  width: 59%;
+  color: #1b1423;
+`;
+
 export const Footer = () => {
   return (
     <Layout>
       <AlignContent>
         <Name>find me in:</Name>
-        <Logo>
+        <Logo
+          onClick={() =>
+            window.open("https://twitter.com/soyexequielsosa", "_blank")
+          }
+        >
           <ImageLogo src="/twitter.svg" />
         </Logo>
-        <Logo right>
+        <Logo
+          right
+          onClick={() =>
+            window.open("https://facebook.com/exequiel.sosa", "_blank")
+          }
+        >
           <ImageLogo src="/facebook.svg" />
         </Logo>
       </AlignContent>
+      <NoneArea>.</NoneArea>
       <AlignContact>
-        <MenuEnd>
+        <MenuEnd
+          onClick={() =>
+            window.open("https://github.com/exequielsosa", "_blank")
+          }
+        >
           @exequielsosa <Image src="/github.svg" />
         </MenuEnd>
       </AlignContact>
