@@ -10,6 +10,7 @@ const Layout = styled.div`
   height: 42px;
   align-items: center;
   margin-bottom: 18px;
+  margin-top: ${(props) => props.isComplete && "16px"};
 `;
 
 const Icon = styled.img`

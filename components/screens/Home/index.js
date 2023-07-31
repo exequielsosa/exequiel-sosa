@@ -70,7 +70,11 @@ const Home = () => {
       <Column></Column>
       <Body>
         <LayoutBody>
-          <TitleHome />
+          <TitleHome
+            handleClick={() =>
+              window.open("https://github.com/exequielsosa", "_blank")
+            }
+          />
           <LayoutSnipets>
             <ImageBlurBlue src="/blueBack.svg" />
             <ImageBlurGreen src="/greenBack.svg" />

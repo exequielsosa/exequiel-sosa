@@ -1,8 +1,7 @@
 import ContactSection from "@/components/molecules/ContactSection";
 import styled from "styled-components";
 import TitleSection from "../../molecules/TitleSection";
-import { TitleSelector } from "@/components/atoms";
-import { useState } from "react";
+import { SectionSelector, TitleSelector } from "@/components/atoms";
 
 const Layout = styled.div`
   display: flex;
@@ -40,23 +39,8 @@ const DisplayMenu = styled.div`
   width: 100%;
 `;
 
-export const AboutMeMenu = () => {
-  const [section, setSection] = useState("");
-
-  const handeClickBio = () => {
-    setSection("");
-    setSection("bio");
-  };
-
-  const handeClickInterest = () => {
-    setSection("");
-    setSection("interest");
-  };
-
-  const handeClickEducation = () => {
-    setSection("");
-    setSection("education");
-  };
+export const AboutMeMenu = ({handeClickBio, handeClickInterest, handeClickEducation, section}) => {
+  
 
   return (
     <Layout>
@@ -73,21 +57,42 @@ export const AboutMeMenu = () => {
           handleClick={handeClickBio}
           isSelected={section === "bio"}
         />
-        {section === "bio" && <p>bio cosas</p>}
+        {section === "bio" && (
+          <>
+            <SectionSelector nameSection="about-me" />
+            <SectionSelector nameSection="falabella financiero" />
+            <SectionSelector nameSection="Kinsper" />
+            <SectionSelector nameSection="skydropx" />
+            <SectionSelector nameSection="lapzo" />
+            <SectionSelector nameSection="freelance" />
+          </>
+        )}
         <TitleSelector
           sectionName="interests"
           icon="/interestFolder.svg"
           handleClick={handeClickInterest}
           isSelected={section === "interest"}
         />
-        {section === "interest" && <p>interest cosas</p>}
+        {section === "interest" && (
+          <>
+            <SectionSelector nameSection="computer hardware" />
+            <SectionSelector nameSection="music" />
+            <SectionSelector nameSection="family" />
+          </>
+        )}
         <TitleSelector
           sectionName="education"
           icon="/educationFolder.svg"
           handleClick={handeClickEducation}
           isSelected={section === "education"}
         />
-        {section === "education" && <p>education cosas</p>}
+        {section === "education" && (
+          <>
+            <SectionSelector nameSection="hight-school" />
+            <SectionSelector nameSection="university" />
+            <SectionSelector nameSection="others studies - skills" />
+          </>
+        )}
         <TitleSection title="contacts" isComplete />
         <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" />
         <ContactSection title="+5491158959825" icon="/phoneVector.svg" />
