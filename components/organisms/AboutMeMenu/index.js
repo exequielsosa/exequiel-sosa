@@ -39,9 +39,25 @@ const DisplayMenu = styled.div`
   width: 100%;
 `;
 
-export const AboutMeMenu = ({handeClickBio, handeClickInterest, handeClickEducation, section}) => {
-  
-
+export const AboutMeMenu = ({
+  handeClickBio,
+  handeClickInterest,
+  handeClickEducation,
+  section,
+  handleClickAboutMe,
+  handleClickFalabella,
+  handleClickKinsper,
+  handleClickSkydropx,
+  handleClickLapzo,
+  handleClickFreelance,
+  handleClickHardware,
+  handleClickMusic,
+  handleClickFamily,
+  handleClickHight,
+  handleClickUniversity,
+  handleClickOthers,
+  note,
+}) => {
   return (
     <Layout>
       <SideBarMenu>
@@ -59,12 +75,36 @@ export const AboutMeMenu = ({handeClickBio, handeClickInterest, handeClickEducat
         />
         {section === "bio" && (
           <>
-            <SectionSelector nameSection="about-me" />
-            <SectionSelector nameSection="falabella financiero" />
-            <SectionSelector nameSection="Kinsper" />
-            <SectionSelector nameSection="skydropx" />
-            <SectionSelector nameSection="lapzo" />
-            <SectionSelector nameSection="freelance" />
+            <SectionSelector
+              nameSection="about-me"
+              handleClick={handleClickAboutMe}
+              active={note === "dataAboutMe"}
+            />
+            <SectionSelector
+              nameSection="falabella financiero"
+              handleClick={handleClickFalabella}
+              active={note === "dataFalabella"}
+            />
+            <SectionSelector
+              nameSection="kinsper"
+              handleClick={handleClickKinsper}
+              active={note === "dataKinsper"}
+            />
+            <SectionSelector
+              nameSection="skydropx"
+              handleClick={handleClickSkydropx}
+              active={note === "dataSkydropx"}
+            />
+            <SectionSelector
+              nameSection="lapzo"
+              handleClick={handleClickLapzo}
+              active={note === "dataLapzo"}
+            />
+            <SectionSelector
+              nameSection="freelance"
+              handleClick={handleClickFreelance}
+              active={note === "dataFreelance"}
+            />
           </>
         )}
         <TitleSelector
@@ -75,9 +115,21 @@ export const AboutMeMenu = ({handeClickBio, handeClickInterest, handeClickEducat
         />
         {section === "interest" && (
           <>
-            <SectionSelector nameSection="computer hardware" />
-            <SectionSelector nameSection="music" />
-            <SectionSelector nameSection="family" />
+            <SectionSelector
+              nameSection="computer-hardware"
+              handleClick={handleClickHardware}
+              active={note === "dataHardware"}
+            />
+            <SectionSelector
+              nameSection="music"
+              handleClick={handleClickMusic}
+              active={note === "dataMusic"}
+            />
+            <SectionSelector
+              nameSection="family"
+              handleClick={handleClickFamily}
+              active={note === "dataFamily"}
+            />
           </>
         )}
         <TitleSelector
@@ -88,9 +140,21 @@ export const AboutMeMenu = ({handeClickBio, handeClickInterest, handeClickEducat
         />
         {section === "education" && (
           <>
-            <SectionSelector nameSection="hight-school" />
-            <SectionSelector nameSection="university" />
-            <SectionSelector nameSection="others studies - skills" />
+            <SectionSelector
+              nameSection="hight-school"
+              handleClick={handleClickHight}
+              active={note === "dataHight"}
+            />
+            <SectionSelector
+              nameSection="university"
+              handleClick={handleClickUniversity}
+              active={note === "dataUniversity"}
+            />
+            <SectionSelector
+              nameSection="others studies - skills"
+              handleClick={handleClickOthers}
+              active={note === "dataOthers"}
+            />
           </>
         )}
         <TitleSection title="contacts" isComplete />

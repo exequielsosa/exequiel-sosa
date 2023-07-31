@@ -8,7 +8,7 @@ const ImageIcon = styled.img`
 
 const NameSection = styled.div`
   background: transparent;
-  color: #607b96;
+  color: ${(props) => (props.active ? "#4d5bce" : "#607b96")};
   font-family: Fira Code;
   font-size: 16px;
   font-style: normal;
@@ -30,11 +30,11 @@ const Layout = styled.div`
   }
 `;
 
-export const SectionSelector = ({ nameSection, handleClick }) => {
+export const SectionSelector = ({ nameSection, handleClick, active }) => {
   return (
     <Layout onClick={handleClick}>
       <ImageIcon src="/displayItems.svg" />
-      <NameSection>{nameSection}</NameSection>
+      <NameSection active={active}>{nameSection}</NameSection>
     </Layout>
   );
 };
