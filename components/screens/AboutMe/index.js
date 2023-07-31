@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AboutMeMenu } from "@/components/organisms";
 
 const Layout = styled.div`
   width: 100%;
@@ -17,11 +18,11 @@ const Column = styled.div`
 `;
 
 const Body = styled.div`
-  width: 59%;
+  width: 76%;
   min-height: 700px;
   display: flex;
   background: transparent;
-  background-image: url("grid.png");
+  background-image: url("grid2.png");
   background-color: #011627;
 `;
 
@@ -35,9 +36,8 @@ const NoneArea = styled.div`
 const AboutMe = () => {
   return (
     <Layout>
-      <Column></Column>
-      <Body>About Me!</Body>
-      <NoneArea />
+      <Column><AboutMeMenu /></Column>
+      <Body>About Me!</Body>      
     </Layout>
   );
 };
