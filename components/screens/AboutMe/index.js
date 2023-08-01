@@ -16,6 +16,7 @@ import {
   dataUniversity,
   dataOthers,
 } from "../../../constants";
+import {SnipetsAboutMe} from '../../molecules';
 
 const Layout = styled.div`
   width: 100%;
@@ -65,12 +66,14 @@ const ContainerNameSection = styled.div`
   height: 42px;
 `;
 
-const TextArea = styled.div`
+const ContainerSnippet = styled.div`
   background: transparent;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 45%;
 `;
+
+
 
 const AboutMe = () => {
   const [section, setSection] = useState("bio");
@@ -196,6 +199,10 @@ const AboutMe = () => {
               }
             />
           </TextAreaLayout>
+          <ContainerSnippet>
+          <ContainerNameSection />
+          <SnipetsAboutMe />
+          </ContainerSnippet>
         </LayoutBody>
       </Body>
     </Layout>
