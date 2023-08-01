@@ -92,6 +92,9 @@ const Link = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  &:hover {
+    color: #4d5bce;
+  }
 `;
 
 const LayoutLink = styled.div`
@@ -101,7 +104,7 @@ const LayoutLink = styled.div`
   cursor: pointer;
 `;
 
-export const TitleHome = () => {
+export const TitleHome = ({handleClick}) => {
   return (
     <Layout>
       <Hi>Hi all. I am</Hi>
@@ -112,7 +115,7 @@ export const TitleHome = () => {
         <Const>const</Const>
         <Git>githubLink</Git>
         <Equal>=</Equal>
-        <Link>“https://github.com/exequielsosa”</Link>
+        <Link onClick={handleClick}>“https://github.com/exequielsosa”</Link>
       </LayoutLink>
     </Layout>
   );
