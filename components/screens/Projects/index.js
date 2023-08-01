@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import TitleSection from "../../molecules/TitleSection";
 import { MenuProjects } from "@/components/organisms";
 import { useState } from "react";
+import { CardProject, TitleSection } from "@/components/molecules";
 
 const LayoutMenu = styled.div`
   display: flex;
@@ -59,6 +59,20 @@ const ContainerNameSection = styled.div`
   height: 42px;
 `;
 
+const ContainerCards = styled.div`
+  display: flex;
+  width: 100%;
+  background: transparent;
+  flex-direction: row;
+  margin-top: 80px;
+  margin-left: 32px;
+  margin-right: 32px;
+  /* justify-content: space-between; */
+  overflow-x: auto;
+  white-space: nowrap;
+  
+`;
+
 const Project = () => {
   const [valueFpay, setCheckboxFpay] = useState(false);
   const [valueLandings, setCheckboxLandings] = useState(false);
@@ -68,6 +82,87 @@ const Project = () => {
   const [valueAus, setCheckboxAus] = useState(false);
   const [valueDillon, setCheckboxDillon] = useState(false);
   const [valueNidit, setCheckboxNidit] = useState(false);
+
+  const dataFpay = [
+    {
+      nameProject: "Portal Comercio",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataLandings = [
+    {
+      nameProject: "Landings - Skydropx",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataB2C = [
+    {
+      nameProject: "B2C - Skydropx",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataLabels = [
+    {
+      nameProject: "Labels - Skydropx",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataLapzo = [
+    {
+      nameProject: "Lapzo by lernit",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataAus = [
+    {
+      nameProject: "aUshuaia",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataDillon = [
+    {
+      nameProject: "estudio-dillon.com",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
+  const dataNidit = [
+    {
+      nameProject: "nidit!",
+      nameDetail: "// _ui-animations",
+      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
+      url: 'url("fpay.png")',
+      link: "https://facebook.com/exequiel.sosa",
+    },
+  ];
+
   return (
     <Layout>
       <Column>
@@ -99,6 +194,16 @@ const Project = () => {
         <LayoutBody>
           <TextAreaLayout>
             <ContainerNameSection></ContainerNameSection>
+            <ContainerCards>
+              <CardProject dataCards={valueFpay && dataFpay} />
+              <CardProject dataCards={valueLandings && dataLandings} />
+              <CardProject dataCards={valueB2C && dataB2C} />
+              <CardProject dataCards={valueLabels && dataLabels} />
+              <CardProject dataCards={valueLapzo && dataLapzo} />
+              <CardProject dataCards={valueAus && dataAus} />
+              <CardProject dataCards={valueDillon && dataDillon} />
+              <CardProject dataCards={valueNidit && dataNidit} />
+            </ContainerCards>
           </TextAreaLayout>
         </LayoutBody>
       </Body>
