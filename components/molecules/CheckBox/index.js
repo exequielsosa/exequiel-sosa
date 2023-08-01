@@ -9,10 +9,18 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
+  background: transparent;
   position: relative;
   display: inline-block;
-  cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
-  margin: 0.6em 1em;
+  font-family: Fira Code;
+  color: ${(props) => (props.checked ? "#fff" : "#607B96")};
+  font-size: 16px;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  margin-left: 40px;
+  margin-bottom: 16px;
+  &:hover {
+    color: #fff;
+  }
 `;
 
 const rotate = keyframes`
@@ -27,21 +35,22 @@ const rotate = keyframes`
 `;
 
 const Indicator = styled.div`
-  width: 1.2em;
-  height: 1.2em;
-  background: #e6e6e6;
+  width: 19px;
+  height: 19px;
+  background: ${(props) =>
+    props.checked ? "rgba(96, 123, 150, 1)" : "transparent"};
   position: absolute;
-  top: 0em;
-  left: -1.6em;
-  border: 1px solid #757575;
-  border-radius: 0.2em;
+  top: 0;
+  left: -40px;
+  border: 1px solid rgba(96, 123, 150, 1);
+  border-radius: 4px;
 
   ${Input}:not(:disabled):checked & {
     background: #d1d1d1;
   }
 
   ${Label}:hover & {
-    background: #ccc;
+    background: transparent;
   }
 
   &::after {
@@ -54,10 +63,10 @@ const Indicator = styled.div`
     display: block;
     top: 0.1em;
     left: 0.35em;
-    width: 35%;
-    height: 70%;
-    border: solid #263238;
-    border-width: 0 0.2em 0.2em 0;
+    width: 20%;
+    height: 55%;
+    border: solid #fff;
+    border-width: 0 0.15em 0.15em 0;
     animation-name: ${rotate};
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
@@ -75,10 +84,10 @@ export default function Checkbox({
   name,
   id,
   label,
-  disabled
+  disabled,
 }) {
   return (
-    <Label htmlFor={id} disabled={disabled}>
+    <Label htmlFor={id} disabled={disabled} checked={checked}>
       {label}
       <Input
         id={id}
@@ -89,7 +98,7 @@ export default function Checkbox({
         checked={checked}
         onChange={onChange}
       />
-      <Indicator />
+      <Indicator checked={checked} />
     </Label>
   );
 }

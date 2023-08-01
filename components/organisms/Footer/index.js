@@ -73,7 +73,7 @@ const Image = styled.img`
 `;
 
 const NoneArea = styled.div`
-  background-image: url("grid.png");
+  background-image: url("grid2.png");
   display: flex;
   width: 59%;
   color: #1b1423;

@@ -16,7 +16,7 @@ const Layout = styled.div`
 const Icon = styled.img`
   background: transparent;
   width: 9px;
-  margin-left: 15px;
+  margin-left: ${(props)=> props.isProject ? '22px' : '15px'};
   margin-right: 12px;
 `;
 
@@ -32,10 +32,10 @@ const Title = styled.div`
   width: 100%;
 `;
 
-export const TitleSection = ({ isComplete, title }) => {
+export const TitleSection = ({ isComplete, title, isProject }) => {
   return (
     <Layout isComplete={isComplete}>
-      <Icon src="/dropdownVector.svg" />
+      <Icon src="/dropdownVector.svg" isProject={isProject} />
       <Title>{title}</Title>
     </Layout>
   );

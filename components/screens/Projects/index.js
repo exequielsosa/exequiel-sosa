@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import TitleSection from "../../molecules/TitleSection";
+import { MenuProjects } from "@/components/organisms";
+import { useState } from "react";
 
 const LayoutMenu = styled.div`
   display: flex;
@@ -7,6 +9,7 @@ const LayoutMenu = styled.div`
   border-right: 1px solid rgba(96, 123, 150, 0.4);
   min-height: 700px;
   background: transparent;
+  flex-direction: column;
 `;
 
 const Layout = styled.div`
@@ -57,11 +60,39 @@ const ContainerNameSection = styled.div`
 `;
 
 const Project = () => {
+  const [valueFpay, setCheckboxFpay] = useState(false);
+  const [valueLandings, setCheckboxLandings] = useState(false);
+  const [valueB2C, setCheckboxB2C] = useState(false);
+  const [valueLabels, setCheckboxLabels] = useState(false);
+  const [valueLapzo, setCheckboxLapzo] = useState(false);
+  const [valueAus, setCheckboxAus] = useState(false);
+  const [valueDillon, setCheckboxDillon] = useState(false);
+  const [valueNidit, setCheckboxNidit] = useState(false);
   return (
     <Layout>
       <Column>
         <LayoutMenu>
-          <TitleSection title="projects" />
+          <TitleSection title="projects" isProject />
+          <MenuProjects
+            valueFpay={valueFpay}
+            valueLandings={valueLandings}
+            valueB2C={valueB2C}
+            valueLabels={valueLabels}
+            valueLapzo={valueLapzo}
+            valueAus={valueAus}
+            valueDillon={valueDillon}
+            valueNidit={valueNidit}
+            onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
+            onChangeLandings={({ target }) =>
+              setCheckboxLandings(!valueLandings)
+            }
+            onChangeB2C={({ target }) => setCheckboxB2C(!valueB2C)}
+            onChangeLabels={({ target }) => setCheckboxLabels(!valueLabels)}
+            onChangeLapzo={({ target }) => setCheckboxLapzo(!valueLapzo)}
+            onChangeAus={({ target }) => setCheckboxAus(!valueAus)}
+            onChangeDillon={({ target }) => setCheckboxDillon(!valueDillon)}
+            onChangeNidit={({ target }) => setCheckboxNidit(!valueNidit)}
+          />
         </LayoutMenu>
       </Column>
       <Body>
