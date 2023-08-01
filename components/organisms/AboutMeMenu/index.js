@@ -11,6 +11,11 @@ const Layout = styled.div`
   background: transparent;
 `;
 
+const MailTo = styled.a`
+  background: transparent;
+  text-decoration: none;
+`;
+
 const Icon = styled.img`
   background: transparent;
   width: 24px;
@@ -173,8 +178,19 @@ export const AboutMeMenu = ({
           </>
         )}
         <TitleSection title="contacts" isComplete />
-        <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" />
-        <ContactSection title="+5491158959825" icon="/phoneVector.svg" />
+        <MailTo href="mailto:exequielsosa@gmail.com">
+          <ContactSection
+            title="exequielsosa@gmail.com"
+            icon="/mailVector.svg"
+          />
+        </MailTo>
+        <ContactSection
+          title="+5491158959825"
+          icon="/phoneVector.svg"
+          handleClick={() =>
+            window.open("https://wa.me/541158959825", "_blank")
+          }
+        />
       </DisplayMenu>
     </Layout>
   );
