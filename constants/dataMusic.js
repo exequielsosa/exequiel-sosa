@@ -2,41 +2,56 @@ export const dataMusic = [
   {
     number: "1",
     symbol: "/",
-    text: "** MUSIC",
+    text: "** music enthusiast",
   },
   {
     number: "2",
     symbol: "*",
-    text: "International Parcel Service - Frontend Developer.",
+    text: "As a devoted music enthusiast, I take",
   },
   {
     number: "3",
     symbol: "*",
-    text: "Projects: SEO / Landings / Sales B2C for clients.",
+    text: " great pleasure in both listening to",
   },
   {
     number: "4",
     symbol: "*",
-    text: " Skills: NextJs, Hooks, Redux, Micro-FrontEnd,",
+    text: " music and actively participating in",
   },
   {
     number: "5",
     symbol: "*",
-    text: "Own components lib Material-UI and StoryBook,",
+    text: " its creation. My guitar skills have",
   },
   {
     number: "6",
     symbol: "*",
-    text: " Syled components, Jest & Enzyme TypeScript,",
+    text: " allowed me to express my emotions and",
   },
   {
     number: "7",
     symbol: "*",
-    text: "Nx Monorepo, Cypress E2E Test, Jest, Enzyme, Emotion.",
+    text: " connect deeply with the art of melody.",
   },  
   {
     number: "8",
     symbol: "*",
-    text: "/",
+    text: " Additionally, I have set up a home studio,",
   },
+  {
+    number: "9",
+    symbol: "*",
+    text: " which has provided me with invaluable",
+  },
+  {
+    number: "10",
+    symbol: "*",
+    text: " experience in music production",
+  },
+  {
+    number: "11",
+    symbol: "*",
+    text: " and recording.",
+  },  
 ];

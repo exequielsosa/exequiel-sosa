@@ -7,35 +7,50 @@ export const dataSkydropx = [
   {
     number: "2",
     symbol: "*",
-    text: "International Parcel Service - Frontend Developer.",
+    text: "International Parcel Service",
   },
   {
     number: "3",
     symbol: "*",
-    text: "Projects: SEO / Landings / Sales B2C for clients.",
+    text: "Frontend Developer:",
   },
   {
     number: "4",
     symbol: "*",
-    text: " Skills: NextJs, Hooks, Redux, Micro-FrontEnd,",
+    text: "Projects: SEO - Landings - Sales B2C",
   },
   {
     number: "5",
     symbol: "*",
-    text: "Own components lib Material-UI and StoryBook,",
+    text: " Skills: NextJs, Hooks, Redux,",
   },
   {
     number: "6",
     symbol: "*",
-    text: " Syled components, Jest & Enzyme TypeScript,",
+    text: " Micro-FrontEnd, Own components lib,",
   },
   {
     number: "7",
     symbol: "*",
-    text: "Nx Monorepo, Cypress E2E Test, Jest, Enzyme, Emotion.",
-  },  
+    text: " Material-UI and StoryBook, ",
+  },
   {
     number: "8",
+    symbol: "*",
+    text: "Styled components, Jest & Enzyme,",
+  },  
+  {
+    number: "9",
+    symbol: "*",
+    text: " TypeScript, Nx Monorepo, ",
+  },
+  {
+    number: "10",
+    symbol: "*",
+    text: "Cypress E2E Test, Emotion.",
+  },
+  {
+    number: "11",
     symbol: "*",
     text: "/",
   },

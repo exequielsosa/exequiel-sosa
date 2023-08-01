@@ -12,21 +12,32 @@ export const dataFreelance = [
   {
     number: "3",
     symbol: "*",
-    text: " Using: React, Hooks, Redux, Bootstrap, Styled Components,",
+    text: " Using: React, Hooks, Redux, Bootstrap,",
   },
   {
     number: "4",
     symbol: "*",
-    text: "React Native,  Material UI, StoryBook, Jest & Enzyme testing.",
+    text: " Styled Components, React Native,  ",
   },
   {
     number: "5",
     symbol: "*",
-    text: " TypeScript, Nx, Cypress E2E Test, Emotion.",
+    text: "Material UI, StoryBook, Jest & Enzyme",
   },  
   {
     number: "6",
     symbol: "*",
+    text: " testing. TypeScript, Nx Monorepo, ",
+  },
+  {
+    number: "7",
+    symbol: "*",
+    text: "Cypress E2E Test, Emotion.",
+  },  
+  {
+    number: "8",
+    symbol: "*",
     text: "/",
   },
+
 ];

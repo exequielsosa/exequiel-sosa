@@ -16,7 +16,7 @@ import {
   dataUniversity,
   dataOthers,
 } from "../../../constants";
-import {SnipetsAboutMe} from '../../molecules';
+import { SnipetsAboutMe } from "../../molecules";
 
 const Layout = styled.div`
   width: 100%;
@@ -73,8 +73,6 @@ const ContainerSnippet = styled.div`
   width: 45%;
 `;
 
-
-
 const AboutMe = () => {
   const [section, setSection] = useState("bio");
   const [note, setNote] = useState("dataAboutMe");
@@ -127,6 +125,9 @@ const AboutMe = () => {
           handleClickHight={() => setNote("dataHight")}
           handleClickUniversity={() => setNote("dataUniversity")}
           handleClickOthers={() => setNote("dataOthers")}
+          handleClickPersonal={handeClickBio}
+          handleClickHobby={handeClickInterest}
+          handleClickProfesional={handeClickEducation}
         />
       </Column>
       <Body>
@@ -148,7 +149,7 @@ const AboutMe = () => {
                         : note === "dataLapzo"
                         ? "lapzo"
                         : note === "dataHardware"
-                        ? "data-hardware"
+                        ? "computer-hardware"
                         : note === "dataMusic"
                         ? "music"
                         : note === "dataFamily"
@@ -158,7 +159,7 @@ const AboutMe = () => {
                         : note === "dataUniversity"
                         ? "university"
                         : note === "dataOthers"
-                        ? "others studies - skills"
+                        ? "developer skills"
                         : "freelance"
                     }
                   />
@@ -200,8 +201,8 @@ const AboutMe = () => {
             />
           </TextAreaLayout>
           <ContainerSnippet>
-          <ContainerNameSection />
-          <SnipetsAboutMe />
+            <ContainerNameSection />
+            <SnipetsAboutMe />
           </ContainerSnippet>
         </LayoutBody>
       </Body>

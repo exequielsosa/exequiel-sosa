@@ -57,13 +57,28 @@ export const AboutMeMenu = ({
   handleClickUniversity,
   handleClickOthers,
   note,
+  handleClickPersonal,
+  handleClickHobby,
+  handleClickProfesional,
 }) => {
   return (
     <Layout>
       <SideBarMenu>
-        <Icon src="/personalInfo.svg" isSelected={section === "bio"} />
-        <Icon src="/hobbyInfo.svg" isSelected={section === "interest"} />
-        <Icon src="/ProfesionalInfo.svg" isSelected={section === "education"} />
+        <Icon
+          src="/personalInfo.svg"
+          isSelected={section === "bio"}
+          onClick={handleClickPersonal}
+        />
+        <Icon
+          src="/hobbyInfo.svg"
+          isSelected={section === "interest"}
+          onClick={handleClickHobby}
+        />
+        <Icon
+          src="/ProfesionalInfo.svg"
+          isSelected={section === "education"}
+          onClick={handleClickProfesional}
+        />
       </SideBarMenu>
       <DisplayMenu>
         <TitleSection title="personal-info" />
@@ -151,7 +166,7 @@ export const AboutMeMenu = ({
               active={note === "dataUniversity"}
             />
             <SectionSelector
-              nameSection="others studies - skills"
+              nameSection="developer skills"
               handleClick={handleClickOthers}
               active={note === "dataOthers"}
             />

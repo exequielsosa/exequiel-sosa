@@ -2,40 +2,50 @@ export const dataHardware = [
   {
     number: "1",
     symbol: "/",
-    text: "** Hardware",
+    text: "** PC hardware enthusiast",
   },
   {
     number: "2",
     symbol: "*",
-    text: "International Parcel Service - Frontend Developer.",
+    text: "Passionate about PC hardware and ",
   },
   {
     number: "3",
     symbol: "*",
-    text: "Projects: SEO / Landings / Sales B2C for clients.",
+    text: "technology enthusiast. Experienced in",
   },
   {
     number: "4",
     symbol: "*",
-    text: " Skills: NextJs, Hooks, Redux, Micro-FrontEnd,",
+    text: " assembling, upgrading, and optimizing ",
   },
   {
     number: "5",
     symbol: "*",
-    text: "Own components lib Material-UI and StoryBook,",
+    text: "computer systems. Always up-to-date with",
   },
   {
     number: "6",
     symbol: "*",
-    text: " Syled components, Jest & Enzyme TypeScript,",
+    text: " the latest trends and advancements in ",
   },
   {
     number: "7",
     symbol: "*",
-    text: "Nx Monorepo, Cypress E2E Test, Jest, Enzyme, Emotion.",
+    text: "components. Eager to contribute and grow",
   },  
   {
     number: "8",
+    symbol: "*",
+    text: " in the field of PC hardware to take",
+  },
+  {
+    number: "9",
+    symbol: "*",
+    text: " technology to the next level.",
+  },  
+  {
+    number: "10",
     symbol: "*",
     text: "/",
   },
