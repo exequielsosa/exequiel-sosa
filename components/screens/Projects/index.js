@@ -1,7 +1,22 @@
 import styled from "styled-components";
 import { MenuProjects } from "@/components/organisms";
+import { SectionProjectCard } from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
+
+import {
+  dataFpay,
+  dataLandings,
+  dataB2C,
+  dataLabels,
+  dataColombia,
+  dataLapzo,
+  dataAus,
+  dataDillon,
+  dataNidit,
+  dataVeti,
+  dataUverified,
+} from "../../../constants/dataCards";
 
 const LayoutMenu = styled.div`
   display: flex;
@@ -59,18 +74,34 @@ const ContainerNameSection = styled.div`
   height: 42px;
 `;
 
+const LayoutContainerCards = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+`;
+
 const ContainerCards = styled.div`
   display: flex;
   width: 100%;
   background: transparent;
   flex-direction: row;
-  margin-top: 80px;
+  margin-top: 32px;
   margin-left: 32px;
   margin-right: 32px;
-  /* justify-content: space-between; */
-  overflow-x: auto;
-  white-space: nowrap;
-  
+  max-width: 90%;
+  flex-wrap: wrap;
+  max-height: 600px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 26px;
+    border: 1px solid #1e2d3d;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(96, 123, 150, 0.1);
+    height: 20px;
+  }
 `;
 
 const Project = () => {
@@ -82,86 +113,9 @@ const Project = () => {
   const [valueAus, setCheckboxAus] = useState(false);
   const [valueDillon, setCheckboxDillon] = useState(false);
   const [valueNidit, setCheckboxNidit] = useState(false);
-
-  const dataFpay = [
-    {
-      nameProject: "Portal Comercio",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataLandings = [
-    {
-      nameProject: "Landings - Skydropx",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataB2C = [
-    {
-      nameProject: "B2C - Skydropx",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataLabels = [
-    {
-      nameProject: "Labels - Skydropx",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataLapzo = [
-    {
-      nameProject: "Lapzo by lernit",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataAus = [
-    {
-      nameProject: "aUshuaia",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataDillon = [
-    {
-      nameProject: "estudio-dillon.com",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
-
-  const dataNidit = [
-    {
-      nameProject: "nidit!",
-      nameDetail: "// _ui-animations",
-      projectDescription: "Duis aute irure dolor in velit esse cillum dolore.",
-      url: 'url("fpay.png")',
-      link: "https://facebook.com/exequiel.sosa",
-    },
-  ];
+  const [valueColombia, setCheckboxColombia] = useState(false);
+  const [valueVeti, setCheckboxVeti] = useState(false);
+  const [valueUverified, setCheckboxUverified] = useState(false);
 
   return (
     <Layout>
@@ -177,6 +131,9 @@ const Project = () => {
             valueAus={valueAus}
             valueDillon={valueDillon}
             valueNidit={valueNidit}
+            valueColombia={valueColombia}
+            valueVeti={valueVeti}
+            valueUverified={valueUverified}
             onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
             onChangeLandings={({ target }) =>
               setCheckboxLandings(!valueLandings)
@@ -187,23 +144,36 @@ const Project = () => {
             onChangeAus={({ target }) => setCheckboxAus(!valueAus)}
             onChangeDillon={({ target }) => setCheckboxDillon(!valueDillon)}
             onChangeNidit={({ target }) => setCheckboxNidit(!valueNidit)}
+            onChangeColombia={({ target }) =>
+              setCheckboxColombia(!valueColombia)
+            }
+            onChangeVeti={({ target }) => setCheckboxVeti(!valueVeti)}
+            onChangeUverified={({ target }) =>
+              setCheckboxUverified(!valueUverified)
+            }
           />
         </LayoutMenu>
       </Column>
       <Body>
         <LayoutBody>
           <TextAreaLayout>
-            <ContainerNameSection></ContainerNameSection>
-            <ContainerCards>
-              <CardProject dataCards={valueFpay && dataFpay} />
-              <CardProject dataCards={valueLandings && dataLandings} />
-              <CardProject dataCards={valueB2C && dataB2C} />
-              <CardProject dataCards={valueLabels && dataLabels} />
-              <CardProject dataCards={valueLapzo && dataLapzo} />
-              <CardProject dataCards={valueAus && dataAus} />
-              <CardProject dataCards={valueDillon && dataDillon} />
-              <CardProject dataCards={valueNidit && dataNidit} />
-            </ContainerCards>
+            <ContainerNameSection><SectionProjectCard sectionName="hola" /></ContainerNameSection>
+
+            <LayoutContainerCards>
+              <ContainerCards>
+                <CardProject dataCards={valueFpay && dataFpay} />
+                <CardProject dataCards={valueLandings && dataLandings} />
+                <CardProject dataCards={valueB2C && dataB2C} />
+                <CardProject dataCards={valueLabels && dataLabels} />
+                <CardProject dataCards={valueLapzo && dataLapzo} />
+                <CardProject dataCards={valueAus && dataAus} />
+                <CardProject dataCards={valueDillon && dataDillon} />
+                <CardProject dataCards={valueNidit && dataNidit} />
+                <CardProject dataCards={valueColombia && dataColombia} />
+                <CardProject dataCards={valueVeti && dataVeti} />
+                <CardProject dataCards={valueUverified && dataUverified} />
+              </ContainerCards>
+            </LayoutContainerCards>
           </TextAreaLayout>
         </LayoutBody>
       </Body>

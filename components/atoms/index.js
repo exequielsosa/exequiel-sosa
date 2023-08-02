@@ -5,3 +5,4 @@ export * from "./SectionSelector";
 export * from "./SectionCard";
 export * from "./TextTable";
 export * from './TitleCard';
+export * from './SectionProjectCard'

@@ -27,6 +27,12 @@ export const MenuProjects = ({
   onChangeAus,
   onChangeDillon,
   onChangeNidit,
+  valueColombia,
+  onChangeColombia,
+  valueVeti,
+  onChangeVeti,
+  valueUverified,
+  onChangeUverified,
 }) => {  
 
   return (
@@ -55,6 +61,12 @@ export const MenuProjects = ({
         checked={valueLabels}
         onChange={onChangeLabels}
       />
+       <CheckBox
+        label="HomePage - Skydropx"
+        value={valueColombia}
+        checked={valueColombia}
+        onChange={onChangeColombia}
+      />
       <CheckBox
         label="Lapzo by lernit"
         value={valueLapzo}
@@ -78,6 +90,18 @@ export const MenuProjects = ({
         value={valueNidit}
         checked={valueNidit}
         onChange={onChangeNidit}
+      />
+       <CheckBox
+        label="Vetinsure - Kinsper"
+        value={valueVeti}
+        checked={valueVeti}
+        onChange={onChangeVeti}
+      />
+      <CheckBox
+        label="Uverified - Kinsper"
+        value={valueUverified}
+        checked={valueUverified}
+        onChange={onChangeUverified}
       />
     </Layout>
   );

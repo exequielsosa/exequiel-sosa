@@ -68,6 +68,7 @@ const Button = styled.button`
   width: fit-content;
   &:hover {
     opacity: 0.8;
+    color: #5565e8;
   }
 `;
 
@@ -75,6 +76,10 @@ const LayoutGral = styled.div`
   background: transparent;
   width: 370px;
   margin-right: 40px;
+  margin-bottom: 40px;
+  &:last-child {
+    margin-right: 0px;
+  }
 `;
 
 const ContainerTitle = styled.div`
