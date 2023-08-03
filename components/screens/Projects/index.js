@@ -116,7 +116,8 @@ const ContainerTags = styled.div`
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    border: 1px solid #1e2d3d;
+    border: 1px solid #1e2d3d;    
+    /* display: none; */
   }
   &::-webkit-scrollbar-thumb {
     background: rgba(96, 123, 150, 0.1);

@@ -6,6 +6,11 @@
   font-family: "Fira Code", monospace;
   background: rgba(1, 12, 21, 1);
 }
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
