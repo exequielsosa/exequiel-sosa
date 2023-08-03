@@ -22,14 +22,14 @@ const LayoutMenu = styled.div`
   display: flex;
   width: 100%;
   border-right: 1px solid rgba(96, 123, 150, 0.4);
-  min-height: 700px;
+  min-height: 720px;
   background: transparent;
   flex-direction: column;
 `;
 
 const Layout = styled.div`
   width: 100%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
@@ -38,14 +38,14 @@ const Layout = styled.div`
 
 const Column = styled.div`
   width: 24%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: #011627;
 `;
 
 const Body = styled.div`
   width: 76%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   background-image: url("grid2.png");
@@ -63,7 +63,7 @@ const TextAreaLayout = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 700px;
+  min-height: 720px;
 `;
 
 const ContainerNameSection = styled.div`

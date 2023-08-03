@@ -4,7 +4,7 @@ import { ImagesContacts } from "@/components/molecules/";
 
 const Layout = styled.div`
   width: 100%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
@@ -13,7 +13,7 @@ const Layout = styled.div`
 
 const Body = styled.div`
   width: 76%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   background-image: url("grid2.png");
