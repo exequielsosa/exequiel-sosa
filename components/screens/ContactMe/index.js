@@ -31,7 +31,7 @@ const LayoutImage = styled.div`
   display: flex;
   width: 55%;
   flex-direction: column;
-  background: transparent;  
+  background: transparent;
 `;
 
 const ContactMe = () => {
