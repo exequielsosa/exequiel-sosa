@@ -75,12 +75,21 @@ export const FormContact = () => {
     }, 1500);
   };
 
+  const handleBack = () => {
+    setThanks(false);
+    setFormData({
+      name: "",
+      email: "",
+      comment: "",
+    });
+  };  
+
   return (
     <GralLayout>
       {thanks ? (
         <>
           <LayoutThanks>
-            <ThankYou handleClick={() => setThanks(false)} />
+            <ThankYou handleClick={handleBack} />
           </LayoutThanks>
         </>
       ) : (
