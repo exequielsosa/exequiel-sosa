@@ -22,7 +22,7 @@ const ImageBlurGreen = styled.img`
 
 const Layout = styled.div`
   width: 100%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
@@ -31,14 +31,14 @@ const Layout = styled.div`
 
 const Column = styled.div`
   width: 24%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: #011627;
 `;
 
 const Body = styled.div`
   width: 59%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   background-image: url("grid.png");
@@ -47,7 +47,7 @@ const Body = styled.div`
 
 const NoneArea = styled.div`
   width: 17%;
-  min-height: 700px;
+  min-height: 720px;
   display: flex;
   background: #011627;
 `;

@@ -7,7 +7,7 @@ export const dataKinsper = [
   {
     number: "2",
     symbol: "*",
-    text: "Freelance work in charge of several projects. ",
+    text: "Freelance work",
   },
   {
     number: "3",
@@ -17,12 +17,12 @@ export const dataKinsper = [
   {
     number: "4",
     symbol: "*",
-    text: "Vetisure: platform for entry, control and management of",
-  },
+    text: "Vetisure: platform for entry, control and",
+  },  
   {
     number: "5",
     symbol: "*",
-    text: " insurance policies.",
+    text: " management of insurance policies.",
   },
   {
     number: "6",
@@ -37,20 +37,30 @@ export const dataKinsper = [
   {
     number: "8",
     symbol: "*",
-    text: "In both projects in charge of frontend and backend.",
+    text: "In both projects in charge of frontend",
   },
   {
     number: "9",
     symbol: "*",
-    text: "Skills: NextJs, Tailwind CSS, Prisma, Styled Components,",
+    text: " and backend.",
   },
   {
     number: "10",
     symbol: "*",
-    text: "FlowBite, Vercel, Clerk user management, TypeScript.",
-  },  
+    text: "Skills: NextJs, Tailwind CSS, Prisma,",
+  },
   {
     number: "11",
+    symbol: "*",
+    text: " Styled Components, FlowBite, Vercel,",
+  },  
+  {
+    number: "12",
+    symbol: "*",
+    text: " Clerk user management, TypeScript.",
+  },  
+  {
+    number: "13",
     symbol: "*",
     text: "/",
   },

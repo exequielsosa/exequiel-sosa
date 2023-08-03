@@ -52,7 +52,7 @@ const MenuEnd = styled.div`
 `;
 
 const AlignContent = styled.div`
-  background-image: url("grid.png");
+  background-image: url("grid2.png");
   display: flex;
   width: 59%;
   background-color: transparent;

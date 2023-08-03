@@ -2,41 +2,61 @@ export const dataHight = [
   {
     number: "1",
     symbol: "/",
-    text: "** HIGHT SCHOOL",
+    text: "** high school",
   },
   {
     number: "2",
     symbol: "*",
-    text: "International Parcel Service - Frontend Developer.",
+    text: "Colegio San Agustín (1990 - 1994)",
   },
   {
     number: "3",
     symbol: "*",
-    text: "Projects: SEO / Landings / Sales B2C for clients.",
+    text: "During the period from 1990 to 1994,",
   },
   {
     number: "4",
     symbol: "*",
-    text: " Skills: NextJs, Hooks, Redux, Micro-FrontEnd,",
+    text: " I completed my high school education at",
   },
   {
     number: "5",
     symbol: "*",
-    text: "Own components lib Material-UI and StoryBook,",
+    text: " Colegio San Agustín.",
   },
   {
     number: "6",
     symbol: "*",
-    text: " Syled components, Jest & Enzyme TypeScript,",
+    text: " This foundational phase not only provided",
   },
   {
     number: "7",
     symbol: "*",
-    text: "Nx Monorepo, Cypress E2E Test, Jest, Enzyme, Emotion.",
+    text: " me with a strong academic background but",
   },  
   {
     number: "8",
     symbol: "*",
-    text: "/",
+    text: " also instilled essential values and a ",
   },
+  {
+    number: "9",
+    symbol: "*",
+    text: "commitment to excellence that continue ",
+  },
+  {
+    number: "10",
+    symbol: "*",
+    text: "to guide me throughout my personal and",
+  },  
+  {
+    number: "11",
+    symbol: "*",
+    text: " professional life.",
+  },    
+  {
+    number: "12",
+    symbol: "*",
+    text: "/",
+  },  
 ];

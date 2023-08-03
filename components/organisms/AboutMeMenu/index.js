@@ -11,6 +11,11 @@ const Layout = styled.div`
   background: transparent;
 `;
 
+const MailTo = styled.a`
+  background: transparent;
+  text-decoration: none;
+`;
+
 const Icon = styled.img`
   background: transparent;
   width: 24px;
@@ -57,13 +62,28 @@ export const AboutMeMenu = ({
   handleClickUniversity,
   handleClickOthers,
   note,
+  handleClickPersonal,
+  handleClickHobby,
+  handleClickProfesional,
 }) => {
   return (
     <Layout>
       <SideBarMenu>
-        <Icon src="/personalInfo.svg" isSelected={section === "bio"} />
-        <Icon src="/hobbyInfo.svg" isSelected={section === "interest"} />
-        <Icon src="/ProfesionalInfo.svg" isSelected={section === "education"} />
+        <Icon
+          src="/personalInfo.svg"
+          isSelected={section === "bio"}
+          onClick={handleClickPersonal}
+        />
+        <Icon
+          src="/hobbyInfo.svg"
+          isSelected={section === "interest"}
+          onClick={handleClickHobby}
+        />
+        <Icon
+          src="/ProfesionalInfo.svg"
+          isSelected={section === "education"}
+          onClick={handleClickProfesional}
+        />
       </SideBarMenu>
       <DisplayMenu>
         <TitleSection title="personal-info" />
@@ -151,15 +171,26 @@ export const AboutMeMenu = ({
               active={note === "dataUniversity"}
             />
             <SectionSelector
-              nameSection="others studies - skills"
+              nameSection="developer skills"
               handleClick={handleClickOthers}
               active={note === "dataOthers"}
             />
           </>
         )}
         <TitleSection title="contacts" isComplete />
-        <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" />
-        <ContactSection title="+5491158959825" icon="/phoneVector.svg" />
+        <MailTo href="mailto:exequielsosa@gmail.com">
+          <ContactSection
+            title="exequielsosa@gmail.com"
+            icon="/mailVector.svg"
+          />
+        </MailTo>
+        <ContactSection
+          title="+5491158959825"
+          icon="/phoneVector.svg"
+          handleClick={() =>
+            window.open("https://wa.me/541158959825", "_blank")
+          }
+        />
       </DisplayMenu>
     </Layout>
   );
