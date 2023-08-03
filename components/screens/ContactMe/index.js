@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ContactsContactMe, FormContact } from "@/components/organisms/";
+
 
 const Layout = styled.div`
   width: 100%;
@@ -9,35 +11,20 @@ const Layout = styled.div`
   border-right: 1px solid rgba(96, 123, 150, 0.4);
 `;
 
-const Column = styled.div`
-  width: 24%;
-  min-height: 700px;
-  display: flex;
-  background: #011627;
-`;
-
 const Body = styled.div`
-  width: 59%;
+  width: 76%;
   min-height: 700px;
   display: flex;
   background: transparent;
-  background-image: url("grid.png");
+  background-image: url("grid2.png");
   background-color: #011627;
-`;
-
-const NoneArea = styled.div`
-  width: 17%;
-  min-height: 700px;
-  display: flex;
-  background: #011627;
 `;
 
 const ContactMe = () => {
   return (
     <Layout>
-      <Column></Column>
-      <Body>Contact Me!</Body>
-      <NoneArea />
+      <ContactsContactMe />
+      <Body><FormContact /></Body>
     </Layout>
   );
 };
