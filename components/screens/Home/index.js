@@ -7,7 +7,9 @@ const ImageBlurBlue = styled.img`
   opacity: 0.4000000059604645;
   filter: blur(87px);
   fill: #4d5bce;
-  margin-top: 100px;
+  margin-top: 250px;
+  margin-left: 50px;
+  width: 500px;
 `;
 
 const ImageBlurGreen = styled.img`
@@ -18,6 +20,7 @@ const ImageBlurGreen = styled.img`
   filter: blur(87px);
   margin-top: -200px;
   margin-left: -200px;
+  width: 500px;
 `;
 
 const Layout = styled.div`
