@@ -327,6 +327,7 @@ const AboutMe = () => {
               }
             />
             <ContactMe />
+            <SnipetsAboutMe isMobile />
           </BodyMobile>
         </>
       )}

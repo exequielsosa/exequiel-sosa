@@ -22,7 +22,6 @@ export const ContactMe = () => {
       <MailTo href="mailto:exequielsosa@gmail.com">
         <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" />
       </MailTo>
-
       <ContactSection
         title="+5491158959825"
         icon="/phoneVector.svg"
