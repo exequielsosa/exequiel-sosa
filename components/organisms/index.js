@@ -6,3 +6,4 @@ export * from './ContactsContactMe';
 export * from './FormContact';
 export * from './HeaderMobile';
 export * from './FooterMobile';
+export * from './MenuMobile';
