@@ -11,6 +11,7 @@ const Layout = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-image: url("grid.png");
 `;
 
 const Name = styled.div`

@@ -23,7 +23,7 @@ const MenuBtn = styled.img`
 
 const Name = styled.div`
   padding: 18px 22px;
-  width: 24%;
+  
   color: rgba(96, 123, 150, 1);
   font-weight: 500px;
   font-size: 16px;

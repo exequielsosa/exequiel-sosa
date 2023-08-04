@@ -48,7 +48,7 @@ export const dataColombia = [
   },
 ];
 
-export const dataLapzo = [
+export const dataLapzoCards = [
   {
     nameProject: "Lapzo by lernit",
     nameDetail: "// _learning",
