@@ -10,7 +10,7 @@ import {
   dataB2C,
   dataLabels,
   dataColombia,
-  dataLapzo,
+  dataLapzoCards,
   dataAus,
   dataDillon,
   dataNidit,
@@ -277,7 +277,7 @@ const Project = () => {
                 <CardProject dataCards={valueLandings && dataLandings} />
                 <CardProject dataCards={valueB2C && dataB2C} />
                 <CardProject dataCards={valueLabels && dataLabels} />
-                <CardProject dataCards={valueLapzo && dataLapzo} />
+                <CardProject dataCards={valueLapzo && dataLapzoCards} />
                 <CardProject dataCards={valueAus && dataAus} />
                 <CardProject dataCards={valueDillon && dataDillon} />
                 <CardProject dataCards={valueNidit && dataNidit} />

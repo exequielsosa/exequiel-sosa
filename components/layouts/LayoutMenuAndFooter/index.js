@@ -1,11 +1,24 @@
-import { Header, Footer } from "../../organisms";
+import { Header, Footer, HeaderMobile, FooterMobile } from "../../organisms";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const LayoutMenuAndFooter = ({ children }) => {
+  const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
+
   return (
     <>
-      <Header />
-      {children}
-      <Footer />
+      {isLg ? (
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+      ) : (
+        <>
+          <HeaderMobile />
+          {children}
+          <FooterMobile />
+        </>
+      )}
     </>
   );
 };
