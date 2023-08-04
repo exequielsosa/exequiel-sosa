@@ -1,9 +1,9 @@
 import { Header, Footer, HeaderMobile, FooterMobile } from "../../organisms";
-import { useBreakpoints } from "@/hooks/usebreakpoints";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const LayoutMenuAndFooter = ({ children }) => {
   const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
- 
+
   return (
     <>
       {isLg ? (

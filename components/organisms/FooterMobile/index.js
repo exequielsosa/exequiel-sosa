@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useBreakpoints } from "@/hooks/usebreakpoints";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const Layout = styled.div`
   width: 100%;

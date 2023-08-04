@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TitleHome, HomeSnipets } from "@/components/atoms";
-import { useBreakpoints } from "@/hooks/usebreakpoints";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const ImageBlurBlue = styled.img`
   position: absolute;
@@ -54,16 +54,16 @@ const ImageBlurGreenMobile = styled.img`
   background: transparent;
   fill: #43d9ad;
   opacity: 0.4000000059604645;
-  filter: blur(87px);  
+  filter: blur(87px);
   width: 300px;
   @media (min-width: 600px) {
     width: 500px;
   }
   @media (min-width: 768px) {
-    width: 650px;   
+    width: 650px;
   }
   @media (min-width: 1024px) {
-    width: 900px;   
+    width: 900px;
   }
 `;
 
