@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const Avatar = styled.img`
   background: transparent;
@@ -119,9 +120,9 @@ const CodeImage2 = styled.img`
 `;
 
 const TextTitle = styled.div`
-  margin-top: 18px;
+  margin-top: ${(props)=> props.isMobile ? '36px' : '18px'};
   margin-left: 16px;
-  margin-bottom: 50px;
+  margin-bottom: ${(props)=> props.isMobile ? '36px' : '50px'};
   background: transparent;
   color: #607b96;
   font-family: Fira Code;
@@ -131,10 +132,11 @@ const TextTitle = styled.div`
   line-height: normal;
 `;
 
-export const SnipetsAboutMe = () => {
+export const SnipetsAboutMe = ({isMobile}) => {
+  const {isLg} = useBreakpoints();
   return (
     <>
-      <TextTitle>// Code snippet showcase:</TextTitle>
+      <TextTitle isMobile={isMobile}>// Code snippet showcase:</TextTitle>
       <CenterLayout>
         <Layout>
           <ContainerFront>
@@ -159,6 +161,8 @@ export const SnipetsAboutMe = () => {
           <SnippetImage src="/snippet1.png" />
         </Layout>
         <CodeImage1 src="/code1.png" />
+        {isLg && 
+        <>
         <Layout>
           <ContainerFront>
             <ContainerAvatar>
@@ -182,6 +186,8 @@ export const SnipetsAboutMe = () => {
           <SnippetImage src="/snippet2.png" />
         </Layout>
         <CodeImage2 src="/code2.png" />
+        </>
+}
       </CenterLayout>
     </>
   );

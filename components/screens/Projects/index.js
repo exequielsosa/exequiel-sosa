@@ -3,6 +3,7 @@ import { MenuProjects } from "@/components/organisms";
 import { SectionProjectCard } from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 import {
   dataFpay,
@@ -116,7 +117,7 @@ const ContainerTags = styled.div`
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    border: 1px solid #1e2d3d;    
+    border: 1px solid #1e2d3d;
     /* display: none; */
   }
   &::-webkit-scrollbar-thumb {
@@ -138,157 +139,163 @@ const Project = () => {
   const [valueVeti, setCheckboxVeti] = useState(false);
   const [valueUverified, setCheckboxUverified] = useState(false);
 
+  const { isLg } = useBreakpoints();
   return (
     <Layout>
-      <Column>
-        <LayoutMenu>
-          <TitleSection title="projects" isProject />
-          <MenuProjects
-            valueFpay={valueFpay}
-            valueLandings={valueLandings}
-            valueB2C={valueB2C}
-            valueLabels={valueLabels}
-            valueLapzo={valueLapzo}
-            valueAus={valueAus}
-            valueDillon={valueDillon}
-            valueNidit={valueNidit}
-            valueColombia={valueColombia}
-            valueVeti={valueVeti}
-            valueUverified={valueUverified}
-            onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
-            onChangeLandings={({ target }) =>
-              setCheckboxLandings(!valueLandings)
-            }
-            onChangeB2C={({ target }) => setCheckboxB2C(!valueB2C)}
-            onChangeLabels={({ target }) => setCheckboxLabels(!valueLabels)}
-            onChangeLapzo={({ target }) => setCheckboxLapzo(!valueLapzo)}
-            onChangeAus={({ target }) => setCheckboxAus(!valueAus)}
-            onChangeDillon={({ target }) => setCheckboxDillon(!valueDillon)}
-            onChangeNidit={({ target }) => setCheckboxNidit(!valueNidit)}
-            onChangeColombia={({ target }) =>
-              setCheckboxColombia(!valueColombia)
-            }
-            onChangeVeti={({ target }) => setCheckboxVeti(!valueVeti)}
-            onChangeUverified={({ target }) =>
-              setCheckboxUverified(!valueUverified)
-            }
-          />
-        </LayoutMenu>
-      </Column>
-      <Body>
-        <LayoutBody>
-          <TextAreaLayout>
-            <ContainerNameSection>
-              <ContainerTags>
-                {valueFpay && (
-                  <SectionProjectCard
-                    sectionName="Fpay"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxFpay(!valueFpay)
-                    }
-                  />
-                )}
-                {valueLandings && (
-                  <SectionProjectCard
-                    sectionName="Landings"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxLandings(!valueLandings)
-                    }
-                  />
-                )}
-                {valueB2C && (
-                  <SectionProjectCard
-                    sectionName="B2C"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxB2C(!valueB2C)
-                    }
-                  />
-                )}
-                {valueLabels && (
-                  <SectionProjectCard
-                    sectionName="Labels"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxLabels(!valueLabels)
-                    }
-                  />
-                )}
-                {valueLapzo && (
-                  <SectionProjectCard
-                    sectionName="Lapzo"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxLapzo(!valueLapzo)
-                    }
-                  />
-                )}
-                {valueAus && (
-                  <SectionProjectCard
-                    sectionName="aUshuaia"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxAus(!valueAus)
-                    }
-                  />
-                )}
-                {valueDillon && (
-                  <SectionProjectCard
-                    sectionName="estudio"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxDillon(!valueDillon)
-                    }
-                  />
-                )}
-                {valueNidit && (
-                  <SectionProjectCard
-                    sectionName="nidit!"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxNidit(!valueNidit)
-                    }
-                  />
-                )}
-                {valueColombia && (
-                  <SectionProjectCard
-                    sectionName="HomePage"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxColombia(!valueColombia)
-                    }
-                  />
-                )}
-                {valueVeti && (
-                  <SectionProjectCard
-                    sectionName="Vetinsure"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxVeti(!valueVeti)
-                    }
-                  />
-                )}
-                {valueUverified && (
-                  <SectionProjectCard
-                    sectionName="Uverified"
-                    handleClickButtonClose={({ target }) =>
-                      setCheckboxUverified(!valueUverified)
-                    }
-                  />
-                )}
-              </ContainerTags>
-            </ContainerNameSection>
-
-            <LayoutContainerCards>
-              <ContainerCards>
-                <CardProject dataCards={valueFpay && dataFpay} />
-                <CardProject dataCards={valueLandings && dataLandings} />
-                <CardProject dataCards={valueB2C && dataB2C} />
-                <CardProject dataCards={valueLabels && dataLabels} />
-                <CardProject dataCards={valueLapzo && dataLapzoCards} />
-                <CardProject dataCards={valueAus && dataAus} />
-                <CardProject dataCards={valueDillon && dataDillon} />
-                <CardProject dataCards={valueNidit && dataNidit} />
-                <CardProject dataCards={valueColombia && dataColombia} />
-                <CardProject dataCards={valueVeti && dataVeti} />
-                <CardProject dataCards={valueUverified && dataUverified} />
-              </ContainerCards>
-            </LayoutContainerCards>
-          </TextAreaLayout>
-        </LayoutBody>
-      </Body>
+      {isLg ? (
+        <>
+          <Column>
+            <LayoutMenu>
+              <TitleSection title="projects" isProject />
+              <MenuProjects
+                valueFpay={valueFpay}
+                valueLandings={valueLandings}
+                valueB2C={valueB2C}
+                valueLabels={valueLabels}
+                valueLapzo={valueLapzo}
+                valueAus={valueAus}
+                valueDillon={valueDillon}
+                valueNidit={valueNidit}
+                valueColombia={valueColombia}
+                valueVeti={valueVeti}
+                valueUverified={valueUverified}
+                onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
+                onChangeLandings={({ target }) =>
+                  setCheckboxLandings(!valueLandings)
+                }
+                onChangeB2C={({ target }) => setCheckboxB2C(!valueB2C)}
+                onChangeLabels={({ target }) => setCheckboxLabels(!valueLabels)}
+                onChangeLapzo={({ target }) => setCheckboxLapzo(!valueLapzo)}
+                onChangeAus={({ target }) => setCheckboxAus(!valueAus)}
+                onChangeDillon={({ target }) => setCheckboxDillon(!valueDillon)}
+                onChangeNidit={({ target }) => setCheckboxNidit(!valueNidit)}
+                onChangeColombia={({ target }) =>
+                  setCheckboxColombia(!valueColombia)
+                }
+                onChangeVeti={({ target }) => setCheckboxVeti(!valueVeti)}
+                onChangeUverified={({ target }) =>
+                  setCheckboxUverified(!valueUverified)
+                }
+              />
+            </LayoutMenu>
+          </Column>
+          <Body>
+            <LayoutBody>
+              <TextAreaLayout>
+                <ContainerNameSection>
+                  <ContainerTags>
+                    {valueFpay && (
+                      <SectionProjectCard
+                        sectionName="Fpay"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxFpay(!valueFpay)
+                        }
+                      />
+                    )}
+                    {valueLandings && (
+                      <SectionProjectCard
+                        sectionName="Landings"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxLandings(!valueLandings)
+                        }
+                      />
+                    )}
+                    {valueB2C && (
+                      <SectionProjectCard
+                        sectionName="B2C"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxB2C(!valueB2C)
+                        }
+                      />
+                    )}
+                    {valueLabels && (
+                      <SectionProjectCard
+                        sectionName="Labels"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxLabels(!valueLabels)
+                        }
+                      />
+                    )}
+                    {valueLapzo && (
+                      <SectionProjectCard
+                        sectionName="Lapzo"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxLapzo(!valueLapzo)
+                        }
+                      />
+                    )}
+                    {valueAus && (
+                      <SectionProjectCard
+                        sectionName="aUshuaia"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxAus(!valueAus)
+                        }
+                      />
+                    )}
+                    {valueDillon && (
+                      <SectionProjectCard
+                        sectionName="estudio"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxDillon(!valueDillon)
+                        }
+                      />
+                    )}
+                    {valueNidit && (
+                      <SectionProjectCard
+                        sectionName="nidit!"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxNidit(!valueNidit)
+                        }
+                      />
+                    )}
+                    {valueColombia && (
+                      <SectionProjectCard
+                        sectionName="HomePage"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxColombia(!valueColombia)
+                        }
+                      />
+                    )}
+                    {valueVeti && (
+                      <SectionProjectCard
+                        sectionName="Vetinsure"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxVeti(!valueVeti)
+                        }
+                      />
+                    )}
+                    {valueUverified && (
+                      <SectionProjectCard
+                        sectionName="Uverified"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxUverified(!valueUverified)
+                        }
+                      />
+                    )}
+                  </ContainerTags>
+                </ContainerNameSection>
+                <LayoutContainerCards>
+                  <ContainerCards>
+                    <CardProject dataCards={valueFpay && dataFpay} />
+                    <CardProject dataCards={valueLandings && dataLandings} />
+                    <CardProject dataCards={valueB2C && dataB2C} />
+                    <CardProject dataCards={valueLabels && dataLabels} />
+                    <CardProject dataCards={valueLapzo && dataLapzoCards} />
+                    <CardProject dataCards={valueAus && dataAus} />
+                    <CardProject dataCards={valueDillon && dataDillon} />
+                    <CardProject dataCards={valueNidit && dataNidit} />
+                    <CardProject dataCards={valueColombia && dataColombia} />
+                    <CardProject dataCards={valueVeti && dataVeti} />
+                    <CardProject dataCards={valueUverified && dataUverified} />
+                  </ContainerCards>
+                </LayoutContainerCards>
+              </TextAreaLayout>
+            </LayoutBody>
+          </Body>
+        </>
+      ) : (
+        ""
+      )}
     </Layout>
   );
 };

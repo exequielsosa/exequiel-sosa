@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ImageIcon = styled.img`
   background: transparent;
-  margin-left: 35px;
+  margin-left: ${(props)=> props.isMobile ? "44px" : "35px"};
   margin-right: 9px;
 `;
 
@@ -30,10 +30,10 @@ const Layout = styled.div`
   }
 `;
 
-export const SectionSelector = ({ nameSection, handleClick, active }) => {
+export const SectionSelector = ({ nameSection, handleClick, active, isMobile }) => {
   return (
     <Layout onClick={handleClick}>
-      <ImageIcon src="/displayItems.svg" />
+      <ImageIcon src="/displayItems.svg" isMobile={isMobile} />
       <NameSection active={active}>{nameSection}</NameSection>
     </Layout>
   );

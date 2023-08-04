@@ -28,7 +28,8 @@ export function useBreakpoints() {
   const breakpoints = {
     isXs: useMediaQuery("(max-width: 600px)"),
     isSm: useMediaQuery("(min-width: 601px) and (max-width: 768px)"),
-    isMd: useMediaQuery("(min-width: 769px) and (max-width: 1439px)"),
+    isMd: useMediaQuery("(min-width: 769px) and (max-width: 1023px)"),
+    isLl: useMediaQuery("(min-width: 1024px) and (max-width: 1439px)"),
     isLg: useMediaQuery("(min-width: 1440px)"),
     active: "SSR",
   };
