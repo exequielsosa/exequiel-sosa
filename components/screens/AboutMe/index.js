@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AboutMeMenu } from "@/components/organisms";
+import { AboutMeMenu, DisplayMobileInfoAboutMe, ContactMe } from "@/components/organisms";
 import { SectionCard, TextTable, TitleCard } from "@/components/atoms";
 import { useState } from "react";
 import {
@@ -15,13 +15,25 @@ import {
   dataHight,
   dataUniversity,
   dataOthers,
+  dataUniversityMobile,
+  dataHightMobile,
+  dataOthersMobile,
+  dataHardwareMobile,
+  dataMusicMobile,
+  dataFamilyMobile,
+  dataAboutMeMobile,
+  dataFalabellaMobile,
+  dataKinsperMobile,
+  dataSkydropxMobile,
+  dataLapzoMobile,
+  dataFreelanceMobile,
 } from "../../../constants";
 import { SnipetsAboutMe } from "../../molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const Layout = styled.div`
   width: 100%;
-  height: 720px;
+  min-height: 720px;
   display: flex;
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
@@ -61,7 +73,6 @@ const Body = styled.div`
 
 const BodyMobile = styled.div`
   width: 100%;
-  min-height: 720px;
   display: flex;
   background: transparent;
   background-image: url("grid2.png");
@@ -105,6 +116,17 @@ const ContainerSnippet = styled.div`
   }
 `;
 
+const TitleMobile = styled.div`
+  color: #fff;
+  font-family: Fira Code;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 140%;
+  background: transparent;
+  padding: 21px 0px 29px 25px;
+`;
+
 const AboutMe = () => {
   const [section, setSection] = useState("bio");
   const [note, setNote] = useState("dataAboutMe");
@@ -140,7 +162,7 @@ const AboutMe = () => {
 
   return (
     <Layout>
-      {isLl ? (
+      {isLg || isLl ? (
         <>
           <Column>
             <AboutMeMenu
@@ -252,7 +274,60 @@ const AboutMe = () => {
         </>
       ) : (
         <>
-          <BodyMobile></BodyMobile>
+          <BodyMobile>
+            <TitleMobile>-about-me</TitleMobile>
+            <AboutMeMenu
+              isMobile
+              section={section}
+              note={note}
+              handeClickBio={handeClickBio}
+              handeClickInterest={handeClickInterest}
+              handeClickEducation={handeClickEducation}
+              handleClickAboutMe={() => setNote("dataAboutMe")}
+              handleClickFalabella={() => setNote("dataFalabella")}
+              handleClickKinsper={() => setNote("dataKinsper")}
+              handleClickSkydropx={() => setNote("dataSkydropx")}
+              handleClickLapzo={() => setNote("dataLapzo")}
+              handleClickFreelance={() => setNote("dataFreelance")}
+              handleClickHardware={() => setNote("dataHardware")}
+              handleClickMusic={() => setNote("dataMusic")}
+              handleClickFamily={() => setNote("dataFamily")}
+              handleClickHight={() => setNote("dataHight")}
+              handleClickUniversity={() => setNote("dataUniversity")}
+              handleClickOthers={() => setNote("dataOthers")}
+              handleClickPersonal={handeClickBio}
+              handleClickHobby={handeClickInterest}
+              handleClickProfesional={handeClickEducation}
+            />
+            <DisplayMobileInfoAboutMe
+              data={
+                note === "dataUniversity"
+                  ? dataUniversityMobile
+                  : note === "dataOthers"
+                  ? dataOthersMobile
+                  : note === "dataHardware"
+                  ? dataHardwareMobile
+                  : note === "dataMusic"
+                  ? dataMusicMobile
+                  : note === "dataFamily"
+                  ? dataFamilyMobile
+                  : note === "dataAboutMe"
+                  ? dataAboutMeMobile
+                  : note === "dataFalabella"
+                  ? dataFalabellaMobile
+                  : note === "dataKinsper"
+                  ? dataKinsperMobile
+                  : note === "dataSkydropx"
+                  ? dataSkydropxMobile
+                  : note === "dataLapzo"
+                  ? dataLapzoMobile
+                  : note === "dataFreelance"
+                  ? dataFreelanceMobile
+                  : dataHightMobile
+              }
+            />
+            <ContactMe />
+          </BodyMobile>
         </>
       )}
     </Layout>
