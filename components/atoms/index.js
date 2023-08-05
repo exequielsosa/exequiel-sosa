@@ -7,3 +7,4 @@ export * from "./TextTable";
 export * from './TitleCard';
 export * from './SectionProjectCard';
 export * from './Inputs';
+export * from './TitleSelectorMobile';

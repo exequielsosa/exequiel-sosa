@@ -4,3 +4,8 @@ export * from "./AboutMeMenu";
 export * from './MenuProjects';
 export * from './ContactsContactMe';
 export * from './FormContact';
+export * from './HeaderMobile';
+export * from './FooterMobile';
+export * from './MenuMobile';
+export * from './DisplayMobileInfoAboutMe';
+export * from './ContactMe';

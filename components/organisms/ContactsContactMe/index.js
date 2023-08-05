@@ -6,6 +6,15 @@ const Column = styled.div`
   min-height: 700px;
   display: flex;
   background: #011627;
+  @media (min-width: 768px) {
+    width: 45%;
+  }
+  @media (min-width: 1024px) {
+    width: 35%;
+  }
+  @media (min-width: 1440px) {
+    width: 24%;
+  }
 `;
 
 const LayoutMenu = styled.div`

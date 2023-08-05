@@ -1,4 +1,4 @@
-export const dataFpay = [
+export const dataFpayMobile = [
   {
     nameProject: "Portal Comercio",
     nameDetail: "// _wallet-for-latam",
@@ -8,17 +8,17 @@ export const dataFpay = [
   },
 ];
 
-export const dataLandings = [
+export const dataLandingsMobile = [
   {
     nameProject: "Landings - Skydropx",
     nameDetail: "// _SEO",
-    projectDescription: "Parcel delivery landings and shipments to boost SEO.",
+    projectDescription: "Parcel delivery landings to boost SEO.",
     url: 'url("landing.png")',
     link: "https://www.skydropx.com/paqueterias",
   },
 ];
 
-export const dataB2C = [
+export const dataB2CMobile = [
   {
     nameProject: "B2C - Skydropx",
     nameDetail: "// _quote-tool",
@@ -28,17 +28,17 @@ export const dataB2C = [
   },
 ];
 
-export const dataLabels = [
+export const dataLabelsMobile = [
   {
     nameProject: "Labels - Skydropx",
     nameDetail: "// _register",
     projectDescription: "New user registration flow for the platform",
-    url: 'url("labels.png")',
+    url: 'url("labels2.png")',
     link: "https://app.skydropx.com/users/sign_in",
   },
 ];
 
-export const dataColombia = [
+export const dataColombiaMobile = [
   {
     nameProject: "HomePage - Skydropx",
     nameDetail: "// _home-page",
@@ -48,17 +48,17 @@ export const dataColombia = [
   },
 ];
 
-export const dataLapzoCards = [
+export const dataLapzoCardsMobile = [
   {
     nameProject: "Lapzo by lernit",
     nameDetail: "// _learning",
     projectDescription: "Technical leader of the new learning platform",
-    url: 'url("lapzo.png")',
+    url: 'url("lapzo2.png")',
     link: "https://universidadoxxogas.com/",
   },
 ];
 
-export const dataAus = [
+export const dataAusMobile = [
   {
     nameProject: "aUshuaia.com.ar",
     nameDetail: "// _booking-page",
@@ -68,7 +68,7 @@ export const dataAus = [
   },
 ];
 
-export const dataDillon = [
+export const dataDillonMobile = [
   {
     nameProject: "estudio-dillon.com",
     nameDetail: "// _accounting",
@@ -78,27 +78,27 @@ export const dataDillon = [
   },
 ];
 
-export const dataNidit = [
+export const dataNiditMobile = [
   {
     nameProject: "nidit!",
     nameDetail: "// _react-native",
     projectDescription: "React Native gift list app - in progress",
-    url: 'url("nidit.png")',
+    url: 'url("nidit2.png")',
     link: "https://www.nidit.net/",
   },
 ];
 
-export const dataVeti = [
+export const dataVetiMobile = [
   {
     nameProject: "Vetinsure",
     nameDetail: "// _prisma.io",
     projectDescription: "Insurance policy management system",
-    url: 'url("vetinsure.png")',
+    url: 'url("ventisure2.png")',
     link: "https://dev-vetinsure.vercel.app/login",
   },
 ];
 
-export const dataUverified = [
+export const dataUverifiedMobile = [
   {
     nameProject: "Uverified",
     nameDetail: "// _bank-id",

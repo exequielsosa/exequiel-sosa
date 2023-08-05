@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const Avatar = styled.img`
   background: transparent;
@@ -11,6 +12,7 @@ const Layout = styled.div`
   width: 100%;
   max-width: 450px;
   margin-bottom: 30px;
+  padding: 0px 8px;
 `;
 
 const CenterLayout = styled.div`
@@ -67,9 +69,11 @@ const DetailName = styled.div`
 const ContainerRating = styled.div`
   background: transparent;
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: flex-end;
+  @media (min-width: 1440px) {
+    width: 100%;
+  }
 `;
 
 const ContainerTextAndRating = styled.div`
@@ -106,8 +110,11 @@ const CodeImage1 = styled.img`
   background: transparent;
   width: 100%;
   position: absolute;
-  max-width: 409px;
+  max-width: 290px;
   margin-top: 64px;
+  @media (min-width: 600px) {
+    max-width: 409px;
+  }
 `;
 
 const CodeImage2 = styled.img`
@@ -119,9 +126,7 @@ const CodeImage2 = styled.img`
 `;
 
 const TextTitle = styled.div`
-  margin-top: 18px;
   margin-left: 16px;
-  margin-bottom: 50px;
   background: transparent;
   color: #607b96;
   font-family: Fira Code;
@@ -129,12 +134,19 @@ const TextTitle = styled.div`
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+  margin-bottom: 36px;
+  margin-top: 0px;
+  @media (min-width: 1024px) {
+    margin-bottom: ${(props) => (props.isMobile ? "36px" : "50px")};
+    margin-top: ${(props) => (props.isMobile ? "36px" : "18px")};
+  }
 `;
 
-export const SnipetsAboutMe = () => {
+export const SnipetsAboutMe = ({ isMobile }) => {
+  const { isLg } = useBreakpoints();
   return (
     <>
-      <TextTitle>// Code snippet showcase:</TextTitle>
+      <TextTitle isMobile={isMobile}>// Code snippet showcase:</TextTitle>
       <CenterLayout>
         <Layout>
           <ContainerFront>
@@ -150,38 +162,44 @@ export const SnipetsAboutMe = () => {
                 <ImageRating src="/comments.svg" />
                 <TextRating>details</TextRating>
               </ContainerTextAndRating>
-              <ContainerTextAndRating isFinal>
-                <ImageRating src="/stars.svg" />
-                <TextRating>5 stars</TextRating>
-              </ContainerTextAndRating>
+              {!isMobile && (
+                <ContainerTextAndRating isFinal>
+                  <ImageRating src="/stars.svg" />
+                  <TextRating>5 stars</TextRating>
+                </ContainerTextAndRating>
+              )}
             </ContainerRating>
           </ContainerFront>
           <SnippetImage src="/snippet1.png" />
         </Layout>
         <CodeImage1 src="/code1.png" />
-        <Layout>
-          <ContainerFront>
-            <ContainerAvatar>
-              <Avatar src="/avatarExe.png" />
-              <ContainerText>
-                <UserName>@exequielsosa</UserName>
-                <DetailName>Created 9 months ago</DetailName>
-              </ContainerText>
-            </ContainerAvatar>
-            <ContainerRating>
-              <ContainerTextAndRating>
-                <ImageRating src="/comments.svg" />
-                <TextRating>details</TextRating>
-              </ContainerTextAndRating>
-              <ContainerTextAndRating isFinal>
-                <ImageRating src="/stars.svg" />
-                <TextRating>5 stars</TextRating>
-              </ContainerTextAndRating>
-            </ContainerRating>
-          </ContainerFront>
-          <SnippetImage src="/snippet2.png" />
-        </Layout>
-        <CodeImage2 src="/code2.png" />
+        {isLg && (
+          <>
+            <Layout>
+              <ContainerFront>
+                <ContainerAvatar>
+                  <Avatar src="/avatarExe.png" />
+                  <ContainerText>
+                    <UserName>@exequielsosa</UserName>
+                    <DetailName>Created 9 months ago</DetailName>
+                  </ContainerText>
+                </ContainerAvatar>
+                <ContainerRating>
+                  <ContainerTextAndRating>
+                    <ImageRating src="/comments.svg" />
+                    <TextRating>details</TextRating>
+                  </ContainerTextAndRating>
+                  <ContainerTextAndRating isFinal>
+                    <ImageRating src="/stars.svg" />
+                    <TextRating>5 stars</TextRating>
+                  </ContainerTextAndRating>
+                </ContainerRating>
+              </ContainerFront>
+              <SnippetImage src="/snippet2.png" />
+            </Layout>
+            <CodeImage2 src="/code2.png" />
+          </>
+        )}
       </CenterLayout>
     </>
   );

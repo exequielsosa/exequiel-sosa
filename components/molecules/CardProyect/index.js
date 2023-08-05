@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 const LayoutCard = styled.div`
   background: transparent;
-  width: 370px;
+  width: 291px;
   border-radius: 15px;
   border: 1px solid #1e2d3d !important;
+  @media (min-width: 600px) {
+    width: 370px;
+  }
 `;
 
 const LayoutImage = styled.div`
@@ -30,7 +33,7 @@ const ImageIcon = styled.img`
 
 const LayoutDescription = styled.div`
   background: rgba(1, 18, 33, 0.6);
-  height: 170px;
+  height: 190px;
   padding-top: 24px;
   padding-left: 31px;
   padding-right: 31px;
@@ -39,6 +42,9 @@ const LayoutDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (min-width: 600px) {
+    height: 170px;
+  }
 `;
 
 const Description = styled.div`
@@ -74,11 +80,11 @@ const Button = styled.button`
 
 const LayoutGral = styled.div`
   background: transparent;
-  width: 370px;
-  margin-right: 40px;
+  margin-right: ${(props) => props.isNoMobile && "40px"};
   margin-bottom: 40px;
-  &:last-child {
-    margin-right: 0px;
+  width: 291px;
+  @media (min-width: 600px) {
+    width: 370px;
   }
 `;
 
@@ -86,6 +92,10 @@ const ContainerTitle = styled.div`
   background: transparent;
   display: flex;
   width: 100%;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 const TitleName = styled.div`
@@ -110,12 +120,12 @@ const DetailName = styled.div`
   margin-bottom: 15px;
 `;
 
-export const CardProject = ({ dataCards }) => {
+export const CardProject = ({ dataCards, isNoMobile }) => {
   return (
     <>
       {dataCards &&
         dataCards?.map((item) => (
-          <LayoutGral>
+          <LayoutGral isNoMobile={isNoMobile}>
             <ContainerTitle>
               <TitleName>{item.nameProject}</TitleName>
               <DetailName>{item.nameDetail}</DetailName>
@@ -128,11 +138,7 @@ export const CardProject = ({ dataCards }) => {
               </LayoutImage>
               <LayoutDescription>
                 <Description>{item.projectDescription}</Description>
-                <Button
-                  onClick={() =>
-                    window.open(`${item.link}`, "_blank")
-                  }
-                >
+                <Button onClick={() => window.open(`${item.link}`, "_blank")}>
                   view-project
                 </Button>
               </LayoutDescription>
