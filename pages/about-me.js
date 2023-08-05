@@ -1,5 +1,13 @@
 import AboutMe from "../components/screens/AboutMe";
+import SeoAbout from "@/seo/seoAbout";
 
 export default function AboutMeScreen() {
-  return <AboutMe />;
+  return (
+    <>
+      <SeoAbout />
+      <main>
+        <AboutMe />
+      </main>
+    </>
+  );
 }
