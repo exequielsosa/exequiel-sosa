@@ -5,6 +5,7 @@ const Layout = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 9px;
+  margin-top: ${(props) => props.isMobile && "10px"};
   align-items: center;
   &:hover {
     cursor: pointer;
@@ -40,7 +41,7 @@ export const ContactSection = ({
   isMobile,
 }) => {
   return (
-    <Layout isComplete={isComplete} onClick={handleClick}>
+    <Layout isComplete={isComplete} onClick={handleClick} isMobile={isMobile}>
       <Icon src={icon} isMobile={isMobile} />
       <Title>{title}</Title>
     </Layout>

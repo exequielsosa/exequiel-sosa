@@ -17,7 +17,9 @@ const Layout = styled.div`
   max-width: 372px;
   background: transparent;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: ${(props) => (props.isMobile ? "40px" : "100px")};
+  margin-bottom: ${(props) => props.isMobile && "60px"};
+  padding: ${(props) => props.isMobile && "0px 14px"};
 `;
 
 const LayoutThanks = styled.div`
@@ -26,10 +28,12 @@ const LayoutThanks = styled.div`
   max-width: 390px;
   background: transparent;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: ${(props) => (props.isMobile ? "48px" : "200px")};
+  padding: ${(props) => props.isMobile && "0px 8px"};
+  margin-bottom: ${(props) => props.isMobile && "170px"};
 `;
 
-export const FormContact = () => {
+export const FormContact = ({ isMobile }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -82,18 +86,18 @@ export const FormContact = () => {
       email: "",
       comment: "",
     });
-  };  
+  };
 
   return (
     <GralLayout>
       {thanks ? (
         <>
-          <LayoutThanks>
+          <LayoutThanks isMobile={isMobile}>
             <ThankYou handleClick={handleBack} />
           </LayoutThanks>
         </>
       ) : (
-        <Layout>
+        <Layout isMobile={isMobile}>
           <Label>_name:</Label>
           <InputText mb="24px" id="name" onChange={handleChange} />
           <Label>_email:</Label>
