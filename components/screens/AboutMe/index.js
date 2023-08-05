@@ -275,7 +275,7 @@ const AboutMe = () => {
       ) : (
         <>
           <BodyMobile>
-            <TitleMobile>-about-me</TitleMobile>
+            <TitleMobile>_about-me</TitleMobile>
             <AboutMeMenu
               isMobile
               section={section}
@@ -326,7 +326,7 @@ const AboutMe = () => {
                   : dataHightMobile
               }
             />
-            <ContactMe />
+            <ContactMe isMobile/>
             <SnipetsAboutMe isMobile />
           </BodyMobile>
         </>

@@ -14,7 +14,7 @@ const Layout = styled.div`
 const Icon = styled.img`
   background: transparent;
   width: 16px;
-  margin-left: 12px;
+  margin-left: ${(props) => (props.isMobile ? "25px" : "12px")};
   margin-right: 12px;
 `;
 
@@ -32,10 +32,16 @@ const Title = styled.div`
   }
 `;
 
-export const ContactSection = ({ isComplete, title, handleClick, icon }) => {
+export const ContactSection = ({
+  isComplete,
+  title,
+  handleClick,
+  icon,
+  isMobile,
+}) => {
   return (
     <Layout isComplete={isComplete} onClick={handleClick}>
-      <Icon src={icon} />
+      <Icon src={icon} isMobile={isMobile} />
       <Title>{title}</Title>
     </Layout>
   );

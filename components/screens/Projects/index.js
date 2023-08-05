@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MenuProjects } from "@/components/organisms";
-import { SectionProjectCard } from "@/components/atoms";
+import { SectionProjectCard, TitleSelectorMobile } from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -18,6 +18,31 @@ import {
   dataVeti,
   dataUverified,
 } from "../../../constants/dataCards";
+
+import {
+  dataFpayMobile,
+  dataLandingsMobile,
+  dataB2CMobile,
+  dataLabelsMobile,
+  dataColombiaMobile,
+  dataLapzoCardsMobile,
+  dataAusMobile,
+  dataDillonMobile,
+  dataNiditMobile,
+  dataVetiMobile,
+  dataUverifiedMobile,
+} from "../../../constants/dataCardsMobile";
+
+const TitleMobile = styled.div`
+  color: #fff;
+  font-family: Fira Code;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 140%;
+  background: transparent;
+  padding: 21px 0px 29px 25px;
+`;
 
 const LayoutMenu = styled.div`
   display: flex;
@@ -105,6 +130,31 @@ const ContainerCards = styled.div`
   }
 `;
 
+const LayoutContainerCardsMobile = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  align-items: center;
+`;
+
+const ContainerCardsMobile = styled.div`
+  display: flex;
+  width: 100%;
+  background: transparent;
+  flex-direction: row;
+  margin-top: 32px;
+  margin-left: 32px;
+  margin-right: 32px;
+  max-width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media (min-width: 1440px) {
+    justify-content: flex-start;
+  }
+`;
+
 const ContainerTags = styled.div`
   display: flex;
   width: 100%;
@@ -126,6 +176,24 @@ const ContainerTags = styled.div`
   }
 `;
 
+const BodyMobile = styled.div`
+  width: 100%;
+  display: flex;
+  background: transparent;
+  background-image: url("grid.png");
+  background-color: #011627;
+  flex-direction: column;
+`;
+
+const DivMenu = styled.div`
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 45px;
+  padding-top: 18px;
+`;
+
 const Project = () => {
   const [valueFpay, setCheckboxFpay] = useState(true);
   const [valueLandings, setCheckboxLandings] = useState(true);
@@ -138,8 +206,10 @@ const Project = () => {
   const [valueColombia, setCheckboxColombia] = useState(false);
   const [valueVeti, setCheckboxVeti] = useState(false);
   const [valueUverified, setCheckboxUverified] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const toogleOpen = () => setIsOpen(!isOpen);
 
-  const { isLg } = useBreakpoints();
+  const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
       {isLg ? (
@@ -148,6 +218,7 @@ const Project = () => {
             <LayoutMenu>
               <TitleSection title="projects" isProject />
               <MenuProjects
+                isNoMobile
                 valueFpay={valueFpay}
                 valueLandings={valueLandings}
                 valueB2C={valueB2C}
@@ -276,17 +347,38 @@ const Project = () => {
                 </ContainerNameSection>
                 <LayoutContainerCards>
                   <ContainerCards>
-                    <CardProject dataCards={valueFpay && dataFpay} />
-                    <CardProject dataCards={valueLandings && dataLandings} />
-                    <CardProject dataCards={valueB2C && dataB2C} />
-                    <CardProject dataCards={valueLabels && dataLabels} />
-                    <CardProject dataCards={valueLapzo && dataLapzoCards} />
-                    <CardProject dataCards={valueAus && dataAus} />
-                    <CardProject dataCards={valueDillon && dataDillon} />
-                    <CardProject dataCards={valueNidit && dataNidit} />
-                    <CardProject dataCards={valueColombia && dataColombia} />
-                    <CardProject dataCards={valueVeti && dataVeti} />
-                    <CardProject dataCards={valueUverified && dataUverified} />
+                    <CardProject dataCards={valueFpay && dataFpay} isNoMobile />
+                    <CardProject
+                      dataCards={valueLandings && dataLandings}
+                      isNoMobile
+                    />
+                    <CardProject dataCards={valueB2C && dataB2C} isNoMobile />
+                    <CardProject
+                      dataCards={valueLabels && dataLabels}
+                      isNoMobile
+                    />
+                    <CardProject
+                      dataCards={valueLapzo && dataLapzoCards}
+                      isNoMobile
+                    />
+                    <CardProject dataCards={valueAus && dataAus} isNoMobile />
+                    <CardProject
+                      dataCards={valueDillon && dataDillon}
+                      isNoMobile
+                    />
+                    <CardProject
+                      dataCards={valueNidit && dataNidit}
+                      isNoMobile
+                    />
+                    <CardProject
+                      dataCards={valueColombia && dataColombia}
+                      isNoMobile
+                    />
+                    <CardProject dataCards={valueVeti && dataVeti} isNoMobile />
+                    <CardProject
+                      dataCards={valueUverified && dataUverified}
+                      isNoMobile
+                    />
                   </ContainerCards>
                 </LayoutContainerCards>
               </TextAreaLayout>
@@ -294,7 +386,77 @@ const Project = () => {
           </Body>
         </>
       ) : (
-        ""
+        <BodyMobile>
+          <TitleMobile>_projects</TitleMobile>
+          <TitleSelectorMobile
+            sectionName="projects"
+            handleClick={toogleOpen}
+            isSelected={isOpen}
+            isMobile
+          />
+          {isOpen && (
+            <DivMenu>
+              <MenuProjects
+                valueFpay={valueFpay}
+                valueLandings={valueLandings}
+                valueB2C={valueB2C}
+                valueLabels={valueLabels}
+                valueLapzo={valueLapzo}
+                valueAus={valueAus}
+                valueDillon={valueDillon}
+                valueNidit={valueNidit}
+                valueColombia={valueColombia}
+                valueVeti={valueVeti}
+                valueUverified={valueUverified}
+                onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
+                onChangeLandings={({ target }) =>
+                  setCheckboxLandings(!valueLandings)
+                }
+                onChangeB2C={({ target }) => setCheckboxB2C(!valueB2C)}
+                onChangeLabels={({ target }) => setCheckboxLabels(!valueLabels)}
+                onChangeLapzo={({ target }) => setCheckboxLapzo(!valueLapzo)}
+                onChangeAus={({ target }) => setCheckboxAus(!valueAus)}
+                onChangeDillon={({ target }) => setCheckboxDillon(!valueDillon)}
+                onChangeNidit={({ target }) => setCheckboxNidit(!valueNidit)}
+                onChangeColombia={({ target }) =>
+                  setCheckboxColombia(!valueColombia)
+                }
+                onChangeVeti={({ target }) => setCheckboxVeti(!valueVeti)}
+                onChangeUverified={({ target }) =>
+                  setCheckboxUverified(!valueUverified)
+                }
+                isMobile
+              />
+            </DivMenu>
+          )}
+          <LayoutContainerCardsMobile>
+            <ContainerCardsMobile>
+              <CardProject dataCards={valueFpay && dataFpay} />
+              <CardProject dataCards={valueLandings && (isXs ? dataLandingsMobile : dataLandings)} />
+              <CardProject dataCards={valueB2C && dataB2C} />
+              <CardProject
+                dataCards={
+                  valueLabels && (isXs ? dataLabelsMobile : dataLabels)
+                }
+              />
+              <CardProject
+                dataCards={
+                  valueLapzo && (isXs ? dataLapzoCardsMobile : dataLapzoCards)
+                }
+              />
+              <CardProject dataCards={valueAus && dataAus} />
+              <CardProject dataCards={valueDillon && dataDillon} />
+              <CardProject
+                dataCards={valueNidit && (isXs ? dataNiditMobile : dataNidit)}
+              />
+              <CardProject dataCards={valueColombia && dataColombia} />
+              <CardProject
+                dataCards={valueVeti && (isXs ? dataVetiMobile : dataVeti)}
+              />
+              <CardProject dataCards={valueUverified && dataUverified} />
+            </ContainerCardsMobile>
+          </LayoutContainerCardsMobile>
+        </BodyMobile>
       )}
     </Layout>
   );
