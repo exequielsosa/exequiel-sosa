@@ -18,15 +18,15 @@ const Layout = styled.div`
 export const ContactMe = () => {
   return (
     <Layout>
-      <TitleSection title="contacts" isComplete />
+      <TitleSection title="contacts" isComplete isMobile/>
       <MailTo href="mailto:exequielsosa@gmail.com">
-        <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" />
+        <ContactSection title="exequielsosa@gmail.com" icon="/mailVector.svg" isMobile />
       </MailTo>
-
       <ContactSection
         title="+5491158959825"
         icon="/phoneVector.svg"
         handleClick={() => window.open("https://wa.me/541158959825", "_blank")}
+        isMobile
       />
     </Layout>
   );

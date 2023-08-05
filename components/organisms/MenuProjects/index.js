@@ -6,8 +6,8 @@ const Layout = styled.div`
   width: 100%;
   flex-direction: column;
   background: transparent;
-  margin-left: 22px;
-  padding-top: 8px;
+  margin-left: ${(props)=> props.isNoMobile && '22px'};
+  padding-top: ${(props)=> props.isNoMobile && '8px'};
 `;
 
 export const MenuProjects = ({
@@ -33,10 +33,11 @@ export const MenuProjects = ({
   onChangeVeti,
   valueUverified,
   onChangeUverified,
+  isNoMobile,
 }) => {  
 
   return (
-    <Layout>
+    <Layout isNoMobile={isNoMobile}>
       <CheckBox
         label="Portal Fpay - Falabella"
         value={valueFpay}
