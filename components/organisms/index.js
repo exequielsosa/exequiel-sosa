@@ -9,3 +9,4 @@ export * from './FooterMobile';
 export * from './MenuMobile';
 export * from './DisplayMobileInfoAboutMe';
 export * from './ContactMe';
+export * from './EmptyState';
