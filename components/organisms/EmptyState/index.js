@@ -34,7 +34,7 @@ const Imagen = styled.img`
   width: 100%;
   max-width: 250px;
   background: transparent;
-  opacity: 0.7;
+  opacity: 0.9;
 `;
 
 export const EmptyState = (isMobile) => {
