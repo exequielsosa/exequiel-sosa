@@ -17,7 +17,7 @@ const Layout = styled.div`
 
 const CenterLayout = styled.div`
   background: transparent;
-  align-items: center;
+  align-items: ${(props) => (props.empty ? "flex-start" : "center")};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ const CodeImage1 = styled.img`
   width: 100%;
   position: absolute;
   max-width: 290px;
-  margin-top: 64px;
+  margin-top: 60px;
   @media (min-width: 600px) {
     max-width: 409px;
   }
@@ -122,7 +122,7 @@ const CodeImage2 = styled.img`
   width: 100%;
   position: absolute;
   max-width: 409px;
-  margin-top: 292px;
+  margin-top: 285px;
 `;
 
 const TextTitle = styled.div`
@@ -142,12 +142,12 @@ const TextTitle = styled.div`
   }
 `;
 
-export const SnipetsAboutMe = ({ isMobile }) => {
+export const SnipetsAboutMe = ({ isMobile, empty }) => {
   const { isLg } = useBreakpoints();
   return (
     <>
       <TextTitle isMobile={isMobile}>// Code snippet showcase:</TextTitle>
-      <CenterLayout>
+      <CenterLayout empty={empty}>
         <Layout>
           <ContainerFront>
             <ContainerAvatar>

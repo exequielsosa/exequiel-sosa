@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MenuProjects } from "@/components/organisms";
+import { MenuProjects, EmptyState } from "@/components/organisms";
 import { SectionProjectCard, TitleSelectorMobile } from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
@@ -20,17 +20,11 @@ import {
 } from "../../../constants/dataCards";
 
 import {
-  dataFpayMobile,
   dataLandingsMobile,
-  dataB2CMobile,
   dataLabelsMobile,
-  dataColombiaMobile,
   dataLapzoCardsMobile,
-  dataAusMobile,
-  dataDillonMobile,
   dataNiditMobile,
   dataVetiMobile,
-  dataUverifiedMobile,
 } from "../../../constants/dataCardsMobile";
 
 const TitleMobile = styled.div`
@@ -195,9 +189,9 @@ const DivMenu = styled.div`
 `;
 
 const Project = () => {
-  const [valueFpay, setCheckboxFpay] = useState(true);
-  const [valueLandings, setCheckboxLandings] = useState(true);
-  const [valueB2C, setCheckboxB2C] = useState(true);
+  const [valueFpay, setCheckboxFpay] = useState(false);
+  const [valueLandings, setCheckboxLandings] = useState(false);
+  const [valueB2C, setCheckboxB2C] = useState(false);
   const [valueLabels, setCheckboxLabels] = useState(false);
   const [valueLapzo, setCheckboxLapzo] = useState(false);
   const [valueAus, setCheckboxAus] = useState(false);
@@ -208,6 +202,19 @@ const Project = () => {
   const [valueUverified, setCheckboxUverified] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
+
+  const emptyState =
+    !valueFpay &&
+    !valueLandings &&
+    !valueB2C &&
+    !valueLabels &&
+    !valueLapzo &&
+    !valueAus &&
+    !valueDillon &&
+    !valueNidit &&
+    !valueColombia &&
+    !valueVeti &&
+    !valueUverified;
 
   const { isLg, isXs } = useBreakpoints();
   return (
@@ -346,40 +353,50 @@ const Project = () => {
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
-                  <ContainerCards>
-                    <CardProject dataCards={valueFpay && dataFpay} isNoMobile />
-                    <CardProject
-                      dataCards={valueLandings && dataLandings}
-                      isNoMobile
-                    />
-                    <CardProject dataCards={valueB2C && dataB2C} isNoMobile />
-                    <CardProject
-                      dataCards={valueLabels && dataLabels}
-                      isNoMobile
-                    />
-                    <CardProject
-                      dataCards={valueLapzo && dataLapzoCards}
-                      isNoMobile
-                    />
-                    <CardProject dataCards={valueAus && dataAus} isNoMobile />
-                    <CardProject
-                      dataCards={valueDillon && dataDillon}
-                      isNoMobile
-                    />
-                    <CardProject
-                      dataCards={valueNidit && dataNidit}
-                      isNoMobile
-                    />
-                    <CardProject
-                      dataCards={valueColombia && dataColombia}
-                      isNoMobile
-                    />
-                    <CardProject dataCards={valueVeti && dataVeti} isNoMobile />
-                    <CardProject
-                      dataCards={valueUverified && dataUverified}
-                      isNoMobile
-                    />
-                  </ContainerCards>
+                  {emptyState ? (
+                    <EmptyState />
+                  ) : (
+                    <ContainerCards>
+                      <CardProject
+                        dataCards={valueFpay && dataFpay}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueLandings && dataLandings}
+                        isNoMobile
+                      />
+                      <CardProject dataCards={valueB2C && dataB2C} isNoMobile />
+                      <CardProject
+                        dataCards={valueLabels && dataLabels}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueLapzo && dataLapzoCards}
+                        isNoMobile
+                      />
+                      <CardProject dataCards={valueAus && dataAus} isNoMobile />
+                      <CardProject
+                        dataCards={valueDillon && dataDillon}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueNidit && dataNidit}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueColombia && dataColombia}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueVeti && dataVeti}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueUverified && dataUverified}
+                        isNoMobile
+                      />
+                    </ContainerCards>
+                  )}
                 </LayoutContainerCards>
               </TextAreaLayout>
             </LayoutBody>
@@ -430,31 +447,39 @@ const Project = () => {
             </DivMenu>
           )}
           <LayoutContainerCardsMobile>
-            <ContainerCardsMobile>
-              <CardProject dataCards={valueFpay && dataFpay} />
-              <CardProject dataCards={valueLandings && (isXs ? dataLandingsMobile : dataLandings)} />
-              <CardProject dataCards={valueB2C && dataB2C} />
-              <CardProject
-                dataCards={
-                  valueLabels && (isXs ? dataLabelsMobile : dataLabels)
-                }
-              />
-              <CardProject
-                dataCards={
-                  valueLapzo && (isXs ? dataLapzoCardsMobile : dataLapzoCards)
-                }
-              />
-              <CardProject dataCards={valueAus && dataAus} />
-              <CardProject dataCards={valueDillon && dataDillon} />
-              <CardProject
-                dataCards={valueNidit && (isXs ? dataNiditMobile : dataNidit)}
-              />
-              <CardProject dataCards={valueColombia && dataColombia} />
-              <CardProject
-                dataCards={valueVeti && (isXs ? dataVetiMobile : dataVeti)}
-              />
-              <CardProject dataCards={valueUverified && dataUverified} />
-            </ContainerCardsMobile>
+            {emptyState ? (
+              <EmptyState isMobile />
+            ) : (
+              <ContainerCardsMobile>
+                <CardProject dataCards={valueFpay && dataFpay} />
+                <CardProject
+                  dataCards={
+                    valueLandings && (isXs ? dataLandingsMobile : dataLandings)
+                  }
+                />
+                <CardProject dataCards={valueB2C && dataB2C} />
+                <CardProject
+                  dataCards={
+                    valueLabels && (isXs ? dataLabelsMobile : dataLabels)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueLapzo && (isXs ? dataLapzoCardsMobile : dataLapzoCards)
+                  }
+                />
+                <CardProject dataCards={valueAus && dataAus} />
+                <CardProject dataCards={valueDillon && dataDillon} />
+                <CardProject
+                  dataCards={valueNidit && (isXs ? dataNiditMobile : dataNidit)}
+                />
+                <CardProject dataCards={valueColombia && dataColombia} />
+                <CardProject
+                  dataCards={valueVeti && (isXs ? dataVetiMobile : dataVeti)}
+                />
+                <CardProject dataCards={valueUverified && dataUverified} />
+              </ContainerCardsMobile>
+            )}
           </LayoutContainerCardsMobile>
         </BodyMobile>
       )}
