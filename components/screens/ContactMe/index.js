@@ -133,7 +133,7 @@ const ContactMe = () => {
             {openFindMe && (
               <>
                 <ContactSection
-                  title="Instagram accaunt"
+                  title="Instagram account"
                   icon="/goTo.svg"
                   handleClick={() =>
                     window.open("https://instagram.com/exequielsosa", "_blank")
