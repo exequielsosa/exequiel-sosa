@@ -51,7 +51,7 @@ export const ContactsContactMe = () => {
         />
         <TitleSection title="find-me-also-in" isProject isComplete />
         <ContactSection
-          title="Instagram accaunt"
+          title="Instagram account"
           icon="/goTo.svg"
           handleClick={() =>
             window.open("https://instagram.com/exequielsosa", "_blank")

@@ -37,6 +37,12 @@ const ImageLogo = styled.img`
   background-color: transparent;
 `;
 
+const ImageX = styled.img`
+  width: 20px;
+  background-color: transparent;
+  opacity: 0.4;
+`;
+
 const MenuEnd = styled.div`
 z-index: 6;
   display: flex;
@@ -89,7 +95,7 @@ export const Footer = () => {
             window.open("https://twitter.com/soyexequielsosa", "_blank")
           }
         >
-          <ImageLogo src="/twitter.svg" />
+          <ImageX src="/twitter.svg" />
         </Logo>
         <Logo
           right
