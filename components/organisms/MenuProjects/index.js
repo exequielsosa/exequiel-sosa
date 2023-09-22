@@ -80,7 +80,7 @@ export const MenuProjects = ({
         onChange={onChangeLapzo}
       />
       <CheckBox
-        label="aUshuaia.com"
+        label="aUshuaia.com - custom-xs"
         value={valueAus}
         checked={valueAus}
         onChange={onChangeAus}
@@ -122,7 +122,7 @@ export const MenuProjects = ({
         onChange={onChangeCustom}
       />
       <CheckBox
-        label="Grupo Kualiti"
+        label="Grupo Kualiti - custom-xs"
         value={valueKualiti}
         checked={valueKualiti}
         onChange={onChangeKualiti}
