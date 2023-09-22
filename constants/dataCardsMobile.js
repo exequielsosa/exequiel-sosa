@@ -107,3 +107,14 @@ export const dataUverifiedMobile = [
     link: "https://dev-uverified.vercel.app/login",
   },
 ];
+
+export const dataClaraMobile = [
+  {
+    nameProject: "Clara",
+    nameDetail: "// _bank-id",
+    projectDescription: "Clara Muzzio's ministerial landing page",
+    url: 'url("claraMuzzion.png")',
+    link: "https://www.claramuzzio.com.ar",
+  },
+];
+

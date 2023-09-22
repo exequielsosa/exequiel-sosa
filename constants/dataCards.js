@@ -107,3 +107,33 @@ export const dataUverified = [
     link: "https://dev-uverified.vercel.app/login",
   },
 ];
+
+export const dataClara = [
+  {
+    nameProject: "Clara Muzzio",
+    nameDetail: "// _goberment",
+    projectDescription: "Clara Muzzio's ministerial landing page",
+    url: 'url("claraMuzzion.png")',
+    link: "https://www.claramuzzio.com.ar",
+  },
+];
+
+export const dataCustom = [
+  {
+    nameProject: "custom-xs",
+    nameDetail: "// _developers",
+    projectDescription: "custom-xs developers page",
+    url: 'url("customxs.png")',
+    link: "https://www.custom-xs.com/",
+  },
+];
+
+export const dataKualiti = [
+  {
+    nameProject: "Grupo Kualiti",
+    nameDetail: "// _e-commerce",
+    projectDescription: "Integrated e-commerce with MercadoLibre",
+    url: 'url("kualiti.png")',
+    link: "https://dev-kualiti.vercel.app/",
+  },
+];
