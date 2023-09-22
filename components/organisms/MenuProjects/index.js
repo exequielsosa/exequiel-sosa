@@ -6,8 +6,8 @@ const Layout = styled.div`
   width: 100%;
   flex-direction: column;
   background: transparent;
-  margin-left: ${(props)=> props.isNoMobile && '22px'};
-  padding-top: ${(props)=> props.isNoMobile && '8px'};
+  margin-left: ${(props) => props.isNoMobile && "22px"};
+  padding-top: ${(props) => props.isNoMobile && "8px"};
 `;
 
 export const MenuProjects = ({
@@ -33,9 +33,14 @@ export const MenuProjects = ({
   onChangeVeti,
   valueUverified,
   onChangeUverified,
+  valueClara,
+  onChangeClara,
+  valueCustom,
+  onChangeCustom,
+  valueKualiti,
+  onChangeKualiti,
   isNoMobile,
-}) => {  
-
+}) => {
   return (
     <Layout isNoMobile={isNoMobile}>
       <CheckBox
@@ -62,7 +67,7 @@ export const MenuProjects = ({
         checked={valueLabels}
         onChange={onChangeLabels}
       />
-       <CheckBox
+      <CheckBox
         label="HomePage - Skydropx"
         value={valueColombia}
         checked={valueColombia}
@@ -92,7 +97,7 @@ export const MenuProjects = ({
         checked={valueNidit}
         onChange={onChangeNidit}
       />
-       <CheckBox
+      <CheckBox
         label="Vetinsure - Kinsper"
         value={valueVeti}
         checked={valueVeti}
@@ -103,6 +108,24 @@ export const MenuProjects = ({
         value={valueUverified}
         checked={valueUverified}
         onChange={onChangeUverified}
+      />
+      <CheckBox
+        label="Clara Muzzio - custom-xs"
+        value={valueClara}
+        checked={valueClara}
+        onChange={onChangeClara}
+      />
+      <CheckBox
+        label="custom-xs"
+        value={valueCustom}
+        checked={valueCustom}
+        onChange={onChangeCustom}
+      />
+      <CheckBox
+        label="Grupo Kualiti"
+        value={valueKualiti}
+        checked={valueKualiti}
+        onChange={onChangeKualiti}
       />
     </Layout>
   );
