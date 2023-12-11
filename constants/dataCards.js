@@ -137,3 +137,13 @@ export const dataKualiti = [
     link: "https://dev-kualiti.vercel.app/",
   },
 ];
+
+export const dataTruman = [
+  {
+    nameProject: "TRUMAN",
+    nameDetail: "// _landing",
+    projectDescription: "Social Listening agency",
+    url: 'url("trumanAgency.png")',
+    link: "https://www.truman.com.ar/",
+  },
+];

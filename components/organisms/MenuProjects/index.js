@@ -39,6 +39,8 @@ export const MenuProjects = ({
   onChangeCustom,
   valueKualiti,
   onChangeKualiti,
+  valueTruman,
+  onChangeTruman,
   isNoMobile,
 }) => {
   return (
@@ -126,6 +128,12 @@ export const MenuProjects = ({
         value={valueKualiti}
         checked={valueKualiti}
         onChange={onChangeKualiti}
+      />
+      <CheckBox
+        label="Truman - custom-xs"
+        value={valueTruman}
+        checked={valueTruman}
+        onChange={onChangeTruman}
       />
     </Layout>
   );

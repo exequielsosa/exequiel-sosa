@@ -20,6 +20,7 @@ import {
   dataClara,
   dataCustom,
   dataKualiti,
+  dataTruman,
 } from "../../../constants/dataCards";
 
 import {
@@ -207,6 +208,7 @@ const Project = () => {
   const [valueClara, setCheckboxClara] = useState(false);
   const [valueCustom, setCheckboxCustom] = useState(false);
   const [valueKualiti, setCheckboxKualiti] = useState(false);
+  const [valueTruman, setCheckboxTruman] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -224,9 +226,8 @@ const Project = () => {
     !valueUverified &&
     !valueClara &&
     !valueCustom &&
-    !valueKualiti
-    ;
-
+    !valueKualiti &&
+    !valueTruman;
   const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
@@ -251,6 +252,7 @@ const Project = () => {
                 valueClara={valueClara}
                 valueCustom={valueCustom}
                 valueKualiti={valueKualiti}
+                valueTruman={valueTruman}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -268,15 +270,12 @@ const Project = () => {
                 onChangeUverified={({ target }) =>
                   setCheckboxUverified(!valueUverified)
                 }
-                onChangeClara={({ target }) =>
-                  setCheckboxClara(!valueClara)
-                }
-                onChangeCustom={({ target }) =>
-                  setCheckboxCustom(!valueCustom)
-                }
+                onChangeClara={({ target }) => setCheckboxClara(!valueClara)}
+                onChangeCustom={({ target }) => setCheckboxCustom(!valueCustom)}
                 onChangeKualiti={({ target }) =>
                   setCheckboxKualiti(!valueKualiti)
                 }
+                onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
               />
             </LayoutMenu>
           </Column>
@@ -373,7 +372,7 @@ const Project = () => {
                         }
                       />
                     )}
-                     {valueClara && (
+                    {valueClara && (
                       <SectionProjectCard
                         sectionName="Clara Muzzio"
                         handleClickButtonClose={({ target }) =>
@@ -381,8 +380,8 @@ const Project = () => {
                         }
                       />
                     )}
-                    
-                     {valueCustom && (
+
+                    {valueCustom && (
                       <SectionProjectCard
                         sectionName="custom-xs"
                         handleClickButtonClose={({ target }) =>
@@ -395,6 +394,14 @@ const Project = () => {
                         sectionName="Kualiti"
                         handleClickButtonClose={({ target }) =>
                           setCheckboxKualiti(!valueKualiti)
+                        }
+                      />
+                    )}
+                    {valueTruman && (
+                      <SectionProjectCard
+                        sectionName="Truman"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxTruman(!valueTruman)
                         }
                       />
                     )}
@@ -455,6 +462,10 @@ const Project = () => {
                         dataCards={valueKualiti && dataKualiti}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueTruman && dataTruman}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -488,6 +499,7 @@ const Project = () => {
                 valueClara={valueClara}
                 valueCustom={valueCustom}
                 valueKualiti={valueKualiti}
+                valueTruman={valueTruman}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -505,15 +517,12 @@ const Project = () => {
                 onChangeUverified={({ target }) =>
                   setCheckboxUverified(!valueUverified)
                 }
-                onChangeClara={({ target }) =>
-                  setCheckboxClara(!valueClara)
-                }
-                onChangeCustom={({ target }) =>
-                  setCheckboxCustom(!valueCustom)
-                }
+                onChangeClara={({ target }) => setCheckboxClara(!valueClara)}
+                onChangeCustom={({ target }) => setCheckboxCustom(!valueCustom)}
                 onChangeKualiti={({ target }) =>
                   setCheckboxKualiti(!valueKualiti)
                 }
+                onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 isMobile
               />
             </DivMenu>
@@ -553,6 +562,7 @@ const Project = () => {
                 <CardProject dataCards={valueClara && dataClara} />
                 <CardProject dataCards={valueCustom && dataCustom} />
                 <CardProject dataCards={valueKualiti && dataKualiti} />
+                <CardProject dataCards={valueTruman && dataTruman} />
               </ContainerCardsMobile>
             )}
           </LayoutContainerCardsMobile>
