@@ -21,6 +21,7 @@ import {
   dataCustom,
   dataKualiti,
   dataTruman,
+  dataHijos,
 } from "../../../constants/dataCards";
 
 import {
@@ -29,7 +30,6 @@ import {
   dataLapzoCardsMobile,
   dataNiditMobile,
   dataVetiMobile,
-  dataClaraMobile,
 } from "../../../constants/dataCardsMobile";
 
 const TitleMobile = styled.div`
@@ -209,6 +209,7 @@ const Project = () => {
   const [valueCustom, setCheckboxCustom] = useState(false);
   const [valueKualiti, setCheckboxKualiti] = useState(false);
   const [valueTruman, setCheckboxTruman] = useState(false);
+  const [valueHijos, setCheckboxHijos] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -227,7 +228,8 @@ const Project = () => {
     !valueClara &&
     !valueCustom &&
     !valueKualiti &&
-    !valueTruman;
+    !valueTruman &&
+    !valueHijos;
   const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
@@ -253,6 +255,7 @@ const Project = () => {
                 valueCustom={valueCustom}
                 valueKualiti={valueKualiti}
                 valueTruman={valueTruman}
+                valueHijos={valueHijos}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -276,6 +279,7 @@ const Project = () => {
                   setCheckboxKualiti(!valueKualiti)
                 }
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
+                onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
               />
             </LayoutMenu>
           </Column>
@@ -405,6 +409,14 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueHijos && (
+                      <SectionProjectCard
+                        sectionName="Hijos"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxHijos(!valueHijos)
+                        }
+                      />
+                    )}
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
@@ -466,6 +478,10 @@ const Project = () => {
                         dataCards={valueTruman && dataTruman}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueHijos && dataHijos}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -500,6 +516,7 @@ const Project = () => {
                 valueCustom={valueCustom}
                 valueKualiti={valueKualiti}
                 valueTruman={valueTruman}
+                valueHijos={valueHijos}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -523,6 +540,7 @@ const Project = () => {
                   setCheckboxKualiti(!valueKualiti)
                 }
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
+                onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
                 isMobile
               />
             </DivMenu>
@@ -563,6 +581,7 @@ const Project = () => {
                 <CardProject dataCards={valueCustom && dataCustom} />
                 <CardProject dataCards={valueKualiti && dataKualiti} />
                 <CardProject dataCards={valueTruman && dataTruman} />
+                <CardProject dataCards={valueHijos && dataHijos} />
               </ContainerCardsMobile>
             )}
           </LayoutContainerCardsMobile>

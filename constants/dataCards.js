@@ -147,3 +147,13 @@ export const dataTruman = [
     link: "https://www.truman.com.ar/",
   },
 ];
+
+export const dataHijos = [
+  {
+    nameProject: "HIJOS DEL SOL",
+    nameDetail: "// _music",
+    projectDescription: "Music band page",
+    url: 'url("hijos.png")',
+    link: "https://www.hijosdelsol.com.ar/",
+  },
+];

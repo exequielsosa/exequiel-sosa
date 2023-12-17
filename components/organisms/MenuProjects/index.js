@@ -41,6 +41,8 @@ export const MenuProjects = ({
   onChangeKualiti,
   valueTruman,
   onChangeTruman,
+  valueHijos,
+  onChangeHijos,
   isNoMobile,
 }) => {
   return (
@@ -134,6 +136,12 @@ export const MenuProjects = ({
         value={valueTruman}
         checked={valueTruman}
         onChange={onChangeTruman}
+      />
+      <CheckBox
+        label="HIJOS DEL SOL - custom-xs"
+        value={valueHijos}
+        checked={valueHijos}
+        onChange={onChangeHijos}
       />
     </Layout>
   );
