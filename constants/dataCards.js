@@ -60,11 +60,11 @@ export const dataLapzoCards = [
 
 export const dataAus = [
   {
-    nameProject: "aUshuaia.com.ar",
+    nameProject: "aUshuaia.com",
     nameDetail: "// _booking-page",
     projectDescription: "Accommodation booking website for Ushuaia",
     url: 'url("aus.png")',
-    link: "https://www.aushuaia.com.ar/",
+    link: "https://www.aushuaia.com/",
   },
 ];
 
