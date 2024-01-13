@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import styled from "styled-components";
 
 const Title = styled.div`
@@ -34,7 +35,7 @@ export const DisplayMobileInfoAboutMe = ({ data }) => {
     <>
       {data &&
         data?.map((item, index) => (
-          <Layout>
+          <Layout key={index}>
             <Title key={index}>// personal-info / {item.title}</Title>
             {item.text.split("\n").map((text, subIndex) => (
               <Text key={subIndex}>{text}</Text>

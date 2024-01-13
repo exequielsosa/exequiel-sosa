@@ -44,7 +44,7 @@ const ImageX = styled.img`
 `;
 
 const MenuEnd = styled.div`
-z-index: 6;
+  z-index: 6;
   display: flex;
   padding: 18px 22px;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
@@ -113,7 +113,7 @@ export const Footer = () => {
             window.open("https://github.com/exequielsosa", "_blank")
           }
         >
-          @exequielsosa <Image src="/github.svg" />
+          @exequielsosa <Image src="/github.svg" alt="gitHub" />
         </MenuEnd>
       </AlignContact>
     </Layout>

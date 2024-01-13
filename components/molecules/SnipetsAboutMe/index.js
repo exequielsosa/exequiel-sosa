@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import styled from "styled-components";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
 

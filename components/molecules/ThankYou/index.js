@@ -58,7 +58,9 @@ export const ThankYou = ({ handleClick }) => {
     <Layout>
       <Title>Thank you! 🤘</Title>
       <SubTitle>
-      Thank you for sending your WhatsApp with your comments.<br /><br /> I will respond really soon!
+        Thank you for sending your WhatsApp with your comments.
+        <br />
+        <br /> I will respond really soon!
       </SubTitle>
       <ButtonSubmit onClick={handleClick}>send-new-message</ButtonSubmit>
     </Layout>

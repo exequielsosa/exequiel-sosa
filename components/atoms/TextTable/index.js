@@ -53,7 +53,7 @@ export const TextTable = ({ data }) => {
       <Body>
         {data &&
           data?.map((item) => (
-            <Files>
+            <Files key={item.number}>
               <RowNumber>{item.number}</RowNumber>
               <RowSymbol>{item.symbol}</RowSymbol>
               <Row>{item.text}</Row>

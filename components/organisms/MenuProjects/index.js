@@ -39,6 +39,8 @@ export const MenuProjects = ({
   onChangeCustom,
   valueKualiti,
   onChangeKualiti,
+  valueDanone,
+  onChangeDanone,
   isNoMobile,
 }) => {
   return (
@@ -126,6 +128,12 @@ export const MenuProjects = ({
         value={valueKualiti}
         checked={valueKualiti}
         onChange={onChangeKualiti}
+      />
+      <CheckBox
+        label="Danone Mx - B2B"
+        value={valueDanone}
+        checked={valueDanone}
+        onChange={onChangeDanone}
       />
     </Layout>
   );
