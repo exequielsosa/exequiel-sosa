@@ -231,7 +231,9 @@ const Project = () => {
     !valueCustom &&
     !valueKualiti &&
     !valueTruman &&
+    !valueDanone &&
     !valueHijos;
+
   const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
@@ -374,7 +376,7 @@ const Project = () => {
                     )}
                     {valueUverified && (
                       <SectionProjectCard
-                        sectionName="Uverified"
+                        sectionName="TruePay"
                         handleClickButtonClose={({ target }) =>
                           setCheckboxUverified(!valueUverified)
                         }

@@ -110,7 +110,7 @@ export const MenuProjects = ({
         onChange={onChangeVeti}
       />
       <CheckBox
-        label="Uverified - Kinsper"
+        label="TruePay - Kinsper"
         value={valueUverified}
         checked={valueUverified}
         onChange={onChangeUverified}

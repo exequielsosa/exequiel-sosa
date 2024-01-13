@@ -100,11 +100,11 @@ export const dataVeti = [
 
 export const dataUverified = [
   {
-    nameProject: "Uverified",
+    nameProject: "TruePay",
     nameDetail: "// _bank-id",
     projectDescription: "Banking identity validation system - in progress",
     url: 'url("uverified.png")',
-    link: "https://dev-uverified.vercel.app/login",
+    link: "https://dev-truepay.vercel.app/",
   },
 ];
 
