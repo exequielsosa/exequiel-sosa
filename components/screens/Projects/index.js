@@ -22,6 +22,7 @@ import {
   dataKualiti,
   dataTruman,
   dataHijos,
+  dataDanone,
 } from "../../../constants/dataCards";
 
 import {
@@ -208,6 +209,7 @@ const Project = () => {
   const [valueClara, setCheckboxClara] = useState(false);
   const [valueCustom, setCheckboxCustom] = useState(false);
   const [valueKualiti, setCheckboxKualiti] = useState(false);
+  const [valueDanone, setCheckboxDanone] = useState(false);
   const [valueTruman, setCheckboxTruman] = useState(false);
   const [valueHijos, setCheckboxHijos] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -256,6 +258,7 @@ const Project = () => {
                 valueKualiti={valueKualiti}
                 valueTruman={valueTruman}
                 valueHijos={valueHijos}
+                valueDanone={valueDanone}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -278,6 +281,7 @@ const Project = () => {
                 onChangeKualiti={({ target }) =>
                   setCheckboxKualiti(!valueKualiti)
                 }
+                onChangeDanone={({ target }) => setCheckboxDanone(!valueDanone)}
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
               />
@@ -401,6 +405,14 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueDanone && (
+                      <SectionProjectCard
+                        sectionName="Danone"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxDanone(!valueDanone)
+                        }
+                      />
+                    )}
                     {valueTruman && (
                       <SectionProjectCard
                         sectionName="Truman"
@@ -475,6 +487,10 @@ const Project = () => {
                         isNoMobile
                       />
                       <CardProject
+                        dataCards={valueDanone && dataDanone}
+                        isNoMobile
+                      />
+                      <CardProject
                         dataCards={valueTruman && dataTruman}
                         isNoMobile
                       />
@@ -515,6 +531,7 @@ const Project = () => {
                 valueClara={valueClara}
                 valueCustom={valueCustom}
                 valueKualiti={valueKualiti}
+                valueDanone={valueDanone}
                 valueTruman={valueTruman}
                 valueHijos={valueHijos}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
@@ -539,6 +556,7 @@ const Project = () => {
                 onChangeKualiti={({ target }) =>
                   setCheckboxKualiti(!valueKualiti)
                 }
+                onChangeDanone={({ target }) => setCheckboxDanone(!valueDanone)}
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
                 isMobile
@@ -582,6 +600,7 @@ const Project = () => {
                 <CardProject dataCards={valueKualiti && dataKualiti} />
                 <CardProject dataCards={valueTruman && dataTruman} />
                 <CardProject dataCards={valueHijos && dataHijos} />
+                <CardProject dataCards={valueDanone && dataDanone} />
               </ContainerCardsMobile>
             )}
           </LayoutContainerCardsMobile>

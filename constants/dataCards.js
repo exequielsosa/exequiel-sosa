@@ -60,11 +60,11 @@ export const dataLapzoCards = [
 
 export const dataAus = [
   {
-    nameProject: "aUshuaia.com.ar",
+    nameProject: "aUshuaia.com",
     nameDetail: "// _booking-page",
     projectDescription: "Accommodation booking website for Ushuaia",
     url: 'url("aus.png")',
-    link: "https://www.aushuaia.com.ar/",
+    link: "https://www.aushuaia.com/",
   },
 ];
 
@@ -134,7 +134,17 @@ export const dataKualiti = [
     nameDetail: "// _e-commerce",
     projectDescription: "Integrated e-commerce with MercadoLibre",
     url: 'url("kualiti.png")',
-    link: "https://dev-kualiti.vercel.app/",
+    link: "https://www.quimicoskualiti.com/",
+  },
+];
+
+export const dataDanone = [
+  {
+    nameProject: "Danone",
+    nameDetail: "// _e-commerce",
+    projectDescription: "e-commerce B2B for Mexico",
+    url: 'url("danone.png")',
+    link: "https://www.mipedidodanone.com.mx/",
   },
 ];
 

@@ -16,7 +16,8 @@ const Layout = styled.div`
 const Icon = styled.img`
   background: transparent;
   width: 9px;
-  margin-left: ${(props)=> props.isProject ? '22px' : props.isMobile ? '25px' : '15px'};
+  margin-left: ${(props) =>
+    props.isProject ? "22px" : props.isMobile ? "25px" : "15px"};
   margin-right: 12px;
 `;
 
@@ -35,7 +36,11 @@ const Title = styled.div`
 export const TitleSection = ({ isComplete, title, isProject, isMobile }) => {
   return (
     <Layout isComplete={isComplete}>
-      <Icon src="/dropdownVector.svg" isProject={isProject} isMobile={isMobile} />
+      <Icon
+        src="/dropdownVector.svg"
+        isProject={isProject}
+        isMobile={isMobile}
+      />
       <Title>{title}</Title>
     </Layout>
   );

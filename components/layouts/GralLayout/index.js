@@ -6,7 +6,7 @@ const Layout = styled.div`
   flex-direction: column;
   padding: 0px 15px 15px 15px;
   @media (min-width: 1440px) {
-  padding: 24px;
+    padding: 24px;
   }
 `;
 

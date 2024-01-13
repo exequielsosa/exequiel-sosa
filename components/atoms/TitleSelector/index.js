@@ -16,7 +16,7 @@ const Layout = styled.div`
 `;
 
 const Name = styled.div`
-  color: ${(props)=> props.isSelected ? '#fff' : '#607b96'};
+  color: ${(props) => (props.isSelected ? "#fff" : "#607b96")};
   font-family: Fira Code;
   font-size: 16px;
   font-style: normal;
@@ -31,18 +31,23 @@ const Name = styled.div`
 
 const Vector = styled.img`
   background: transparent;
-  margin-left: ${(props)=> props.isSelected ? '11px' : '16px'};
+  margin-left: ${(props) => (props.isSelected ? "11px" : "16px")};
   margin-right: 12px;
 `;
 
-export const TitleSelector = ({ sectionName, icon, isSelected, handleClick }) => {
+export const TitleSelector = ({
+  sectionName,
+  icon,
+  isSelected,
+  handleClick,
+}) => {
   return (
     <Layout onClick={handleClick}>
       <Vector
         src={isSelected ? "/iconSelectedDisplay.svg" : "/iconSelected.svg"}
         isSelected={isSelected}
       />
-      <Image src={icon} />
+      <Image src={icon} alt="icon" />
       <Name isSelected={isSelected}>{sectionName}</Name>
     </Layout>
   );

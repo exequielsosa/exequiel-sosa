@@ -1,2 +1,2 @@
-export * from './GralLayout';
-export * from './LayoutMenuAndFooter';
+export * from "./GralLayout";
+export * from "./LayoutMenuAndFooter";
