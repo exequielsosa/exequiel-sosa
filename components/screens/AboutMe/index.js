@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { AboutMeMenu, DisplayMobileInfoAboutMe, ContactMe } from "@/components/organisms";
+import {
+  AboutMeMenu,
+  DisplayMobileInfoAboutMe,
+  ContactMe,
+} from "@/components/organisms";
 import { SectionCard, TextTable, TitleCard } from "@/components/atoms";
 import { useState } from "react";
 import {
@@ -27,6 +31,8 @@ import {
   dataSkydropxMobile,
   dataLapzoMobile,
   dataFreelanceMobile,
+  dataDanoneCV,
+  dataDanoneMobile,
 } from "../../../constants";
 import { SnipetsAboutMe } from "../../molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -177,6 +183,7 @@ const AboutMe = () => {
               handleClickSkydropx={() => setNote("dataSkydropx")}
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
+              handleClickDanone={() => setNote("dataDanone")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -218,6 +225,8 @@ const AboutMe = () => {
                             ? "university"
                             : note === "dataOthers"
                             ? "developer skills"
+                            : note === "dataDanone"
+                            ? "danone"
                             : "freelance"
                         }
                       />
@@ -254,6 +263,8 @@ const AboutMe = () => {
                       ? dataUniversity
                       : note === "dataOthers"
                       ? dataOthers
+                      : note === "dataDanone"
+                      ? dataDanoneCV
                       : dataFreelance
                   }
                 />
@@ -289,6 +300,7 @@ const AboutMe = () => {
               handleClickSkydropx={() => setNote("dataSkydropx")}
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
+              handleClickDanone={() => setNote("dataDanone")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -323,10 +335,12 @@ const AboutMe = () => {
                   ? dataLapzoMobile
                   : note === "dataFreelance"
                   ? dataFreelanceMobile
+                  : note === "dataDanone"
+                  ? dataDanoneMobile
                   : dataHightMobile
               }
             />
-            <ContactMe isMobile/>
+            <ContactMe isMobile />
             <SnipetsAboutMe isMobile />
           </BodyMobile>
         </>

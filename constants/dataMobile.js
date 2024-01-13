@@ -81,3 +81,10 @@ export const dataFreelanceMobile = [
     text: "** 2015 - Today\n\n Design of Web and Mobile Apps.\n\n Using: React, Hooks, Redux, Bootstrap, Styled Components, React Native, Material UI, StoryBook, Jest & Enzyme testing. TypeScript, Nx Monorepo, Cypress E2E Test, Emotion. /",
   },
 ];
+
+export const dataDanoneMobile = [
+  {
+    title: "Danone",
+    text: "** 2023 - Today\n\n Design of Web and Mobile Apps.\n\n Multinational company specialized in dairy products.\n\n Projects: B2B E-commerce. Usign: NextJs, Hooks, Redux, Figma, Own components lib, Chakra-UI, Emotion, Styled components, Jest & Enzyme, TypeScript, Husky, Cypress E2E Test, Emotion. /",
+  },
+];
