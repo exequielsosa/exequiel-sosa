@@ -38,6 +38,22 @@ const SeoHome = () => {
         property="og:image"
         content="https://www.exequielsosa.com.ar/es.png"
       />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@soyexequielsosa" />
+      <meta name="twitter:creator" content="@soyexequielsosa" />
+      <meta
+        name="twitter:title"
+        content="Exequiel Sosa | Front-end developer"
+      />
+      <meta
+        name="twitter:description"
+        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team."
+      />
+      <meta
+        name="twitter:image"
+        content="https://www.exequielsosa.com.ar/es.png"
+      />
+      <meta name="twitter:url" content="https://www.exequielsosa.com.ar" />
     </Head>
   );
 };
