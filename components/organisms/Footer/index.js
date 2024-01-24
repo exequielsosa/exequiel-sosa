@@ -25,8 +25,34 @@ display: flex;
   border-right: ${(props) =>
     props.right && "1px solid rgba(96, 123, 150, 0.4)"};
   background-color: transparent;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 49px;
+  justify-content: center;
+  &:hover {
+    background: rgba(30, 45, 61, 0.6);
+    cursor: pointer;
+`;
+
+const LogoF = styled.div`
+display: flex;
+  border-left: 1px solid rgba(96, 123, 150, 0.4);
+  border-right: ${(props) =>
+    props.right && "1px solid rgba(96, 123, 150, 0.4)"};
+  background-color: transparent;
+  width: 49px;
+  justify-content: center;
+  &:hover {
+    background: rgba(30, 45, 61, 0.6);
+    cursor: pointer;
+`;
+
+const LogoIn = styled.div`
+display: flex;
+  border-left: 1px solid rgba(96, 123, 150, 0.4);
+  border-right: ${(props) =>
+    props.right && "1px solid rgba(96, 123, 150, 0.4)"};
+  background-color: transparent;  
+  width: 49px;
+  justify-content: center;
   &:hover {
     background: rgba(30, 45, 61, 0.6);
     cursor: pointer;
@@ -34,6 +60,11 @@ display: flex;
 
 const ImageLogo = styled.img`
   width: 43px;
+  background-color: transparent;
+`;
+
+const ImageLogoLnk = styled.img`
+  width: 30px;
   background-color: transparent;
 `;
 
@@ -97,14 +128,22 @@ export const Footer = () => {
         >
           <ImageX src="/twitter.svg" />
         </Logo>
-        <Logo
+        <LogoF
           right
           onClick={() =>
             window.open("https://facebook.com/exequiel.sosa", "_blank")
           }
         >
           <ImageLogo src="/facebook.svg" />
-        </Logo>
+        </LogoF>
+        <LogoIn
+          right
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
+          }
+        >
+          <ImageLogoLnk src="/linkedin.svg" />
+        </LogoIn>
       </AlignContent>
       <NoneArea>.</NoneArea>
       <AlignContact>

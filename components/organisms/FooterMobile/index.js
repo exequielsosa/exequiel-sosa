@@ -33,7 +33,7 @@ border-left: ${(props) => props.left && "1px solid rgba(96, 123, 150, 0.4)"};
   border-right: ${(props) =>
     props.rigth && "1px solid rgba(96, 123, 150, 0.4)"};
   background-color: transparent;  
-  width: 52px;
+  width: 48px;
   justify-content: center;
   &:hover {
     background: rgba(30, 45, 61, 0.6);
@@ -47,6 +47,12 @@ const ImageLogo = styled.img`
 
 const ImageX = styled.img`
   width: 20px;
+  background-color: transparent;
+  opacity: 0.4;
+`;
+
+const ImageLn = styled.img`
+  width: 24px;
   background-color: transparent;
   opacity: 0.4;
 `;
@@ -67,6 +73,16 @@ export const FooterMobile = () => {
     <Layout>
       <Name small={!isXs}>find me in:</Name>
       <LayoutSocial>
+        <Logo
+          rigth
+          left
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
+          }
+        >
+          <ImageLn src="/linkedin.svg" />
+        </Logo>
+
         <Logo
           rigth
           left
