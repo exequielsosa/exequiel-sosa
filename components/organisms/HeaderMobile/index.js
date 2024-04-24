@@ -8,6 +8,7 @@ const ImageLogo = styled.img`
   width: 20px;
   background-color: transparent;
   margin-right: 24px;
+  cursor: pointer;
 `;
 
 const Layout = styled.div`
@@ -95,22 +96,12 @@ export const HeaderMobile = () => {
       if (isMobile) {
         const mensaje =
           "whatsapp://send?phone=541158959825" +
-          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
-          name +
-          "%0A*email:*%0A" +
-          email +
-          "%0A*Message:*%0A" +
-          comment;
+          "&text=Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.";
         window.open(mensaje, "_blank");
       } else {
         const mensaje =
           "https://web.whatsapp.com/send?phone=541158959825" +
-          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
-          name +
-          "%0A*email:*%0A" +
-          email +
-          "%0A*Message:*%0A" +
-          comment;
+          "&text=Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.";
         window.open(mensaje, "_blank");
       }
     }, 1500);
