@@ -2,6 +2,13 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import MenuMobile from "../MenuMobile";
 import { useState } from "react";
+import { isMobile } from "react-device-detect";
+
+const ImageLogo = styled.img`
+  width: 20px;
+  background-color: transparent;
+  margin-right: 24px;
+`;
 
 const Layout = styled.div`
   width: 100%;
@@ -53,6 +60,11 @@ const LayoutMenu = styled.div`
   justify-content: space-between;
 `;
 
+const FinalLayout = styled.div`
+  background: transparent;
+  display: flex;
+`;
+
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
   const toogleOpen = () => setOpen(!open);
@@ -78,15 +90,44 @@ export const HeaderMobile = () => {
     setOpen(false);
   };
 
+  const handleSubmit = () => {
+    setTimeout(() => {
+      if (isMobile) {
+        const mensaje =
+          "whatsapp://send?phone=541158959825" +
+          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
+          name +
+          "%0A*email:*%0A" +
+          email +
+          "%0A*Message:*%0A" +
+          comment;
+        window.open(mensaje, "_blank");
+      } else {
+        const mensaje =
+          "https://web.whatsapp.com/send?phone=541158959825" +
+          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
+          name +
+          "%0A*email:*%0A" +
+          email +
+          "%0A*Message:*%0A" +
+          comment;
+        window.open(mensaje, "_blank");
+      }
+    }, 1500);
+  };
+
   return (
     <LayoutGral>
       <Layout>
         <LayoutMenu>
           <Name>exequiel-sosa</Name>
-          <MenuBtn
-            src={open ? "/cruz.svg" : "/menuBtn.svg"}
-            onClick={toogleOpen}
-          />
+          <FinalLayout>
+            <ImageLogo src="/wp.svg" alt="al" onClick={handleSubmit} />
+            <MenuBtn
+              src={open ? "/cruz.svg" : "/menuBtn.svg"}
+              onClick={toogleOpen}
+            />
+          </FinalLayout>
         </LayoutMenu>
         {open && (
           <MenuMobile

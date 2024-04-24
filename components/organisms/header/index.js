@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
+
+const ImageLogo = styled.img`
+  width: 24px;
+  background-color: transparent;
+`;
 
 const Layout = styled.div`
   width: 100%;
@@ -44,9 +50,24 @@ const MenuEnd = styled.div`
   color: ${(props) => (props.isSelected ? "#fff" : "rgba(96, 123, 150, 1)")};
   border-bottom: ${(props) =>
     props.isSelected && "3px solid rgba(254, 165, 95, 1)"};
-  background-color: transparent;
+  background-color: transparent !important;
   &:hover {
     color: #fff;
+    cursor: pointer;
+  }
+`;
+
+const MenuEndWp = styled.div`
+  z-index: 6;
+  display: flex;
+  padding: 18px 22px;
+  border-left: 1px solid rgba(96, 123, 150, 0.4);
+  color: ${(props) => (props.isSelected ? "#fff" : "rgba(96, 123, 150, 1)")};
+  border-bottom: ${(props) =>
+    props.isSelected && "3px solid rgba(254, 165, 95, 1)"};
+  background-color: transparent;
+  &:hover {
+    background: rgba(30, 45, 61, 0.6);
     cursor: pointer;
   }
 `;
@@ -68,6 +89,31 @@ const AlignContact = styled.div`
 export const Header = () => {
   const router = useRouter();
   const route = router.asPath;
+  const handleSubmit = () => {
+    setTimeout(() => {
+      if (isMobile) {
+        const mensaje =
+          "whatsapp://send?phone=541158959825" +
+          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
+          name +
+          "%0A*email:*%0A" +
+          email +
+          "%0A*Message:*%0A" +
+          comment;
+        window.open(mensaje, "_blank");
+      } else {
+        const mensaje =
+          "https://web.whatsapp.com/send?phone=541158959825" +
+          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
+          name +
+          "%0A*email:*%0A" +
+          email +
+          "%0A*Message:*%0A" +
+          comment;
+        window.open(mensaje, "_blank");
+      }
+    }, 1500);
+  };
   return (
     <Layout>
       <Name>exequiel-sosa</Name>
@@ -89,6 +135,9 @@ export const Header = () => {
         </MenuCenter>
       </AlignContent>
       <AlignContact>
+        <MenuEndWp onClick={handleSubmit}>
+          <ImageLogo src="wp.svg" alt="img" />
+        </MenuEndWp>
         <MenuEnd
           isSelected={route === "/contact-me"}
           onClick={() => router.push("/contact-me")}

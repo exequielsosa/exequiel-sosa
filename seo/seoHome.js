@@ -36,7 +36,7 @@ const SeoHome = () => {
       <meta name="author" content="Exequiel Sosa - Front-end developer" />
       <meta
         property="og:image"
-        content="https://www.exequielsosa.com.ar/es.png"
+        content="https://www.exequielsosa.com.ar/es2.png"
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@soyexequielsosa" />

@@ -2,7 +2,7 @@ import { InputText, Label, TextArea, ButtonSubmit } from "@/components/atoms/";
 import { ThankYou } from "@/components/molecules/";
 import styled from "styled-components";
 import { useState } from "react";
-import { isMobile } from "react-device-detect";
+import { sendContactForm } from "../../../lib/api";
 
 const GralLayout = styled.div`
   display: flex;
@@ -33,64 +33,80 @@ const LayoutThanks = styled.div`
   margin-bottom: ${(props) => props.isMobile && "170px"};
 `;
 
+const LayoutLoading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 390px;
+  background: transparent;
+  margin-top: ${(props) => (props.isMobile ? "48px" : "200px")};
+  padding: ${(props) => props.isMobile && "0px 8px"};
+  margin-bottom: ${(props) => props.isMobile && "170px"};
+`;
+
+const initValues = {
+  name: "",
+  email: "",
+  subject: "Contacto desde exequielsosa.com.ar",
+  message: "",
+};
+
+const initState = { isLoading: false, error: "", values: initValues };
+
 export const FormContact = ({ isMobile }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    comment: "",
-  });
+  const [state, setState] = useState(initState);
+  const [success, setSuccess] = useState(false);
 
-  const [thanks, setThanks] = useState(false);
+  const { values, isLoading, error } = state;
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
 
-  const { name, email, comment } = formData;
-
-  const disabled = name.length > 0 && email.length > 0 && comment.length > 0;
-
-  const handleSubmit = () => {
-    setTimeout(() => {
-      if (isMobile) {
-        const mensaje =
-          "whatsapp://send?phone=541158959825" +
-          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
-          name +
-          "%0A*email:*%0A" +
-          email +
-          "%0A*Message:*%0A" +
-          comment;
-        window.open(mensaje, "_blank");
-      } else {
-        const mensaje =
-          "https://web.whatsapp.com/send?phone=541158959825" +
-          "&text=*Thank you for getting in touch with Exequiel Sosa - FrontEnd Developer.*%0A*Name:*%0A" +
-          name +
-          "%0A*email:*%0A" +
-          email +
-          "%0A*Message:*%0A" +
-          comment;
-        window.open(mensaje, "_blank");
-      }
-    }, 1500);
-    setTimeout(() => {
-      setThanks(true);
-    }, 1500);
-  };
+  const disabled =
+    state.values.name.length > 0 &&
+    state.values.email.length > 0 &&
+    state.values.message.length > 0;
 
   const handleBack = () => {
-    setThanks(false);
-    setFormData({
-      name: "",
-      email: "",
-      comment: "",
-    });
+    setSuccess(false);
+    setState(initState);
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
+    try {
+      console.log("pasa");
+      await sendContactForm(values);
+      setState(initState);
+      setSuccess(true);
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        isLoading: false,
+        error: error.message,
+      }));
+    }
+  };
+
+  console.log(state);
   return (
     <GralLayout>
-      {thanks ? (
+      {isLoading ? (
+        <LayoutLoading isMobile={isMobile}>
+          <div className="loader"></div>
+        </LayoutLoading>
+      ) : success ? (
         <>
           <LayoutThanks isMobile={isMobile}>
             <ThankYou handleClick={handleBack} />
@@ -98,15 +114,42 @@ export const FormContact = ({ isMobile }) => {
         </>
       ) : (
         <Layout isMobile={isMobile}>
-          <Label>_name:</Label>
-          <InputText mb="24px" id="name" onChange={handleChange} />
-          <Label>_email:</Label>
-          <InputText mb="24px" id="email" onChange={handleChange} />
-          <Label>_message:</Label>
-          <TextArea rows={4} mb="24px" id="comment" onChange={handleChange} />
-          <ButtonSubmit disabled={!disabled} onClick={handleSubmit}>
-            submit-message
-          </ButtonSubmit>
+          <form
+            id="contact-form"
+            onSubmit={(e) => onSubmit(e)}
+            style={{ background: "transparent" }}
+          >
+            <Label>_name:</Label>
+            <InputText
+              mb="24px"
+              type="text"
+              id="name"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+            />
+            <Label>_email:</Label>
+            <InputText
+              mb="24px"
+              type="email"
+              id="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+            <Label>_message:</Label>
+            <TextArea
+              rows={4}
+              mb="24px"
+              id="message"
+              name="message"
+              value={values.message}
+              onChange={handleChange}
+            />
+            <ButtonSubmit disabled={!disabled} type="submit">
+              submit-message
+            </ButtonSubmit>
+          </form>
         </Layout>
       )}
     </GralLayout>
