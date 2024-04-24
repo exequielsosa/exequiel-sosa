@@ -1,4 +1,6 @@
 import "@/styles/globals.css";
+import "aos/dist/aos.css";
+import Aos from "aos";
 import { GralLayout } from "../components/layouts/GralLayout";
 import LayoutMenuAndFooter from "../components/layouts/LayoutMenuAndFooter";
 import { Analytics } from "@vercel/analytics/react";
@@ -18,6 +20,10 @@ export default function App({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
+
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
     <>

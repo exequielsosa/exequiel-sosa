@@ -55,15 +55,17 @@ const ButtonSubmit = styled.button`
 
 export const ThankYou = ({ handleClick }) => {
   return (
-    <Layout>
-      <Title>Thank you! 🤘</Title>
-      <SubTitle>
-        Thank you for sending your WhatsApp with your comments.
-        <br />
-        <br /> I will respond really soon!
-      </SubTitle>
-      <ButtonSubmit onClick={handleClick}>send-new-message</ButtonSubmit>
-    </Layout>
+    <span data-aos="zoom-in" style={{ background: "transparent" }}>
+      <Layout>
+        <Title>Thank you! 🤘</Title>
+        <SubTitle>
+          Thank you for sending your WhatsApp with your comments.
+          <br />
+          <br /> I will respond really soon!
+        </SubTitle>
+        <ButtonSubmit onClick={handleClick}>send-new-message</ButtonSubmit>
+      </Layout>
+    </span>
   );
 };
 

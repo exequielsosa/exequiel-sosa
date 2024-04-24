@@ -32,6 +32,19 @@ const LayoutThanks = styled.div`
   padding: ${(props) => props.isMobile && "0px 8px"};
   margin-bottom: ${(props) => props.isMobile && "170px"};
 `;
+
+const LayoutLoading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 390px;
+  background: transparent;
+  margin-top: ${(props) => (props.isMobile ? "48px" : "200px")};
+  padding: ${(props) => props.isMobile && "0px 8px"};
+  margin-bottom: ${(props) => props.isMobile && "170px"};
+`;
+
 const initValues = {
   name: "",
   email: "",
@@ -56,7 +69,10 @@ export const FormContact = ({ isMobile }) => {
       },
     }));
 
-  // const disabled = name.length > 0 && email.length > 0 && comment.length > 0;
+  const disabled =
+    state.values.name.length > 0 &&
+    state.values.email.length > 0 &&
+    state.values.message.length > 0;
 
   const handleBack = () => {
     setSuccess(false);
@@ -64,7 +80,7 @@ export const FormContact = ({ isMobile }) => {
   };
 
   const onSubmit = async (e) => {
-    e.preventDefault(); // Esto evita la recarga de la página
+    e.preventDefault();
     setState((prev) => ({
       ...prev,
       isLoading: true,
@@ -86,7 +102,11 @@ export const FormContact = ({ isMobile }) => {
   console.log(state);
   return (
     <GralLayout>
-      {thanks ? (
+      {isLoading ? (
+        <LayoutLoading isMobile={isMobile}>
+          <div className="loader"></div>
+        </LayoutLoading>
+      ) : success ? (
         <>
           <LayoutThanks isMobile={isMobile}>
             <ThankYou handleClick={handleBack} />
@@ -97,7 +117,6 @@ export const FormContact = ({ isMobile }) => {
           <form
             id="contact-form"
             onSubmit={(e) => onSubmit(e)}
-            data-aos="zoom-in"
             style={{ background: "transparent" }}
           >
             <Label>_name:</Label>
@@ -127,7 +146,7 @@ export const FormContact = ({ isMobile }) => {
               value={values.message}
               onChange={handleChange}
             />
-            <ButtonSubmit disabled={false} type="submit">
+            <ButtonSubmit disabled={!disabled} type="submit">
               submit-message
             </ButtonSubmit>
           </form>
