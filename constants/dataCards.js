@@ -94,7 +94,7 @@ export const dataVeti = [
     nameDetail: "// _prisma.io",
     projectDescription: "Insurance policy management system",
     url: 'url("vetinsure.png")',
-    link: "https://dev-vetinsure.vercel.app/login",
+    link: "https://vetinsure.vercel.app/login",
   },
 ];
 
@@ -104,7 +104,7 @@ export const dataUverified = [
     nameDetail: "// _bank-id",
     projectDescription: "Banking identity validation system - in progress",
     url: 'url("uverified.png")',
-    link: "https://dev-truepay.vercel.app/",
+    link: "https://truepayprotects.com/",
   },
 ];
 
@@ -144,7 +144,7 @@ export const dataDanone = [
     nameDetail: "// _e-commerce",
     projectDescription: "e-commerce B2B for Mexico",
     url: 'url("danone.png")',
-    link: "https://www.mipedidodanone.com.mx/",
+    link: "https://mipedidodanone.com.mx/",
   },
 ];
 

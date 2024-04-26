@@ -94,7 +94,7 @@ export const dataVetiMobile = [
     nameDetail: "// _prisma.io",
     projectDescription: "Insurance policy management system",
     url: 'url("ventisure2.png")',
-    link: "https://dev-vetinsure.vercel.app/login",
+    link: "https://vetinsure.vercel.app/login",
   },
 ];
 
