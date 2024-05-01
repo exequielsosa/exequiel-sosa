@@ -256,6 +256,9 @@ export const AboutMeMenu = ({
                 window.open("https://wa.me/541158959825", "_blank")
               }
             />
+            <MailTo href="/ExequielIgnacioSosaResume2024.pdf" target="_blank">
+              <ContactSection title="download my resume" icon="/resume.svg" />
+            </MailTo>
           </>
         )}
       </DisplayMenu>
