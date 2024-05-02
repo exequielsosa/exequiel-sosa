@@ -2,7 +2,6 @@ import styled from "styled-components";
 import MenuMobile from "../MenuMobile";
 import { useState } from "react";
 import { isMobile } from "react-device-detect";
-import { useClickAway } from "@uidotdev/usehooks";
 
 const ImageLogo = styled.img`
   width: 20px;
@@ -82,9 +81,6 @@ const FinalLayout = styled.div`
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
   const toogleOpen = () => setOpen(!open);
-  const ref = useClickAway(() => {
-    setOpen(false);
-  });
 
   const handleSubmit = () => {
     setTimeout(() => {
@@ -121,9 +117,7 @@ export const HeaderMobile = () => {
             />
           </FinalLayout>
         </LayoutMenu>
-        {open && (
-          <MenuMobile out={!open} onClose={() => setOpen(false)} ref={ref} />
-        )}
+        {open && <MenuMobile out={!open} onClose={() => setOpen(false)} />}
       </Layout>
     </LayoutGral>
   );
