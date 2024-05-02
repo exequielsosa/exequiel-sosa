@@ -12,19 +12,18 @@ const Layout = styled.div`
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
   border-right: 1px solid rgba(96, 123, 150, 0.4);
-  @media(max-height: 768px) { 
+  @media (max-height: 768px) {
     min-height: 720px;
-
   }
 `;
 
 const Body = styled.div`
-  width: 76%;  
+  width: 76%;
   display: flex;
   background: transparent;
   background-image: url("grid2.png");
   background-color: #011627;
-  @media(min-height: 768px) {
+  @media (min-height: 768px) {
     min-height: 720px;
   }
 `;
@@ -122,6 +121,16 @@ const ContactMe = () => {
                   }
                   isMobile
                 />
+                <MailTo
+                  href="/ExequielIgnacioSosaResume2024.pdf"
+                  target="_blank"
+                >
+                  <ContactSection
+                    title="download my resume"
+                    icon="/resume.svg"
+                    isMobile
+                  />
+                </MailTo>
               </>
             )}
             <TitleSelectorMobile
@@ -151,9 +160,25 @@ const ContactMe = () => {
                   }
                   isMobile
                 />
+                <ContactSection
+                  title="X profile"
+                  icon="/goTo.svg"
+                  handleClick={() =>
+                    window.open("https://twitter.com/soyexequielsosa", "_blank")
+                  }
+                  isMobile
+                />
+                <ContactSection
+                  title="Facebook"
+                  icon="/goTo.svg"
+                  handleClick={() =>
+                    window.open("https://facebook.com/exequiel.sosa", "_blank")
+                  }
+                  isMobile
+                />
               </>
             )}
-            <FormContact isMobile/>
+            <FormContact isMobile />
           </BodyMobile>
         </>
       )}

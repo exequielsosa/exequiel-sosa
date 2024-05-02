@@ -49,6 +49,9 @@ export const ContactsContactMe = () => {
             window.open("https://wa.me/541158959825", "_blank")
           }
         />
+        <MailTo href="/ExequielIgnacioSosaResume2024.pdf" target="_blank">
+          <ContactSection title="download my resume" icon="/resume.svg" />
+        </MailTo>
         <TitleSection title="find-me-also-in" isProject isComplete />
         <ContactSection
           title="Instagram account"
@@ -62,6 +65,20 @@ export const ContactsContactMe = () => {
           icon="/goTo.svg"
           handleClick={() =>
             window.open("https://linkedin.com/in/exequielsosa", "_blank")
+          }
+        />
+        <ContactSection
+          title="X profile"
+          icon="/goTo.svg"
+          handleClick={() =>
+            window.open("https://twitter.com/soyexequielsosa", "_blank")
+          }
+        />
+        <ContactSection
+          title="Facebook"
+          icon="/goTo.svg"
+          handleClick={() =>
+            window.open("https://facebook.com/exequiel.sosa", "_blank")
           }
         />
       </LayoutMenu>

@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const fadeIn = keyframes`
   from {
@@ -55,35 +56,43 @@ const ContainerTag = styled.div`
   }
 `;
 
-export const MenuMobile = ({
-  out,
-  hadleClickHello,
-  hadleClickAbout,
-  hadleClickProjects,
-  hadleClickContanct,
-}) => {
+export const MenuMobile = ({ out, onClose, ref }) => {
   const router = useRouter();
   const route = router.asPath;
   return (
-    <DivTest out={out}>
-      <ContainerTag selected={route === "/"} onClick={hadleClickHello}>
-        _hello
-      </ContainerTag>
-      <ContainerTag selected={route === "/about-me"} onClick={hadleClickAbout}>
-        _about-me
-      </ContainerTag>
-      <ContainerTag
-        selected={route === "/projects"}
-        onClick={hadleClickProjects}
+    <DivTest out={out} ref={ref}>
+      <Link
+        href="/"
+        style={{ background: "transparent", textDecoration: "none" }}
       >
-        _projects
-      </ContainerTag>
-      <ContainerTag
-        selected={route === "/contact-me"}
-        onClick={hadleClickContanct}
+        <ContainerTag selected={route === "/"} onClick={onClose}>
+          _hello
+        </ContainerTag>
+      </Link>
+      <Link
+        href="/about-me"
+        style={{ background: "transparent", textDecoration: "none" }}
       >
-        _contact-me
-      </ContainerTag>
+        <ContainerTag selected={route === "/about-me"} onClick={onClose}>
+          _about-me
+        </ContainerTag>
+      </Link>
+      <Link
+        href="/projects"
+        style={{ background: "transparent", textDecoration: "none" }}
+      >
+        <ContainerTag selected={route === "/projects"} onClick={onClose}>
+          _projects
+        </ContainerTag>
+      </Link>
+      <Link
+        href="/contact-me"
+        style={{ background: "transparent", textDecoration: "none" }}
+      >
+        <ContainerTag selected={route === "/contact-me"} onClick={onClose}>
+          _contact-me
+        </ContainerTag>
+      </Link>
     </DivTest>
   );
 };

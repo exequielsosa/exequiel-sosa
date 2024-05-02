@@ -1,14 +1,27 @@
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import MenuMobile from "../MenuMobile";
 import { useState } from "react";
 import { isMobile } from "react-device-detect";
+import { useClickAway } from "@uidotdev/usehooks";
 
 const ImageLogo = styled.img`
   width: 20px;
   background-color: transparent;
+  margin-right: 16px;
+  cursor: pointer;
+`;
+
+const ImageResume = styled.img`
+  width: 20px;
+  background-color: transparent;
   margin-right: 24px;
   cursor: pointer;
+`;
+
+const LinkResume = styled.a`
+  text-decoration: none;
+  background: transparent;
+  display: flex;
 `;
 
 const Layout = styled.div`
@@ -69,27 +82,9 @@ const FinalLayout = styled.div`
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
   const toogleOpen = () => setOpen(!open);
-  const router = useRouter();
-
-  const hello = () => {
-    router.push("/");
+  const ref = useClickAway(() => {
     setOpen(false);
-  };
-
-  const about = () => {
-    router.push("/about-me");
-    setOpen(false);
-  };
-
-  const projects = () => {
-    router.push("/projects");
-    setOpen(false);
-  };
-
-  const contact = () => {
-    router.push("/contact-me");
-    setOpen(false);
-  };
+  });
 
   const handleSubmit = () => {
     setTimeout(() => {
@@ -114,6 +109,12 @@ export const HeaderMobile = () => {
           <Name>exequiel-sosa</Name>
           <FinalLayout>
             <ImageLogo src="/wp.svg" alt="al" onClick={handleSubmit} />
+            <LinkResume
+              href="/ExequielIgnacioSosaResume2024.pdf"
+              target="_blank"
+            >
+              <ImageResume src="/resume2.svg" alt="al" />
+            </LinkResume>
             <MenuBtn
               src={open ? "/cruz.svg" : "/menuBtn.svg"}
               onClick={toogleOpen}
@@ -121,13 +122,7 @@ export const HeaderMobile = () => {
           </FinalLayout>
         </LayoutMenu>
         {open && (
-          <MenuMobile
-            out={!open}
-            hadleClickHello={hello}
-            hadleClickAbout={about}
-            hadleClickProjects={projects}
-            hadleClickContanct={contact}
-          />
+          <MenuMobile out={!open} onClose={() => setOpen(false)} ref={ref} />
         )}
       </Layout>
     </LayoutGral>
