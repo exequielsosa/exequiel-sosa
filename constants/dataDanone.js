@@ -2,7 +2,7 @@ export const dataDanoneCV = [
   {
     number: "1",
     symbol: "/",
-    text: "** 2023 - Today",
+    text: "**",
   },
   {
     number: "2",

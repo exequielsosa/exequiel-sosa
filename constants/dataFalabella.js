@@ -2,7 +2,7 @@ export const dataFalabella = [
   {
     number: "1",
     symbol: "/",
-    text: "** 2020 - Today",
+    text: "** 2021 - Today",
   },
   {
     number: "2",

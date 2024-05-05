@@ -2,7 +2,7 @@ export const dataKinsper = [
   {
     number: "1",
     symbol: "/",
-    text: "** 2023 - Today",
+    text: "**",
   },
   {
     number: "2",
@@ -18,7 +18,7 @@ export const dataKinsper = [
     number: "4",
     symbol: "*",
     text: "Vetisure: platform for entry, control and",
-  },  
+  },
   {
     number: "5",
     symbol: "*",
@@ -53,12 +53,12 @@ export const dataKinsper = [
     number: "11",
     symbol: "*",
     text: " Styled Components, FlowBite, Vercel,",
-  },  
+  },
   {
     number: "12",
     symbol: "*",
     text: " Clerk user management, TypeScript.",
-  },  
+  },
   {
     number: "13",
     symbol: "*",

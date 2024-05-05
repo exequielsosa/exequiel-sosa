@@ -2,7 +2,7 @@ export const dataSkydropx = [
   {
     number: "1",
     symbol: "/",
-    text: "** 2021 - 2022",
+    text: "**",
   },
   {
     number: "2",
@@ -38,7 +38,7 @@ export const dataSkydropx = [
     number: "8",
     symbol: "*",
     text: "Styled components, Jest & Enzyme,",
-  },  
+  },
   {
     number: "9",
     symbol: "*",

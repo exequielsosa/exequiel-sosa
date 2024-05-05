@@ -2,7 +2,7 @@ export const dataLapzo = [
   {
     number: "1",
     symbol: "/",
-    text: "** 2022",
+    text: "**",
   },
   {
     number: "2",
@@ -43,12 +43,12 @@ export const dataLapzo = [
     number: "9",
     symbol: "*",
     text: "Skills: Jira, Confluence, ",
-  },  
+  },
   {
     number: "10",
     symbol: "*",
     text: "Agile Methodologies,  Monorepo, ",
-  },  
+  },
   {
     number: "11",
     symbol: "*",
