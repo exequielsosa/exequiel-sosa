@@ -76,10 +76,7 @@ const SeoAbout = () => {
           description:
             "Proactive and adaptable professional with a passion for web programming.",
           url: "https://www.exequielsosa.com.ar",
-          sameAs: [
-            "https://www.linkedin.com/in/exequiel",
-            "https://twitter.com/exequiel",
-          ],
+          sameAs: ["https://www.linkedin.com/in/exequielsosa/"],
         })}
       </script>
     </Head>
