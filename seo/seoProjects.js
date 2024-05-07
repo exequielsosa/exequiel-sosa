@@ -6,7 +6,7 @@ const SeoProjects = () => {
       <title>_projects | Exequiel Sosa | Front-end developer</title>
       <meta
         name="description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team. In this section, you will be able to learn about some of my projects and works."
+        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index,follow" />
@@ -25,7 +25,7 @@ const SeoProjects = () => {
       />
       <meta
         property="og:description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team. In this section, you will be able to learn about some of my projects and works."
+        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
       />
       <meta
         property="og:url"
@@ -56,7 +56,7 @@ const SeoProjects = () => {
       />
       <meta
         name="twitter:description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team. In this section, you will be able to learn about some of my projects and works."
+        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
       />
       <meta
         name="twitter:image"
@@ -66,6 +66,22 @@ const SeoProjects = () => {
         name="twitter:url"
         content="https://www.exequielsosa.com.ar/about-me"
       />
+      {/* Schema Markup */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          name: "Exequiel Sosa",
+          jobTitle: "Front-end developer",
+          description:
+            "Proactive and adaptable professional with a passion for web programming.",
+          url: "https://www.exequielsosa.com.ar",
+          sameAs: [
+            "https://www.linkedin.com/in/exequiel",
+            "https://twitter.com/exequiel",
+          ],
+        })}
+      </script>
     </Head>
   );
 };

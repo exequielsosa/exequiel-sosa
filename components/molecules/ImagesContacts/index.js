@@ -30,8 +30,8 @@ export const ImagesContacts = () => {
   return (
     <LayoutGral>
       <LayoutCenter>
-        <ImageLine src="/lineContacts.png" />
-        <ImageCode src="/codeContacts.png" />
+        <ImageLine src="/lineContacts.png" alt="line" />
+        <ImageCode src="/codeContacts.png" alt="code" />
       </LayoutCenter>
     </LayoutGral>
   );

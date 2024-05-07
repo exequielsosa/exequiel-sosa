@@ -46,14 +46,14 @@ export const EmptyState = (isMobile) => {
             {" "}
             Please select the projects from the menu to see my work! 😊
           </SubTitle>
-          <Imagen src="qr.svg" />
+          <Imagen src="qr.svg" alt="qr" />
         </>
       ) : (
         <>
           <SubTitle>
             Please select the projects from the side menu to see my work! 😊{" "}
           </SubTitle>
-          <Imagen src="qr.svg" />
+          <Imagen src="qr.svg" alt="qr" />
         </>
       )}
     </Layout>
