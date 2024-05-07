@@ -29,7 +29,7 @@ const Layout = styled.div`
   align-items: center;
 `;
 
-const Name = styled.div`
+const Name = styled.h1`
   padding: 18px 22px;
   width: 24%;
   border-right: 1px solid rgba(96, 123, 150, 0.4);
