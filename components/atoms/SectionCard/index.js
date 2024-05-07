@@ -33,7 +33,7 @@ export const SectionCard = ({ sectionName, handleClickButtonClose }) => {
   return (
     <Layout>
       <Name>personal-info / {sectionName}</Name>
-      <Close src="/close.svg" onClick={handleClickButtonClose} />
+      <Close src="/close.svg" onClick={handleClickButtonClose} alt="close" />
     </Layout>
   );
 };

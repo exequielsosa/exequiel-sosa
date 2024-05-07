@@ -84,16 +84,19 @@ export const AboutMeMenu = ({
             src="/personalInfo.svg"
             isSelected={section === "bio"}
             onClick={handleClickPersonal}
+            alt="Personal"
           />
           <Icon
             src="/hobbyInfo.svg"
             isSelected={section === "interest"}
             onClick={handleClickHobby}
+            alt="hobby"
           />
           <Icon
             src="/ProfesionalInfo.svg"
             isSelected={section === "education"}
             onClick={handleClickProfesional}
+            alt="prof"
           />
         </SideBarMenu>
       ) : (

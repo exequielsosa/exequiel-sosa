@@ -152,7 +152,7 @@ export const SnipetsAboutMe = ({ isMobile, empty }) => {
         <Layout>
           <ContainerFront>
             <ContainerAvatar>
-              <Avatar src="/avatarExe.png" />
+              <Avatar src="/avatarExe.png" alt="exequiel" />
               <ContainerText>
                 <UserName>@exequielsosa</UserName>
                 <DetailName>Created 5 months ago</DetailName>
@@ -160,26 +160,26 @@ export const SnipetsAboutMe = ({ isMobile, empty }) => {
             </ContainerAvatar>
             <ContainerRating>
               <ContainerTextAndRating>
-                <ImageRating src="/comments.svg" />
+                <ImageRating src="/comments.svg" alt="stars" />
                 <TextRating>details</TextRating>
               </ContainerTextAndRating>
               {!isMobile && (
                 <ContainerTextAndRating isFinal>
-                  <ImageRating src="/stars.svg" />
+                  <ImageRating src="/stars.svg" alt="stars" />
                   <TextRating>5 stars</TextRating>
                 </ContainerTextAndRating>
               )}
             </ContainerRating>
           </ContainerFront>
-          <SnippetImage src="/snippet1.png" />
+          <SnippetImage src="/snippet1.png" alt="snipet" />
         </Layout>
-        <CodeImage1 src="/code1.png" />
+        <CodeImage1 src="/code1.png" alt="snipet" />
         {isLg && (
           <>
             <Layout>
               <ContainerFront>
                 <ContainerAvatar>
-                  <Avatar src="/avatarExe.png" />
+                  <Avatar src="/avatarExe.png" alt="exequiel" />
                   <ContainerText>
                     <UserName>@exequielsosa</UserName>
                     <DetailName>Created 9 months ago</DetailName>
@@ -187,18 +187,18 @@ export const SnipetsAboutMe = ({ isMobile, empty }) => {
                 </ContainerAvatar>
                 <ContainerRating>
                   <ContainerTextAndRating>
-                    <ImageRating src="/comments.svg" />
+                    <ImageRating src="/comments.svg" alt="stars" />
                     <TextRating>details</TextRating>
                   </ContainerTextAndRating>
                   <ContainerTextAndRating isFinal>
-                    <ImageRating src="/stars.svg" />
+                    <ImageRating src="/stars.svg" alt="stars" />
                     <TextRating>5 stars</TextRating>
                   </ContainerTextAndRating>
                 </ContainerRating>
               </ContainerFront>
-              <SnippetImage src="/snippet2.png" />
+              <SnippetImage src="/snippet2.png" alt="starts" />
             </Layout>
-            <CodeImage2 src="/code2.png" />
+            <CodeImage2 src="/code2.png" alt="startrs" />
           </>
         )}
       </CenterLayout>

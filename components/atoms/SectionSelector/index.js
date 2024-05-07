@@ -38,7 +38,11 @@ export const SectionSelector = ({
 }) => {
   return (
     <Layout onClick={handleClick}>
-      <ImageIcon src="/displayItems.svg" isMobile={isMobile} />
+      <ImageIcon
+        src="/displayItems.svg"
+        isMobile={isMobile}
+        alt="displayItems"
+      />
       <NameSection active={active}>{nameSection}</NameSection>
     </Layout>
   );

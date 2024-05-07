@@ -42,7 +42,7 @@ export const ContactSection = ({
 }) => {
   return (
     <Layout isComplete={isComplete} onClick={handleClick} isMobile={isMobile}>
-      <Icon src={icon} isMobile={isMobile} />
+      <Icon src={icon} isMobile={isMobile} alt="contact" />
       <Title>{title}</Title>
     </Layout>
   );

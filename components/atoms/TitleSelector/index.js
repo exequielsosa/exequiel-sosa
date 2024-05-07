@@ -15,7 +15,7 @@ const Layout = styled.div`
   }
 `;
 
-const Name = styled.div`
+const Name = styled.h1`
   color: ${(props) => (props.isSelected ? "#fff" : "#607b96")};
   font-family: Fira Code;
   font-size: 16px;
@@ -46,6 +46,7 @@ export const TitleSelector = ({
       <Vector
         src={isSelected ? "/iconSelectedDisplay.svg" : "/iconSelected.svg"}
         isSelected={isSelected}
+        alt="vector"
       />
       <Image src={icon} alt="icon" />
       <Name isSelected={isSelected}>{sectionName}</Name>

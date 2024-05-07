@@ -12,7 +12,7 @@ const Layout = styled.div`
   }
 `;
 
-const Name = styled.div`
+const Name = styled.h1`
   color: ${(props) =>
     props.isSelected ? "#fff" : props.isMobile ? "#fff" : "#607b96"};
   font-family: Fira Code;
@@ -44,6 +44,7 @@ export const TitleSelectorMobile = ({
       <Vector
         src={isSelected ? "/dotCloseOpen.svg" : "/dotClose.svg"}
         isSelected={isSelected}
+        alt="close"
       />
 
       <Name isSelected={isSelected} isMobile={isMobile}>

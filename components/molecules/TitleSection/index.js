@@ -40,6 +40,7 @@ export const TitleSection = ({ isComplete, title, isProject, isMobile }) => {
         src="/dropdownVector.svg"
         isProject={isProject}
         isMobile={isMobile}
+        alt="drop"
       />
       <Title>{title}</Title>
     </Layout>
