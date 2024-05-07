@@ -25,11 +25,11 @@ const LayoutSnipet = styled.div`
 export const HomeSnipets = () => {
   return (
     <LayoutSnipet>
-      <ImageSnipet src="/code-snippet0.png" />
-      <ImageSnipetCenter src="/code-snippet1.png" />
-      <ImageSnipetCenter src="/code-snippet2.png" />
-      <ImageSnipetCenter src="/code-snippet3.png" />
-      <ImageSnipet src="/code-snippet4.png" />
+      <ImageSnipet src="/code-snippet0.png" alt="exequielsosa.com.ar" />
+      <ImageSnipetCenter src="/code-snippet1.png" alt="exequielsosa.com.ar" />
+      <ImageSnipetCenter src="/code-snippet2.png" alt="exequielsosa.com.ar" />
+      <ImageSnipetCenter src="/code-snippet3.png" alt="exequielsosa.com.ar" />
+      <ImageSnipet src="/code-snippet4.png" alt="exequielsosa.com.ar" />
     </LayoutSnipet>
   );
 };

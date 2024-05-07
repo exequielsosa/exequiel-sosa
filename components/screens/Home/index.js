@@ -136,8 +136,11 @@ const Home = () => {
                 }
               />
               <LayoutSnipets>
-                <ImageBlurBlue src="/blueBack.svg" />
-                <ImageBlurGreen src="/greenBack.svg" />
+                <ImageBlurBlue src="/blueBack.svg" alt="exequielsosa.com.ar" />
+                <ImageBlurGreen
+                  src="/greenBack.svg"
+                  alt="exequielsosa.com.ar"
+                />
                 <HomeSnipets />
               </LayoutSnipets>
             </LayoutBody>
@@ -151,8 +154,11 @@ const Home = () => {
               window.open("https://github.com/exequielsosa", "_blank")
             }
           />
-          <ImageBlurBlueMobile src="/blueBack.svg" />
-          <ImageBlurGreenMobile src="/greenBack.svg" />
+          <ImageBlurBlueMobile src="/blueBack.svg" alt="exequielsosa.com.ar" />
+          <ImageBlurGreenMobile
+            src="/greenBack.svg"
+            alt="exequielsosa.com.ar"
+          />
         </LayoutMobile>
       )}
     </>

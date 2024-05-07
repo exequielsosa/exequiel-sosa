@@ -80,7 +80,7 @@ export const FooterMobile = () => {
             window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
           }
         >
-          <ImageLn src="/linkedin.svg" />
+          <ImageLn src="/linkedin.svg" alt="linkedin" />
         </Logo>
 
         <Logo
@@ -90,7 +90,7 @@ export const FooterMobile = () => {
             window.open("https://twitter.com/soyexequielsosa", "_blank")
           }
         >
-          <ImageX src="/twitter.svg" />
+          <ImageX src="/twitter.svg" alt="X" />
         </Logo>
         <Logo
           rigth
@@ -98,7 +98,7 @@ export const FooterMobile = () => {
             window.open("https://facebook.com/exequiel.sosa", "_blank")
           }
         >
-          <ImageLogo src="/facebook.svg" />
+          <ImageLogo src="/facebook.svg" alt="facebook" />
         </Logo>
 
         <Logo

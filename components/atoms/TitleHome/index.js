@@ -30,7 +30,7 @@ const Hi = styled.div`
   background: transparent;
 `;
 
-const Name = styled.div`
+const Name = styled.h1`
   color: #e5e9f0;
   font-family: Fira Code;
   font-size: 36px;

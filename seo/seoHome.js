@@ -47,13 +47,29 @@ const SeoHome = () => {
       />
       <meta
         name="twitter:description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team."
+        content="Hi, I'm Exequiel, a proactive professional transitioning from finance/economy to web development. I'm driven by a passion for continuous learning and making a positive impact. Eager to contribute my expertise to my team."
       />
       <meta
         name="twitter:image"
         content="https://www.exequielsosa.com.ar/es.png"
       />
       <meta name="twitter:url" content="https://www.exequielsosa.com.ar" />
+      {/* Schema Markup */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          name: "Exequiel Sosa",
+          jobTitle: "Front-end developer",
+          description:
+            "Proactive and adaptable professional with a passion for web programming.",
+          url: "https://www.exequielsosa.com.ar",
+          sameAs: [
+            "https://www.linkedin.com/in/exequiel",
+            "https://twitter.com/exequiel",
+          ],
+        })}
+      </script>
     </Head>
   );
 };
