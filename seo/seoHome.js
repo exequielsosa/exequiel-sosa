@@ -6,7 +6,7 @@ const SeoHome = () => {
       <title>Exequiel Sosa | Front-end developer</title>
       <meta
         name="description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team."
+        content="Hi, I'm Exequiel, a proactive professional transitioning from finance/economy to web development. I'm driven by a passion for continuous learning and making a positive impact. Eager to contribute my expertise to my team."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index,follow" />
@@ -22,7 +22,7 @@ const SeoHome = () => {
       <meta property="og:title" content="Exequiel Sosa | Front-end developer" />
       <meta
         property="og:description"
-        content="Hi! i'm Exequiel. I am a proactive and adaptable professional with a passion for web programming. Transitioning from finance/economy to development, I am driven by a love for continuous learning and making a positive impact. Each day, I find joy in my work, and I am eager to contribute my expertise to my team."
+        content="Hi, I'm Exequiel, a proactive professional transitioning from finance/economy to web development. I'm driven by a passion for continuous learning and making a positive impact. Eager to contribute my expertise to my team."
       />
       <meta property="og:url" content="https://www.exequielsosa.com.ar" />
       <meta name="title" content="Exequiel Sosa | Front-end developer" />

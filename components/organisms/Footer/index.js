@@ -126,7 +126,7 @@ export const Footer = () => {
             window.open("https://twitter.com/soyexequielsosa", "_blank")
           }
         >
-          <ImageX src="/twitter.svg" />
+          <ImageX src="/twitter.svg" alt="twitter" />
         </Logo>
         <LogoF
           right
@@ -134,7 +134,7 @@ export const Footer = () => {
             window.open("https://facebook.com/exequiel.sosa", "_blank")
           }
         >
-          <ImageLogo src="/facebook.svg" />
+          <ImageLogo src="/facebook.svg" alt="facebook" />
         </LogoF>
         <LogoIn
           right
@@ -142,7 +142,7 @@ export const Footer = () => {
             window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
           }
         >
-          <ImageLogoLnk src="/linkedin.svg" />
+          <ImageLogoLnk src="/linkedin.svg" alt="linkedin" />
         </LogoIn>
       </AlignContent>
       <NoneArea>.</NoneArea>
