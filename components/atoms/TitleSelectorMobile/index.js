@@ -12,7 +12,7 @@ const Layout = styled.div`
   }
 `;
 
-const Name = styled.h1`
+const Name = styled.div`
   color: ${(props) =>
     props.isSelected ? "#fff" : props.isMobile ? "#fff" : "#607b96"};
   font-family: Fira Code;
