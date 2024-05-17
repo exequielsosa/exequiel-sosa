@@ -6,11 +6,13 @@ import LayoutMenuAndFooter from "../components/layouts/LayoutMenuAndFooter";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as gtag from "../gtag";
+import { Loader } from "@/components";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url);
@@ -23,6 +25,13 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -46,10 +55,16 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <GralLayout>
-        <LayoutMenuAndFooter>
-          <Component {...pageProps} />
-          <Analytics />
-        </LayoutMenuAndFooter>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <span data-aos="zoom-in">
+            <LayoutMenuAndFooter>
+              <Component {...pageProps} />
+              <Analytics />
+            </LayoutMenuAndFooter>
+          </span>
+        )}
       </GralLayout>
     </>
   );

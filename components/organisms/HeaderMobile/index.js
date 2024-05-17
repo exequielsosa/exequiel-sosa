@@ -55,6 +55,7 @@ const MenuBtn = styled.img`
   cursor: pointer;
   padding-right: 18px;
   z-index: 10;
+  width: 34px;
 `;
 
 const Name = styled.div`
