@@ -79,6 +79,9 @@ const SeoContact = () => {
           sameAs: ["https://www.linkedin.com/in/exequielsosa/"],
         })}
       </script>
+      <meta name="geo.region" content="AR" />
+      <meta name="geo.placename" content="Ciudad Autónoma de Buenos Aires" />
+      <meta name="geo.position" content="-34.6037,-58.3816" />
     </Head>
   );
 };
