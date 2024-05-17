@@ -167,7 +167,7 @@ export const Header = () => {
           href="/contact-me"
           style={{ background: "transparent", textDecoration: "none" }}
         >
-          <MenuEnd isSelected={route === "/contact-me"}>_contact-me</MenuEnd>
+          <MenuEnd isSelected={route === "/contact-me"}>_contact</MenuEnd>
         </Link>
       </AlignContact>
     </Layout>
