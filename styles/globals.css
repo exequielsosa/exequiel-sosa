@@ -31,8 +31,11 @@
 }
 
 .loading {
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 500;
+  @media (min-width: 425px) {
+    font-size: 4em;
+  }
 }
 .loading > * {
   color: #fff;
