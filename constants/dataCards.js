@@ -70,11 +70,11 @@ export const dataAus = [
 
 export const dataDillon = [
   {
-    nameProject: "estudio-dillon.com",
+    nameProject: "estudio-dillon.com.ar",
     nameDetail: "// _accounting",
     projectDescription: "Accounting firm website",
     url: 'url("estudio.png")',
-    link: "https://www.estudio-dillon.com/",
+    link: "https://www.estudio-dillon.com.ar/",
   },
 ];
 

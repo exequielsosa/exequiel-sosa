@@ -92,7 +92,7 @@ export const MenuProjects = ({
         onChange={onChangeAus}
       />
       <CheckBox
-        label="estudio-dillon.com"
+        label="estudio-dillon.com.ar"
         value={valueDillon}
         checked={valueDillon}
         onChange={onChangeDillon}
