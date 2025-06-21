@@ -90,11 +90,11 @@ export const dataNidit = [
 
 export const dataVeti = [
   {
-    nameProject: "Vetinsure",
+    nameProject: "goLive",
     nameDetail: "// _prisma.io",
     projectDescription: "Insurance policy management system",
-    url: 'url("vetinsure.png")',
-    link: "https://vetinsure.vercel.app/login",
+    url: 'url("golive.png")',
+    link: "https://golive.theroshvengroup.com/login",
   },
 ];
 

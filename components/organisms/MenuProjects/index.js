@@ -106,7 +106,7 @@ export const MenuProjects = ({
         onChange={onChangeNidit}
       />
       <CheckBox
-        label="Vetinsure - Kinsper"
+        label="goLive - Kinsper"
         value={valueVeti}
         checked={valueVeti}
         onChange={onChangeVeti}
