@@ -14,3 +14,4 @@ export * from "./dataCards";
 export * from "./dataMobile";
 export * from "./dataCardsMobile";
 export * from "./dataDanone";
+export * from "./dataVlex";

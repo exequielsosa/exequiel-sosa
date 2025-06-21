@@ -72,6 +72,7 @@ export const AboutMeMenu = ({
   handleClickHobby,
   handleClickProfesional,
   handleClickDanone,
+  handleClickVlex,
   isMobile,
 }) => {
   const { isLl, isLg } = useBreakpoints();
@@ -163,6 +164,12 @@ export const AboutMeMenu = ({
               nameSection="danone"
               handleClick={handleClickDanone}
               active={note === "dataDanone"}
+            />
+            <SectionSelector
+              isMobile={isMobile}
+              nameSection="vlex"
+              handleClick={handleClickVlex}
+              active={note === "dataVlex"}
             />
           </>
         )}

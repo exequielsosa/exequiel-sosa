@@ -45,6 +45,8 @@ export const MenuProjects = ({
   onChangeTruman,
   valueHijos,
   onChangeHijos,
+  valueVlex,
+  onChangeVlex,
   isNoMobile,
 }) => {
   return (
@@ -150,6 +152,12 @@ export const MenuProjects = ({
         value={valueHijos}
         checked={valueHijos}
         onChange={onChangeHijos}
+      />
+      <CheckBox
+        label="Landing Page - Vlex"
+        value={valueVlex}
+        checked={valueVlex}
+        onChange={onChangeVlex}
       />
     </Layout>
   );

@@ -33,6 +33,8 @@ import {
   dataFreelanceMobile,
   dataDanoneCV,
   dataDanoneMobile,
+  dataVlexCV,
+  dataVlexMobile,
 } from "../../../constants";
 import { SnipetsAboutMe } from "../../molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -165,6 +167,7 @@ const AboutMe = () => {
   const dataClear = [];
 
   const { isLg, isLl } = useBreakpoints();
+  console.log("note", note);
 
   return (
     <Layout>
@@ -184,6 +187,7 @@ const AboutMe = () => {
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
               handleClickDanone={() => setNote("dataDanone")}
+              handleClickVlex={() => setNote("dataVlex")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -227,6 +231,8 @@ const AboutMe = () => {
                             ? "developer skills"
                             : note === "dataDanone"
                             ? "danone"
+                            : note === "dataVlex"
+                            ? "vlex"
                             : "freelance"
                         }
                       />
@@ -265,6 +271,8 @@ const AboutMe = () => {
                       ? dataOthers
                       : note === "dataDanone"
                       ? dataDanoneCV
+                      : note === "dataVlex"
+                      ? dataVlexCV
                       : dataFreelance
                   }
                 />
@@ -301,6 +309,7 @@ const AboutMe = () => {
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
               handleClickDanone={() => setNote("dataDanone")}
+              handleClickVlex={() => setNote("dataVlex")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -337,6 +346,8 @@ const AboutMe = () => {
                   ? dataFreelanceMobile
                   : note === "dataDanone"
                   ? dataDanoneMobile
+                  : note === "dataVlex"
+                  ? dataVlexMobile
                   : dataHightMobile
               }
             />

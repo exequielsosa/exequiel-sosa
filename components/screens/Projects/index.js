@@ -23,6 +23,7 @@ import {
   dataTruman,
   dataHijos,
   dataDanone,
+  dataVlex,
 } from "../../../constants/dataCards";
 
 import {
@@ -212,6 +213,7 @@ const Project = () => {
   const [valueDanone, setCheckboxDanone] = useState(false);
   const [valueTruman, setCheckboxTruman] = useState(false);
   const [valueHijos, setCheckboxHijos] = useState(false);
+  const [valueVlex, setCheckboxVlex] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -232,7 +234,8 @@ const Project = () => {
     !valueKualiti &&
     !valueTruman &&
     !valueDanone &&
-    !valueHijos;
+    !valueHijos &&
+    !valueVlex;
 
   const { isLg, isXs } = useBreakpoints();
   return (
@@ -261,6 +264,7 @@ const Project = () => {
                 valueTruman={valueTruman}
                 valueHijos={valueHijos}
                 valueDanone={valueDanone}
+                valueVlex={valueVlex}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -286,6 +290,7 @@ const Project = () => {
                 onChangeDanone={({ target }) => setCheckboxDanone(!valueDanone)}
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
+                onChangeVlex={({ target }) => setCheckboxVlex(!valueVlex)}
               />
             </LayoutMenu>
           </Column>
@@ -431,6 +436,14 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueVlex && (
+                      <SectionProjectCard
+                        sectionName="Vlex"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxVlex(!valueVlex)
+                        }
+                      />
+                    )}
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
@@ -500,6 +513,10 @@ const Project = () => {
                         dataCards={valueHijos && dataHijos}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueVlex && dataVlex}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -536,6 +553,7 @@ const Project = () => {
                 valueDanone={valueDanone}
                 valueTruman={valueTruman}
                 valueHijos={valueHijos}
+                valueVlex={valueVlex}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -561,6 +579,7 @@ const Project = () => {
                 onChangeDanone={({ target }) => setCheckboxDanone(!valueDanone)}
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
+                onChangeVlex={({ target }) => setCheckboxVlex(!valueVlex)}
                 isMobile
               />
             </DivMenu>
@@ -603,6 +622,7 @@ const Project = () => {
                 <CardProject dataCards={valueTruman && dataTruman} />
                 <CardProject dataCards={valueHijos && dataHijos} />
                 <CardProject dataCards={valueDanone && dataDanone} />
+                <CardProject dataCards={valueVlex && dataVlex} />
               </ContainerCardsMobile>
             )}
           </LayoutContainerCardsMobile>

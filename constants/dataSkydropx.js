@@ -2,7 +2,7 @@ export const dataSkydropx = [
   {
     number: "1",
     symbol: "/",
-    text: "**",
+    text: " ** 2022 - 2023",
   },
   {
     number: "2",

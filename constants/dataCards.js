@@ -167,3 +167,13 @@ export const dataHijos = [
     link: "https://www.hijosdelsol.com.ar/",
   },
 ];
+
+export const dataVlex = [
+  {
+    nameProject: "Landing Page - Vlex",
+    nameDetail: "// _legaltech",
+    projectDescription: "Vlex landing page",
+    url: 'url("vlex.png")',
+    link: "https://vlex.com/",
+  },
+];

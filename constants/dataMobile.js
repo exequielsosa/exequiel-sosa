@@ -85,6 +85,13 @@ export const dataFreelanceMobile = [
 export const dataDanoneMobile = [
   {
     title: "Danone",
-    text: "** 2023 - Today\n\n Design of Web and Mobile Apps.\n\n Multinational company specialized in dairy products.\n\n Projects: B2B E-commerce. Usign: NextJs, Hooks, Redux, Figma, Own components lib, Chakra-UI, Emotion, Styled components, Jest & Enzyme, TypeScript, Husky, Cypress E2E Test, Emotion. /",
+    text: "** 2023 - 2024\n\n Design of Web and Mobile Apps.\n\n Multinational company specialized in dairy products.\n\n Projects: B2B E-commerce. Usign: NextJs, Hooks, Redux, Figma, Own components lib, Chakra-UI, Emotion, Styled components, Jest & Enzyme, TypeScript, Husky, Cypress E2E Test, Emotion. /",
+  },
+];
+
+export const dataVlexMobile = [
+  {
+    title: "Vlex",
+    text: "** 2024 - Today\n\n Design of Web and Seo.\n\n Global legaltech company that provides access to legal information and AI-powered tools for legal professionals.\n\n Projects: Landing page, the facade project, and the migration of the platform's infrastructure to Web Components. Usign: Next.js, TypeScript, Web Components, Shoelace, Bootstrap, and Strapi. /",
   },
 ];
