@@ -35,6 +35,8 @@ import {
   dataDanoneMobile,
   dataVlexCV,
   dataVlexMobile,
+  dataBaufestCV,
+  dataBaufestMobile,
 } from "../../../constants";
 import { SnipetsAboutMe } from "../../molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -187,6 +189,7 @@ const AboutMe = () => {
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
               handleClickDanone={() => setNote("dataDanone")}
+              handleClickBaufest={() => setNote("dataBaufest")}
               handleClickVlex={() => setNote("dataVlex")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
@@ -230,7 +233,9 @@ const AboutMe = () => {
                             : note === "dataOthers"
                             ? "developer skills"
                             : note === "dataDanone"
-                            ? "danone"
+                            ? "baufest"
+                            : note === "dataBaufest"
+                            ? "baufest"
                             : note === "dataVlex"
                             ? "vlex"
                             : "freelance"
@@ -273,6 +278,8 @@ const AboutMe = () => {
                       ? dataDanoneCV
                       : note === "dataVlex"
                       ? dataVlexCV
+                      : note === "dataBaufest"
+                      ? dataBaufestCV
                       : dataFreelance
                   }
                 />
@@ -309,6 +316,7 @@ const AboutMe = () => {
               handleClickLapzo={() => setNote("dataLapzo")}
               handleClickFreelance={() => setNote("dataFreelance")}
               handleClickDanone={() => setNote("dataDanone")}
+              handleClickBaufest={() => setNote("dataBaufest")}
               handleClickVlex={() => setNote("dataVlex")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
@@ -348,6 +356,8 @@ const AboutMe = () => {
                   ? dataDanoneMobile
                   : note === "dataVlex"
                   ? dataVlexMobile
+                  : note === "dataBaufest"
+                  ? dataBaufestMobile
                   : dataHightMobile
               }
             />

@@ -122,7 +122,7 @@ const ContactMe = () => {
                   isMobile
                 />
                 <MailTo
-                  href="/ExequielIgnacioSosaResume2024.pdf"
+                  href="/ExequielIgnacioSosaResume2025.pdf"
                   target="_blank"
                 >
                   <ContactSection

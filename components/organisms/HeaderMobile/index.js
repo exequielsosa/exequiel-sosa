@@ -107,7 +107,7 @@ export const HeaderMobile = () => {
           <FinalLayout>
             <ImageLogo src="/wp.svg" alt="al" onClick={handleSubmit} />
             <LinkResume
-              href="/ExequielIgnacioSosaResume2024.pdf"
+              href="/ExequielIgnacioSosaResume2025.pdf"
               target="_blank"
             >
               <ImageResume src="/resume2.svg" alt="al" />

@@ -95,3 +95,10 @@ export const dataVlexMobile = [
     text: "** 2024 - Today\n\n Design of Web and Seo.\n\n Global legaltech company that provides access to legal information and AI-powered tools for legal professionals.\n\n Projects: Landing page, the facade project, and the migration of the platform's infrastructure to Web Components. Usign: Next.js, TypeScript, Web Components, Shoelace, Bootstrap, and Strapi. /",
   },
 ];
+
+export const dataBaufestMobile = [
+  {
+    title: "Baufest (ARSAT Project)",
+    text: "** 2024\n\n Worked on ARSAT’s satellite management console.\n\n A web platform that maps telemetry data and enables online satellite configuration.\n\n Usign: React.js, PrimeReact, Redux, Vue, Lerna, Monorepos, Storybook. /",
+  },
+];

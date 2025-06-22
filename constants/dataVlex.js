@@ -2,7 +2,7 @@ export const dataVlexCV = [
   {
     number: "1",
     symbol: "/",
-    text: "**",
+    text: "** 2024 - Today",
   },
   {
     number: "2",
