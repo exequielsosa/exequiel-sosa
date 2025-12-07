@@ -3,29 +3,29 @@ import Head from "next/head";
 const SeoAbout = () => {
   return (
     <Head>
-      <title>_about-me | Exequiel Sosa | Front-end developer</title>
+      <title>About Me - Exequiel Sosa | Front-end Developer con +4 Años de Experiencia</title>
       <meta
         name="description"
-        content="I'm a proactive professional in web development. Learn more about me."
+        content="Conoce más sobre Exequiel Sosa: Senior Front-end Developer con experiencia en React, Next.js, TypeScript. Mi trayectoria profesional, habilidades técnicas y pasión por crear experiencias web excepcionales."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="robots" content="index,follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href="https://www.exequielsosa.com.ar/about-me" />
 
       <meta property="og:locale" content="en_US" />
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content="profile" />
       <meta
         property="og:site_name"
-        content="_about-me | Exequiel Sosa | Front-end developer"
+        content="Exequiel Sosa - Front-end Developer"
       />
       <meta
         property="og:title"
-        content="_about-me | Exequiel Sosa | Front-end developer"
+        content="About Me - Exequiel Sosa | Senior Front-end Developer"
       />
       <meta
         property="og:description"
-        content="I'm a proactive professional in web development. Learn more about me."
+        content="Senior Front-end Developer especializado en React, Next.js y TypeScript. Conoce mi experiencia, habilidades y proyectos destacados en desarrollo web."
       />
       <meta
         property="og:url"
@@ -33,30 +33,36 @@ const SeoAbout = () => {
       />
       <meta
         name="title"
-        content="_about-me | Exequiel Sosa | Front-end developer"
+        content="About Me - Exequiel Sosa | Front-end Developer"
       />
       <meta
         name="keywords"
-        content="Front, End, Design, User, Interface, Design, JavaScript, Collaboration, HTML, Communication, Skills, Technical, Software Development,
-      User Experience,JQuery,Bootstrap.js,HTML5,Node.js,Collaboration,Back, End,Communication, Skills,Software, Development,Git,Innovation,microFrontEnd,styled,nx,react.Js,nextJs,vercel,developer,front-end,ux,figma,user,experience,web,design,react,native, cv, interest, Desarrollador Front-end, Desarrollo Web, HTML, CSS, JavaScript, Frameworks Front-end, React, Angular, Vue, Diseño Responsivo, Experiencia de Usuario (UX), Diseño Web, Portafolio de Proyectos, Desarrollo de Interfaz de Usuario (UI), Optimización de rendimiento, Accesibilidad Web, Tecnologías Web, Habilidades Técnicas, Desarrollo de Aplicaciones Web, Programación Front-end, Herramientas de Desarrollo, Webpack, Gulp, Responsive Web Design, Front-end y Back-end (Full-stack)"
+        content="Exequiel Sosa sobre mi, Front-end Developer experiencia, React Developer Buenos Aires, desarrollador web Argentina, perfil profesional, habilidades técnicas, experiencia laboral, Senior Developer, TypeScript expert, Next.js specialist, portfolio profesional, CV desarrollador, carrera desarrollo web, formación técnica"
       />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="en_US" />
-      <meta name="author" content="Exequiel Sosa - Front-end developer" />
+      <meta name="language" content="English" />
+      <meta name="author" content="Exequiel Sosa - Senior Front-end Developer" />
+      
+      {/* Open Graph */}
       <meta
         property="og:image"
         content="https://www.exequielsosa.com.ar/es2.png"
       />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Exequiel Sosa - About Me" />
+      
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@soyexequielsosa" />
       <meta name="twitter:creator" content="@soyexequielsosa" />
       <meta
         name="twitter:title"
-        content="_about-me | Exequiel Sosa | Front-end developer"
+        content="About Me - Exequiel Sosa | Senior Front-end Developer"
       />
       <meta
         name="twitter:description"
-        content="I'm a proactive professional in web development. Learn more about me."
+        content="Conoce mi experiencia como Senior Front-end Developer: React, Next.js, TypeScript y más."
       />
       <meta
         name="twitter:image"
@@ -66,17 +72,42 @@ const SeoAbout = () => {
         name="twitter:url"
         content="https://www.exequielsosa.com.ar/about-me"
       />
-      {/* Schema Markup */}
+      
+      {/* Enhanced Schema Markup */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org/",
-          "@type": "Person",
-          name: "Exequiel Sosa",
-          jobTitle: "Front-end developer",
-          description:
-            "Proactive and adaptable professional with a passion for web programming.",
-          url: "https://www.exequielsosa.com.ar",
-          sameAs: ["https://www.linkedin.com/in/exequielsosa/"],
+          "@type": "ProfilePage",
+          mainEntity: {
+            "@type": "Person",
+            name: "Exequiel Sosa",
+            jobTitle: "Senior Front-end Developer",
+            description:
+              "Senior Front-end Developer con experiencia en React, Next.js, TypeScript y desarrollo web moderno. Apasionado por crear aplicaciones web de alto rendimiento y excelente UX.",
+            url: "https://www.exequielsosa.com.ar",
+            image: "https://www.exequielsosa.com.ar/es2.png",
+            sameAs: [
+              "https://www.linkedin.com/in/exequielsosa/",
+              "https://twitter.com/soyexequielsosa",
+              "https://github.com/exequielsosa"
+            ],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Buenos Aires",
+              addressCountry: "AR"
+            },
+            knowsAbout: [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Front-end Development",
+              "Web Development",
+              "UI/UX Design",
+              "Responsive Design",
+              "Performance Optimization"
+            ]
+          }
         })}
       </script>
       <meta name="geo.region" content="AR" />

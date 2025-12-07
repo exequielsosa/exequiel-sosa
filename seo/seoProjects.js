@@ -3,60 +3,66 @@ import Head from "next/head";
 const SeoProjects = () => {
   return (
     <Head>
-      <title>_projects | Exequiel Sosa | Front-end developer</title>
+      <title>Projects - Exequiel Sosa | Portfolio de Proyectos Web React & Next.js</title>
       <meta
         name="description"
-        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
+        content="Explora el portfolio de proyectos de Exequiel Sosa: aplicaciones web desarrolladas con React, Next.js, TypeScript. Proyectos reales para empresas líderes como Danone, Falabella, Skydropx y más."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="robots" content="index,follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
       <link rel="icon" href="/favicon.ico" />
-      <link rel="canonical" href="https://www.exequielsosa.com.ar/about-me" />
+      <link rel="canonical" href="https://www.exequielsosa.com.ar/projects" />
 
       <meta property="og:locale" content="en_US" />
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content="website" />
       <meta
         property="og:site_name"
-        content="_projects | Exequiel Sosa | Front-end developer"
+        content="Exequiel Sosa - Front-end Developer"
       />
       <meta
         property="og:title"
-        content="_projects | Exequiel Sosa | Front-end developer"
+        content="Projects - Exequiel Sosa | Portfolio de Proyectos Web"
       />
       <meta
         property="og:description"
-        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
+        content="Portfolio de proyectos Front-end: aplicaciones web con React, Next.js y TypeScript para empresas destacadas. Casos de éxito y desarrollos profesionales."
       />
       <meta
         property="og:url"
-        content="https://www.exequielsosa.com.ar/about-me"
+        content="https://www.exequielsosa.com.ar/projects"
       />
       <meta
         name="title"
-        content="_projects | Exequiel Sosa | Front-end developer"
+        content="Projects - Exequiel Sosa | Portfolio Front-end Developer"
       />
       <meta
         name="keywords"
-        content="Front, End, Design, User, Interface, Design, JavaScript, Collaboration, HTML, Communication, Skills, Technical, Software Development,
-      User Experience,JQuery,Bootstrap.js,HTML5,Node.js,Collaboration,Back, End,Communication, Skills,Software, Development,Git,Innovation,microFrontEnd,styled,nx,react.Js,nextJs,vercel,developer,front-end,ux,figma,user,experience,web,design,react,native, cv, interest, Desarrollador Front-end, Desarrollo Web, HTML, CSS, JavaScript, Frameworks Front-end, React, Angular, Vue, Diseño Responsivo, Experiencia de Usuario (UX), Diseño Web, Portafolio de Proyectos, Desarrollo de Interfaz de Usuario (UI), Optimización de rendimiento, Accesibilidad Web, Tecnologías Web, Habilidades Técnicas, Desarrollo de Aplicaciones Web, Programación Front-end, Herramientas de Desarrollo, Webpack, Gulp, Responsive Web Design, Front-end y Back-end (Full-stack)"
+        content="portfolio proyectos web, React projects, Next.js projects, TypeScript applications, proyectos Front-end, desarrollos web Argentina, casos de éxito desarrollo web, portfolio desarrollador, aplicaciones empresariales, proyectos React profesionales, web development portfolio, Danone projects, Falabella development, e-commerce projects, enterprise applications"
       />
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="en_US" />
-      <meta name="author" content="Exequiel Sosa - Front-end developer" />
+      <meta name="language" content="English" />
+      <meta name="author" content="Exequiel Sosa - Senior Front-end Developer" />
+      
+      {/* Open Graph */}
       <meta
         property="og:image"
         content="https://www.exequielsosa.com.ar/es2.png"
       />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Exequiel Sosa - Projects Portfolio" />
+      
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@soyexequielsosa" />
       <meta name="twitter:creator" content="@soyexequielsosa" />
       <meta
         name="twitter:title"
-        content="_projects | Exequiel Sosa | Front-end developer"
+        content="Projects - Exequiel Sosa | Portfolio de Proyectos Web"
       />
       <meta
         name="twitter:description"
-        content="I'm a proactive professional in web development. Discover the projects I've collaborated on."
+        content="Portfolio de proyectos Front-end: aplicaciones web con React, Next.js y TypeScript para empresas destacadas."
       />
       <meta
         name="twitter:image"
@@ -64,19 +70,56 @@ const SeoProjects = () => {
       />
       <meta
         name="twitter:url"
-        content="https://www.exequielsosa.com.ar/about-me"
+        content="https://www.exequielsosa.com.ar/projects"
       />
-      {/* Schema Markup */}
+      
+      {/* Enhanced Schema Markup */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org/",
-          "@type": "Person",
-          name: "Exequiel Sosa",
-          jobTitle: "Front-end developer",
+          "@type": "CollectionPage",
+          name: "Projects Portfolio - Exequiel Sosa",
           description:
-            "Proactive and adaptable professional with a passion for web programming.",
-          url: "https://www.exequielsosa.com.ar",
-          sameAs: ["https://www.linkedin.com/in/exequielsosa/"],
+            "Portfolio profesional de proyectos web desarrollados con React, Next.js y TypeScript para empresas líderes.",
+          url: "https://www.exequielsosa.com.ar/projects",
+          author: {
+            "@type": "Person",
+            name: "Exequiel Sosa",
+            jobTitle: "Senior Front-end Developer"
+          },
+          about: {
+            "@type": "CreativeWork",
+            name: "Web Development Projects",
+            description: "Colección de proyectos profesionales de desarrollo Front-end"
+          }
+        })}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Exequiel Sosa Projects",
+          description: "Lista de proyectos destacados de desarrollo web",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Enterprise Web Applications",
+              description: "Proyectos para empresas como Danone, Falabella, Skydropx"
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "E-commerce Solutions",
+              description: "Desarrollo de plataformas de comercio electrónico"
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: "Custom Web Applications",
+              description: "Aplicaciones web personalizadas con React y Next.js"
+            }
+          ]
         })}
       </script>
       <meta name="geo.region" content="AR" />

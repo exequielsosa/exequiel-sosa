@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+ 
+<url>
+  <loc>https://www.exequielsosa.com.ar</loc>
+  <lastmod>2025-12-07</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+  <image:image>
+    <image:loc>https://www.exequielsosa.com.ar/es2.png</image:loc>
+    <image:title>Exequiel Sosa - Front-end Developer</image:title>
+  </image:image>
+</url>
+ 
+<url>
+  <loc>https://www.exequielsosa.com.ar/about-me</loc>
+  <lastmod>2025-12-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <image:image>
+    <image:loc>https://www.exequielsosa.com.ar/es2.png</image:loc>
+    <image:title>About Me - Exequiel Sosa</image:title>
+  </image:image>
+</url>
+ 
+<url>
+  <loc>https://www.exequielsosa.com.ar/projects</loc>
+  <lastmod>2025-12-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <image:image>
+    <image:loc>https://www.exequielsosa.com.ar/es2.png</image:loc>
+    <image:title>Projects Portfolio - Exequiel Sosa</image:title>
+  </image:image>
+</url>
+ 
+<url>
+  <loc>https://www.exequielsosa.com.ar/contact-me</loc>
+  <lastmod>2025-12-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- 
 <url>
-<loc>https://www.exequielsosa.com.ar</loc>
-<priority>1</priority>
-<changefreq>daily</changefreq>
-</url>
- 
-<url>
-<loc>https://www.exequielsosa.com.ar/about-me</loc>
-<priority>0.9</priority>
-<changefreq>daily</changefreq>
-</url>
- 
-<url>
-<loc>https://www.exequielsosa.com.ar/projects</loc>
-<priority>0.9</priority>
-<changefreq>daily</changefreq>
-</url>
- 
-<url>
-<loc>https://www.exequielsosa.com.ar/contact-me</loc>
-<priority>0.9</priority>
-<changefreq>daily</changefreq>
-</url>
-
-<url>
-<loc>https://www.exequielsosa.com.ar/ExequielIgnacioSosaResume2025.pdf</loc>
-<priority>0.9</priority>
-<changefreq>daily</changefreq>
+  <loc>https://www.exequielsosa.com.ar/ExequielIgnacioSosaResume2024.pdf</loc>
+  <lastmod>2025-12-07</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
 </url>
 
 </urlset>

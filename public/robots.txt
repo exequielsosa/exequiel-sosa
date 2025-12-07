@@ -1,7 +1,22 @@
-User-Agent: Googlebot
-Disallow:
-Allow: /
+# Robots.txt for exequielsosa.com.ar
+# Optimizado para SEO
+
+# Allow all search engines
 User-agent: *
+Allow: /
+Disallow: /api/
 
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
 
+# Specific rules for Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Crawl delay (optional)
+Crawl-delay: 5
+
+# Sitemap location
 Sitemap: https://www.exequielsosa.com.ar/sitemap.xml
