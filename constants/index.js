@@ -16,3 +16,4 @@ export * from "./dataCardsMobile";
 export * from "./dataDanone";
 export * from "./dataVlex";
 export * from "./dataBaufest";
+export * from "./dataMeli";

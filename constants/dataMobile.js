@@ -92,7 +92,7 @@ export const dataDanoneMobile = [
 export const dataVlexMobile = [
   {
     title: "Vlex",
-    text: "** 2024 - Today\n\n Design of Web and Seo.\n\n Global legaltech company that provides access to legal information and AI-powered tools for legal professionals.\n\n Projects: Landing page, the facade project, and the migration of the platform's infrastructure to Web Components. Usign: Next.js, TypeScript, Web Components, Shoelace, Bootstrap, and Strapi. /",
+    text: "** 2024 - 2025\n\n Design of Web and Seo.\n\n Global legaltech company that provides access to legal information and AI-powered tools for legal professionals.\n\n Projects: Landing page, the facade project, and the migration of the platform's infrastructure to Web Components. Usign: Next.js, TypeScript, Web Components, Shoelace, Bootstrap, and Strapi. /",
   },
 ];
 
@@ -100,5 +100,12 @@ export const dataBaufestMobile = [
   {
     title: "Baufest (ARSAT Project)",
     text: "** 2024\n\n Worked on ARSAT’s satellite management console.\n\n A web platform that maps telemetry data and enables online satellite configuration.\n\n Usign: React.js, PrimeReact, Redux, Vue, Lerna, Monorepos, Storybook. /",
+  },
+];
+
+export const dataMeliMobile = [
+  {
+    title: "Meli",
+    text: "** 2024 - Today\n\n Senior Frontend Developer\n\n Working at Latin America’s leading e-commerce\n\n and fintech ecosystem, as part of the Supermarket &\n\n Proximity team.\n\n Focused on building scalable, high-performance\n\n user interfaces using React, TypeScript, Storybook,\n\n SCSS (BEM), Jest, and end-to-end testing.\n\n Skills: SSR, TypeScript, SCSS / BEM,\n\n Jest, React, E2E Testing.",
   },
 ];

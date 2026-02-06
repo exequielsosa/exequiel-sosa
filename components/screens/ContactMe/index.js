@@ -122,7 +122,7 @@ const ContactMe = () => {
                   isMobile
                 />
                 <MailTo
-                  href="/ExequielIgnacioSosaResume2025.pdf"
+                  href="/ExequielIgnacioSosaResume2026.pdf"
                   target="_blank"
                 >
                   <ContactSection
@@ -155,7 +155,7 @@ const ContactMe = () => {
                   handleClick={() =>
                     window.open(
                       "https://linkedin.com/in/exequielsosa",
-                      "_blank"
+                      "_blank",
                     )
                   }
                   isMobile

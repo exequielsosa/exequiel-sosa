@@ -39,7 +39,7 @@ export const ContactMe = () => {
         isMobile
       />
       <DivLayout>
-        <MailTo href="/ExequielIgnacioSosaResume2025.pdf" target="_blank">
+        <MailTo href="/ExequielIgnacioSosaResume2026.pdf" target="_blank">
           <ContactSection title="download my resume" icon="/resume.svg" />
         </MailTo>
       </DivLayout>

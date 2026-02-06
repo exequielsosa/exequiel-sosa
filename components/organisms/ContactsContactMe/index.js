@@ -49,7 +49,7 @@ export const ContactsContactMe = () => {
             window.open("https://wa.me/541158959825", "_blank")
           }
         />
-        <MailTo href="/ExequielIgnacioSosaResume2025.pdf" target="_blank">
+        <MailTo href="/ExequielIgnacioSosaResume2026.pdf" target="_blank">
           <ContactSection title="download my resume" icon="/resume.svg" />
         </MailTo>
         <TitleSection title="find-me-also-in" isProject isComplete />

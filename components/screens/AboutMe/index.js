@@ -37,6 +37,8 @@ import {
   dataVlexMobile,
   dataBaufestCV,
   dataBaufestMobile,
+  dataMeli,
+  dataMeliMobile,
 } from "../../../constants";
 import { SnipetsAboutMe } from "../../molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -191,6 +193,7 @@ const AboutMe = () => {
               handleClickDanone={() => setNote("dataDanone")}
               handleClickBaufest={() => setNote("dataBaufest")}
               handleClickVlex={() => setNote("dataVlex")}
+              handleClickMeli={() => setNote("dataMeli")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -213,32 +216,34 @@ const AboutMe = () => {
                           note === "dataAboutMe"
                             ? "about-me"
                             : note === "dataFalabella"
-                            ? "falabella financiero"
-                            : note === "dataKinsper"
-                            ? "kinsper"
-                            : note === "dataSkydropx"
-                            ? "skydropx"
-                            : note === "dataLapzo"
-                            ? "lapzo"
-                            : note === "dataHardware"
-                            ? "computer-hardware"
-                            : note === "dataMusic"
-                            ? "music"
-                            : note === "dataFamily"
-                            ? "family"
-                            : note === "dataHight"
-                            ? "hight-school"
-                            : note === "dataUniversity"
-                            ? "university"
-                            : note === "dataOthers"
-                            ? "developer skills"
-                            : note === "dataDanone"
-                            ? "baufest"
-                            : note === "dataBaufest"
-                            ? "baufest"
-                            : note === "dataVlex"
-                            ? "vlex"
-                            : "freelance"
+                              ? "falabella financiero"
+                              : note === "dataKinsper"
+                                ? "kinsper"
+                                : note === "dataSkydropx"
+                                  ? "skydropx"
+                                  : note === "dataLapzo"
+                                    ? "lapzo"
+                                    : note === "dataHardware"
+                                      ? "computer-hardware"
+                                      : note === "dataMusic"
+                                        ? "music"
+                                        : note === "dataFamily"
+                                          ? "family"
+                                          : note === "dataHight"
+                                            ? "hight-school"
+                                            : note === "dataUniversity"
+                                              ? "university"
+                                              : note === "dataOthers"
+                                                ? "developer skills"
+                                                : note === "dataDanone"
+                                                  ? "baufest"
+                                                  : note === "dataBaufest"
+                                                    ? "baufest"
+                                                    : note === "dataVlex"
+                                                      ? "vlex"
+                                                      : note === "dataMeli"
+                                                        ? "meli"
+                                                        : "freelance"
                         }
                       />
                       <SectionCard
@@ -253,34 +258,36 @@ const AboutMe = () => {
                     note === "dataAboutMe"
                       ? dataAboutMe
                       : note === "dataFalabella"
-                      ? dataFalabella
-                      : note === "dataKinsper"
-                      ? dataKinsper
-                      : note === "dataSkydropx"
-                      ? dataSkydropx
-                      : note === "dataLapzo"
-                      ? dataLapzo
-                      : note === "dataClear"
-                      ? dataClear
-                      : note === "dataMusic"
-                      ? dataMusic
-                      : note === "dataHardware"
-                      ? dataHardware
-                      : note === "dataFamily"
-                      ? dataFamily
-                      : note === "dataHight"
-                      ? dataHight
-                      : note === "dataUniversity"
-                      ? dataUniversity
-                      : note === "dataOthers"
-                      ? dataOthers
-                      : note === "dataDanone"
-                      ? dataDanoneCV
-                      : note === "dataVlex"
-                      ? dataVlexCV
-                      : note === "dataBaufest"
-                      ? dataBaufestCV
-                      : dataFreelance
+                        ? dataFalabella
+                        : note === "dataKinsper"
+                          ? dataKinsper
+                          : note === "dataSkydropx"
+                            ? dataSkydropx
+                            : note === "dataLapzo"
+                              ? dataLapzo
+                              : note === "dataClear"
+                                ? dataClear
+                                : note === "dataMusic"
+                                  ? dataMusic
+                                  : note === "dataHardware"
+                                    ? dataHardware
+                                    : note === "dataFamily"
+                                      ? dataFamily
+                                      : note === "dataHight"
+                                        ? dataHight
+                                        : note === "dataUniversity"
+                                          ? dataUniversity
+                                          : note === "dataOthers"
+                                            ? dataOthers
+                                            : note === "dataDanone"
+                                              ? dataDanoneCV
+                                              : note === "dataVlex"
+                                                ? dataVlexCV
+                                                : note === "dataBaufest"
+                                                  ? dataBaufestCV
+                                                  : note === "dataMeli"
+                                                    ? dataMeli
+                                                    : dataFreelance
                   }
                 />
               </TextAreaLayout>
@@ -318,6 +325,7 @@ const AboutMe = () => {
               handleClickDanone={() => setNote("dataDanone")}
               handleClickBaufest={() => setNote("dataBaufest")}
               handleClickVlex={() => setNote("dataVlex")}
+              handleClickMeli={() => setNote("dataMeli")}
               handleClickHardware={() => setNote("dataHardware")}
               handleClickMusic={() => setNote("dataMusic")}
               handleClickFamily={() => setNote("dataFamily")}
@@ -333,32 +341,34 @@ const AboutMe = () => {
                 note === "dataUniversity"
                   ? dataUniversityMobile
                   : note === "dataOthers"
-                  ? dataOthersMobile
-                  : note === "dataHardware"
-                  ? dataHardwareMobile
-                  : note === "dataMusic"
-                  ? dataMusicMobile
-                  : note === "dataFamily"
-                  ? dataFamilyMobile
-                  : note === "dataAboutMe"
-                  ? dataAboutMeMobile
-                  : note === "dataFalabella"
-                  ? dataFalabellaMobile
-                  : note === "dataKinsper"
-                  ? dataKinsperMobile
-                  : note === "dataSkydropx"
-                  ? dataSkydropxMobile
-                  : note === "dataLapzo"
-                  ? dataLapzoMobile
-                  : note === "dataFreelance"
-                  ? dataFreelanceMobile
-                  : note === "dataDanone"
-                  ? dataDanoneMobile
-                  : note === "dataVlex"
-                  ? dataVlexMobile
-                  : note === "dataBaufest"
-                  ? dataBaufestMobile
-                  : dataHightMobile
+                    ? dataOthersMobile
+                    : note === "dataHardware"
+                      ? dataHardwareMobile
+                      : note === "dataMusic"
+                        ? dataMusicMobile
+                        : note === "dataFamily"
+                          ? dataFamilyMobile
+                          : note === "dataAboutMe"
+                            ? dataAboutMeMobile
+                            : note === "dataFalabella"
+                              ? dataFalabellaMobile
+                              : note === "dataKinsper"
+                                ? dataKinsperMobile
+                                : note === "dataSkydropx"
+                                  ? dataSkydropxMobile
+                                  : note === "dataLapzo"
+                                    ? dataLapzoMobile
+                                    : note === "dataFreelance"
+                                      ? dataFreelanceMobile
+                                      : note === "dataDanone"
+                                        ? dataDanoneMobile
+                                        : note === "dataVlex"
+                                          ? dataVlexMobile
+                                          : note === "dataBaufest"
+                                            ? dataBaufestMobile
+                                            : note === "dataMeli"
+                                              ? dataMeliMobile
+                                              : dataHightMobile
               }
             />
             <ContactMe isMobile />

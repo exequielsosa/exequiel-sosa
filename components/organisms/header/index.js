@@ -158,7 +158,7 @@ export const Header = () => {
           <ImageLogo src="wp.svg" alt="img" />
         </MenuEndWp>
         <MenuEndResume
-          href="/ExequielIgnacioSosaResume2025.pdf"
+          href="/ExequielIgnacioSosaResume2026.pdf"
           target="_blank"
         >
           <ImageLogoResume src="resume2.svg" alt="img" />

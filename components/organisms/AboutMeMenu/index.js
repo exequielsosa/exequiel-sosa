@@ -74,6 +74,7 @@ export const AboutMeMenu = ({
   handleClickDanone,
   handleClickVlex,
   handleClickBaufest,
+  handleClickMeli,
   isMobile,
 }) => {
   const { isLl, isLg } = useBreakpoints();
@@ -178,6 +179,12 @@ export const AboutMeMenu = ({
               handleClick={handleClickVlex}
               active={note === "dataVlex"}
             />
+            <SectionSelector
+              isMobile={isMobile}
+              nameSection="meli"
+              handleClick={handleClickMeli}
+              active={note === "dataMeli"}
+            />
           </>
         )}
         {isLl || isLg ? (
@@ -273,7 +280,7 @@ export const AboutMeMenu = ({
                 window.open("https://wa.me/541158959825", "_blank")
               }
             />
-            <MailTo href="/ExequielIgnacioSosaResume2025.pdf" target="_blank">
+            <MailTo href="/ExequielIgnacioSosaResume2026.pdf" target="_blank">
               <ContactSection title="download my resume" icon="/resume.svg" />
             </MailTo>
           </>
