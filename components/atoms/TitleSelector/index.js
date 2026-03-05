@@ -10,6 +10,7 @@ const Layout = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 13px;
+  align-items: center;
   &:hover {
     cursor: pointer;
   }
