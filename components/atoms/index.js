@@ -8,3 +8,4 @@ export * from "./TitleCard";
 export * from "./SectionProjectCard";
 export * from "./Inputs";
 export * from "./TitleSelectorMobile";
+export * from "./VisuallyHidden";

@@ -3,10 +3,10 @@ import Head from "next/head";
 const SeoContact = () => {
   return (
     <Head>
-      <title>Contact Me - Exequiel Sosa | Contactar Desarrollador Front-end React</title>
+      <title>Contact — Hire Exequiel Sosa | Senior React & Next.js Developer</title>
       <meta
         name="description"
-        content="¿Necesitas un desarrollador Front-end experto en React y Next.js? Contacta a Exequiel Sosa para proyectos de desarrollo web, consultoría técnica o colaboraciones profesionales en Buenos Aires, Argentina."
+        content="Need a Senior Front-end Developer with React, Next.js and TypeScript expertise? Get in touch with Exequiel Sosa for web development projects, technical consulting and remote collaborations from Buenos Aires, Argentina."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
@@ -17,32 +17,22 @@ const SeoContact = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:site_name"
-        content="Exequiel Sosa - Front-end Developer"
+        content="Exequiel Sosa — Front-end Developer"
       />
       <meta
         property="og:title"
-        content="Contact Me - Exequiel Sosa | Desarrollador Front-end"
+        content="Contact — Hire Exequiel Sosa | Senior Front-end Developer"
       />
       <meta
         property="og:description"
-        content="Contacta a Exequiel Sosa para proyectos de desarrollo Front-end con React, Next.js y TypeScript. Disponible para freelance y colaboraciones."
+        content="Get in touch with Exequiel Sosa for Front-end development projects with React, Next.js and TypeScript. Available for freelance and remote collaborations."
       />
       <meta
         property="og:url"
         content="https://www.exequielsosa.com.ar/contact-me"
       />
-      <meta
-        name="title"
-        content="Contact Me - Exequiel Sosa | Front-end Developer"
-      />
-      <meta
-        name="keywords"
-        content="contactar desarrollador Front-end, contratar React developer, desarrollador freelance Argentina, consultor web Buenos Aires, contacto desarrollador Next.js, hire Front-end developer, servicios desarrollo web, contacto profesional, developer for hire, React freelancer, web developer contact, colaboraciones desarrollo web"
-      />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English" />
-      <meta name="author" content="Exequiel Sosa - Senior Front-end Developer" />
-      
+      <meta name="author" content="Exequiel Sosa" />
+
       {/* Open Graph */}
       <meta
         property="og:image"
@@ -50,19 +40,19 @@ const SeoContact = () => {
       />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Contact Exequiel Sosa - Front-end Developer" />
-      
+      <meta property="og:image:alt" content="Contact Exequiel Sosa — Front-end Developer" />
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@soyexequielsosa" />
       <meta name="twitter:creator" content="@soyexequielsosa" />
       <meta
         name="twitter:title"
-        content="Contact Me - Exequiel Sosa | Front-end Developer"
+        content="Contact — Hire Exequiel Sosa | Senior Front-end Developer"
       />
       <meta
         name="twitter:description"
-        content="Contacta a Exequiel Sosa para proyectos de desarrollo Front-end con React, Next.js y TypeScript."
+        content="Get in touch for Front-end development projects with React, Next.js and TypeScript."
       />
       <meta
         name="twitter:image"
@@ -72,7 +62,29 @@ const SeoContact = () => {
         name="twitter:url"
         content="https://www.exequielsosa.com.ar/contact-me"
       />
-      
+
+      {/* Breadcrumb Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://www.exequielsosa.com.ar"
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Contact",
+              item: "https://www.exequielsosa.com.ar/contact-me"
+            }
+          ]
+        })}
+      </script>
+
       {/* Enhanced Schema Markup */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -80,7 +92,7 @@ const SeoContact = () => {
           "@type": "ContactPage",
           name: "Contact Exequiel Sosa",
           description:
-            "Página de contacto para consultas profesionales, proyectos de desarrollo web y colaboraciones.",
+            "Contact page for professional inquiries, web development projects and collaborations.",
           url: "https://www.exequielsosa.com.ar/contact-me",
           mainEntity: {
             "@type": "Person",

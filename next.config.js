@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+
+  // SWC compiler config (reemplaza babel-plugin-styled-components)
+  compiler: {
+    styledComponents: {
+      ssr: true,
+      displayName: true,
+    },
+  },
+
   // Configuración de i18n para SEO
   i18n: {
     locales: ['en'],

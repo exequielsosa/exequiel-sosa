@@ -4,7 +4,7 @@ import {
   DisplayMobileInfoAboutMe,
   ContactMe,
 } from "@/components/organisms";
-import { SectionCard, TextTable, TitleCard } from "@/components/atoms";
+import { SectionCard, TextTable, TitleCard, VisuallyHiddenH1 } from "@/components/atoms";
 import { useState } from "react";
 import {
   dataAboutMe,
@@ -175,6 +175,9 @@ const AboutMe = () => {
 
   return (
     <Layout>
+      <VisuallyHiddenH1>
+        About Me — Exequiel Sosa, Front-end Developer in Buenos Aires
+      </VisuallyHiddenH1>
       {isLg || isLl ? (
         <>
           <Column>

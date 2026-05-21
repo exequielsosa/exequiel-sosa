@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ContactsContactMe, FormContact } from "@/components/organisms/";
 import { ImagesContacts } from "@/components/molecules/";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
-import { TitleSelectorMobile } from "@/components/atoms";
+import { TitleSelectorMobile, VisuallyHiddenH1 } from "@/components/atoms";
 import { ContactSection } from "@/components/molecules";
 import { useState } from "react";
 
@@ -82,6 +82,9 @@ const ContactMe = () => {
 
   return (
     <Layout>
+      <VisuallyHiddenH1>
+        Contact — Hire a Senior Front-end Developer
+      </VisuallyHiddenH1>
       {isLg || isLl || isMd ? (
         <>
           <ContactsContactMe />

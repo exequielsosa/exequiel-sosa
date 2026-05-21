@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleHome, HomeSnipets } from "@/components/atoms";
+import { TitleHome, HomeSnipets, VisuallyHiddenH1 } from "@/components/atoms";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const ImageBlurBlue = styled.img`
@@ -125,6 +125,9 @@ const Home = () => {
   const { isLg } = useBreakpoints();
   return (
     <>
+      <VisuallyHiddenH1>
+        Senior Front-end Developer — React, Next.js & TypeScript
+      </VisuallyHiddenH1>
       {isLg ? (
         <Layout>
           <Column></Column>

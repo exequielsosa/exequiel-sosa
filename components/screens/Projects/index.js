@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { MenuProjects, EmptyState } from "@/components/organisms";
-import { SectionProjectCard, TitleSelectorMobile } from "@/components/atoms";
+import { SectionProjectCard, TitleSelectorMobile, VisuallyHiddenH1 } from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -240,6 +240,9 @@ const Project = () => {
   const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
+      <VisuallyHiddenH1>
+        Projects — React & Next.js Portfolio
+      </VisuallyHiddenH1>
       {isLg ? (
         <>
           <Column>

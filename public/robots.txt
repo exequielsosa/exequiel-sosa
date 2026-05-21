@@ -15,8 +15,5 @@ Disallow: /api/
 User-agent: Googlebot-Image
 Allow: /
 
-# Crawl delay (optional)
-Crawl-delay: 5
-
 # Sitemap location
 Sitemap: https://www.exequielsosa.com.ar/sitemap.xml

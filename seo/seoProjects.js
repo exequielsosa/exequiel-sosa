@@ -3,10 +3,10 @@ import Head from "next/head";
 const SeoProjects = () => {
   return (
     <Head>
-      <title>Projects - Exequiel Sosa | Portfolio de Proyectos Web React & Next.js</title>
+      <title>Projects — Exequiel Sosa | React & Next.js Portfolio</title>
       <meta
         name="description"
-        content="Explora el portfolio de proyectos de Exequiel Sosa: aplicaciones web desarrolladas con React, Next.js, TypeScript. Proyectos reales para empresas líderes como Danone, Falabella, Skydropx y más."
+        content="Explore Exequiel Sosa's portfolio of web applications built with React, Next.js and TypeScript — including real-world work for companies like Danone, Falabella, Skydropx, MercadoLibre and more."
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -17,32 +17,22 @@ const SeoProjects = () => {
       <meta property="og:type" content="website" />
       <meta
         property="og:site_name"
-        content="Exequiel Sosa - Front-end Developer"
+        content="Exequiel Sosa — Front-end Developer"
       />
       <meta
         property="og:title"
-        content="Projects - Exequiel Sosa | Portfolio de Proyectos Web"
+        content="Projects — Exequiel Sosa | React & Next.js Portfolio"
       />
       <meta
         property="og:description"
-        content="Portfolio de proyectos Front-end: aplicaciones web con React, Next.js y TypeScript para empresas destacadas. Casos de éxito y desarrollos profesionales."
+        content="Front-end portfolio: web applications built with React, Next.js and TypeScript for leading companies. Real-world case studies and shipped products."
       />
       <meta
         property="og:url"
         content="https://www.exequielsosa.com.ar/projects"
       />
-      <meta
-        name="title"
-        content="Projects - Exequiel Sosa | Portfolio Front-end Developer"
-      />
-      <meta
-        name="keywords"
-        content="portfolio proyectos web, React projects, Next.js projects, TypeScript applications, proyectos Front-end, desarrollos web Argentina, casos de éxito desarrollo web, portfolio desarrollador, aplicaciones empresariales, proyectos React profesionales, web development portfolio, Danone projects, Falabella development, e-commerce projects, enterprise applications"
-      />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English" />
-      <meta name="author" content="Exequiel Sosa - Senior Front-end Developer" />
-      
+      <meta name="author" content="Exequiel Sosa" />
+
       {/* Open Graph */}
       <meta
         property="og:image"
@@ -50,19 +40,19 @@ const SeoProjects = () => {
       />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Exequiel Sosa - Projects Portfolio" />
-      
+      <meta property="og:image:alt" content="Exequiel Sosa — Projects Portfolio" />
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@soyexequielsosa" />
       <meta name="twitter:creator" content="@soyexequielsosa" />
       <meta
         name="twitter:title"
-        content="Projects - Exequiel Sosa | Portfolio de Proyectos Web"
+        content="Projects — Exequiel Sosa | React & Next.js Portfolio"
       />
       <meta
         name="twitter:description"
-        content="Portfolio de proyectos Front-end: aplicaciones web con React, Next.js y TypeScript para empresas destacadas."
+        content="Front-end portfolio: real-world web apps with React, Next.js and TypeScript for leading companies."
       />
       <meta
         name="twitter:image"
@@ -72,15 +62,37 @@ const SeoProjects = () => {
         name="twitter:url"
         content="https://www.exequielsosa.com.ar/projects"
       />
-      
+
+      {/* Breadcrumb Schema */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://www.exequielsosa.com.ar"
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Projects",
+              item: "https://www.exequielsosa.com.ar/projects"
+            }
+          ]
+        })}
+      </script>
+
       {/* Enhanced Schema Markup */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org/",
           "@type": "CollectionPage",
-          name: "Projects Portfolio - Exequiel Sosa",
+          name: "Projects Portfolio — Exequiel Sosa",
           description:
-            "Portfolio profesional de proyectos web desarrollados con React, Next.js y TypeScript para empresas líderes.",
+            "Professional portfolio of web projects built with React, Next.js and TypeScript for leading companies.",
           url: "https://www.exequielsosa.com.ar/projects",
           author: {
             "@type": "Person",
@@ -90,7 +102,7 @@ const SeoProjects = () => {
           about: {
             "@type": "CreativeWork",
             name: "Web Development Projects",
-            description: "Colección de proyectos profesionales de desarrollo Front-end"
+            description: "Collection of professional Front-end development projects."
           }
         })}
       </script>
@@ -99,25 +111,25 @@ const SeoProjects = () => {
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Exequiel Sosa Projects",
-          description: "Lista de proyectos destacados de desarrollo web",
+          description: "List of featured web development projects.",
           itemListElement: [
             {
               "@type": "ListItem",
               position: 1,
               name: "Enterprise Web Applications",
-              description: "Proyectos para empresas como Danone, Falabella, Skydropx"
+              description: "Projects for companies like Danone, Falabella and Skydropx."
             },
             {
               "@type": "ListItem",
               position: 2,
               name: "E-commerce Solutions",
-              description: "Desarrollo de plataformas de comercio electrónico"
+              description: "Development of e-commerce platforms."
             },
             {
               "@type": "ListItem",
               position: 3,
               name: "Custom Web Applications",
-              description: "Aplicaciones web personalizadas con React y Next.js"
+              description: "Tailored web applications built with React and Next.js."
             }
           ]
         })}

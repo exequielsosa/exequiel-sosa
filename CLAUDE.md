@@ -10,11 +10,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Framework:** Next.js 13.4.4 (Pages Router)
 - **UI Library:** React 18.2.0
-- **Styling:** styled-components 6.0.5 + PostCSS + Autoprefixer
-- **Analytics:** Google Analytics (gtag) + Vercel Analytics
+- **Styling:** styled-components — declarado como `^6.0.5` en `dependencies` pero **pinneado a v5** vía `resolutions` en `package.json`. La API en uso es la de v5; no migrar a sintaxis v6 sin remover esa resolution primero.
+- **Analytics:** Google Analytics (gtag, ID hardcodeado en [gtag.js](gtag.js)) + Vercel Analytics
 - **Animations:** AOS (Animate On Scroll)
-- **Email:** nodemailer (for contact form)
+- **Email:** nodemailer (formulario de contacto)
 - **Utilities:** react-device-detect (responsive detection)
+- **Package manager:** yarn (hay `yarn.lock` versionado — preferirlo sobre npm para mantener consistencia con el lockfile).
 
 ## Architecture & Project Structure
 
@@ -49,14 +50,23 @@ exequiel-sosa/
 │   ├── seoAbout.js
 │   ├── seoProjects.js
 │   └── seoContact.js
+├── hooks/                     # Custom React hooks
+│   └── useBreakpoints.js      # Responsive breakpoints hook
+├── lib/                       # Cliente HTTP / helpers de fetching
+│   └── api.js
+├── config/                    # Configuración fuera del runtime de Next
+│   └── nodemailer.js          # Transporte de email (usado por /api/contact)
+├── templates/                 # Plantillas HTML (no son páginas)
+│   └── email.html             # Template del correo enviado por el contact form
 ├── styles/                    # Global CSS
 │   └── globals.css
 ├── public/                    # Static assets (images, SVGs)
-├── next.config.js             # Next.js configuration (SEO headers, image optimization)
+├── next.config.js             # Next.js configuration (SEO headers, image optimization, i18n)
 ├── postcss.config.js          # PostCSS configuration
 ├── jsconfig.json              # Path aliases (@/*)
 ├── .eslintrc.json             # ESLint rules (extends next/core-web-vitals)
 ├── gtag.js                    # Google Analytics tracking functions
+├── SEO-IMPROVEMENTS.md        # Bitácora detallada de las mejoras de SEO aplicadas
 └── package.json               # Dependencies
 
 ```
@@ -64,23 +74,23 @@ exequiel-sosa/
 ## Common Development Commands
 
 ```bash
-# Install dependencies
-npm install  # or yarn install
+# Install dependencies (preferir yarn por el yarn.lock versionado)
+yarn install      # o: npm install
 
 # Run development server
-npm run dev
+yarn dev          # o: npm run dev
 
 # Build for production
-npm build
+yarn build        # o: npm run build
 
 # Start production server
-npm start
+yarn start        # o: npm start
 
 # Lint code
-npm run lint
+yarn lint         # o: npm run lint
 
 # Run linter with auto-fix
-npm run lint -- --fix
+yarn lint --fix   # o: npm run lint -- --fix
 ```
 
 ## Key Architectural Patterns
@@ -128,14 +138,28 @@ Using Next.js Pages Router (not App Router):
 - Import styled at top of file: `import styled from "styled-components"`
 
 ### Contact Form API Route
-- Form submission goes to `pages/api/contact.js`
-- Uses nodemailer to send emails
-- Handle both request/response and error cases
+El flujo del formulario de contacto está partido en tres archivos:
+1. `pages/api/contact.js` — handler de la API route que recibe el POST.
+2. `config/nodemailer.js` — configuración del transporte (credenciales/SMTP). Es el lugar correcto donde tocar para cambiar el remitente o el provider, no la API route.
+3. `templates/email.html` — plantilla HTML del cuerpo del correo. Editar acá para cambiar la estética del mail recibido.
 
 ### Animation with AOS
 - Initialized in `_app.js` with `Aos.init({ duration: 2000 })`
 - Applied to components using `data-aos="[animation-type]"` attribute
 - Common animations: `zoom-in`, `fade-up`, `slide-left`, etc.
+
+### Splash Loader inicial (importante)
+[pages/_app.js](pages/_app.js) monta un `<Loader />` durante 3500ms al primer render del cliente (`setTimeout` en useEffect) antes de renderizar el contenido real. Es intencional, no un bug. Si una página parece "no cargar" al hacer cambios, considerar que ese delay sigue activo. Para desactivarlo en desarrollo, bajar el timer o saltearlo con un flag.
+
+### Path aliases
+[jsconfig.json](jsconfig.json) define `@/*` apuntando a la raíz del proyecto. Ejemplos en uso:
+- `import "@/styles/globals.css"`
+- `import { Loader } from "@/components"`
+
+Preferir el alias sobre rutas relativas largas (`../../../`).
+
+### i18n
+[next.config.js](next.config.js) tiene `i18n: { locales: ['en'], defaultLocale: 'en' }`. El sitio es monolingüe (inglés) a nivel routing; el contenido en pantalla puede estar en español pero las URLs no llevan prefijo de locale.
 
 ### Image Assets
 - Located in `public/` folder (directly accessible at `/[filename]`)
@@ -174,8 +198,8 @@ From `next.config.js`:
 ## Configuration & Customization
 
 ### Environment Variables
-- Google Analytics ID in `gtag.js` (line 1)
-- Email configuration in `pages/api/contact.js` (if needed for nodemailer)
+- Google Analytics ID hardcodeado en [gtag.js](gtag.js) (no usa `process.env`).
+- Configuración SMTP / credenciales del email en [config/nodemailer.js](config/nodemailer.js). Si en algún momento se mueven a variables de entorno, deben quedar en `.env.local` (no commitear).
 
 ### Adding Global Styles
 Edit `styles/globals.css` for site-wide CSS changes
@@ -201,10 +225,12 @@ Current ESLint config extends `next/core-web-vitals` (basic Next.js best practic
 
 Portfolio completamente funcional con:
 - ✅ 4 páginas principales (Home, About Me, Projects, Contact)
-- ✅ 8+ proyectos showcaseados (Baufest, Danone, Falabella, Kinsper, Lapzo, SkyDropx, Vlex, Meli)
-- ✅ SEO optimizado por página
+- ✅ Proyectos profesionales en `constants/`: Baufest, Danone, Falabella, Kinsper, Lapzo, Skydropx, Vlex, Meli
+- ✅ Datos personales / sección About Me: AboutMe, Family, Freelance, Hardware, Hight, Mobile, Music, Others, University
+- ✅ SEO optimizado por página (ver [SEO-IMPROVEMENTS.md](SEO-IMPROVEMENTS.md) para el detalle de cambios y keywords)
 - ✅ Animaciones AOS
-- ✅ Sistema de contacto con nodemailer
+- ✅ Sistema de contacto con nodemailer (API route + transporte en `config/` + template en `templates/`)
 - ✅ Analytics (Google + Vercel)
-- ✅ Responsive design
+- ✅ Responsive design (hook `useBreakpoints` + media queries en styled-components)
 - ✅ Security headers y optimizaciones de rendimiento
+- ✅ Splash inicial de 3.5s con `<Loader />` antes del primer render
