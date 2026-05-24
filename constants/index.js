@@ -17,3 +17,4 @@ export * from "./dataDanone";
 export * from "./dataVlex";
 export * from "./dataBaufest";
 export * from "./dataMeli";
+export * from "./dataBlogMock";

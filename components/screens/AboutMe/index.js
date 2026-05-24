@@ -4,7 +4,12 @@ import {
   DisplayMobileInfoAboutMe,
   ContactMe,
 } from "@/components/organisms";
-import { SectionCard, TextTable, TitleCard, VisuallyHiddenH1 } from "@/components/atoms";
+import {
+  SectionCard,
+  TextTable,
+  TitleCard,
+  VisuallyHiddenH1,
+} from "@/components/atoms";
 import { useState } from "react";
 import {
   dataAboutMe,
@@ -52,6 +57,7 @@ const Layout = styled.div`
   border-right: 1px solid rgba(96, 123, 150, 0.4);
   @media (min-width: 1440px) {
     min-height: 720px;
+    max-height: 720px;
   }
 `;
 
@@ -65,6 +71,7 @@ const Column = styled.div`
   }
   @media (min-width: 1440px) {
     min-height: 720px;
+    max-height: 720px;
     width: 24%;
   }
 `;
@@ -80,6 +87,7 @@ const Body = styled.div`
   @media (min-width: 1440px) {
     flex-direction: row;
     min-height: 720px;
+    max-height: 720px;
   }
 `;
 

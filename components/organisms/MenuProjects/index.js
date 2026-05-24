@@ -7,7 +7,20 @@ const Layout = styled.div`
   flex-direction: column;
   background: transparent;
   margin-left: ${(props) => props.isNoMobile && "22px"};
-  padding-top: ${(props) => props.isNoMobile && "8px"};
+  overflow-y: ${(props) => (props.isNoMobile ? "auto" : "visible")};
+  @media (min-width: 1440px) {
+    width: 94%;
+    max-height: 645px;
+    margin-top: 14px;
+    &::-webkit-scrollbar {
+      width: 26px;
+      border: 1px solid #1e2d3d;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(96, 123, 150, 0.1);
+      height: 20px;
+    }
+  }
 `;
 
 export const MenuProjects = ({

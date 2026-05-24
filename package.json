@@ -6,23 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "blog:generate": "node scripts/scrape-blog.mjs",
+    "blog:generate:dry": "node scripts/scrape-blog.mjs --dry-run",
+    "blog:seed": "node scripts/scrape-blog.mjs --count=6 --seed",
+    "blog:seed:dry": "node scripts/scrape-blog.mjs --count=6 --seed --dry-run"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.106.1",
     "@vercel/analytics": "^1.0.1",
+    "aos": "^2.3.4",
     "autoprefixer": "10.4.14",
     "eslint": "8.42.0",
     "eslint-config-next": "14.2.35",
     "next": "14.2.35",
+    "nodemailer": "^6.9.12",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
-    "nodemailer": "^6.9.12",
-    "aos": "^2.3.4",
     "styled-components": "^6.0.5"
   },
   "resolutions": {
     "styled-components": "^5"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "groq-sdk": "^1.2.0",
+    "rss-parser": "^3.13.0"
   }
 }

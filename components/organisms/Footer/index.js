@@ -110,6 +110,7 @@ const Image = styled.img`
 `;
 
 const NoneArea = styled.div`
+  background-color: transparent;
   background-image: url("grid2.png");
   display: flex;
   width: 59%;

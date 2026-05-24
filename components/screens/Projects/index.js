@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { MenuProjects, EmptyState } from "@/components/organisms";
-import { SectionProjectCard, TitleSelectorMobile, VisuallyHiddenH1 } from "@/components/atoms";
+import {
+  SectionProjectCard,
+  TitleSelectorMobile,
+  VisuallyHiddenH1,
+} from "@/components/atoms";
 import { useState } from "react";
 import { CardProject, TitleSection } from "@/components/molecules";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
@@ -52,6 +56,10 @@ const LayoutMenu = styled.div`
   min-height: 720px;
   background: transparent;
   flex-direction: column;
+  @media (min-width: 1440px) {
+    min-height: 720px;
+    max-height: 720px;
+  }
 `;
 
 const Layout = styled.div`
@@ -61,6 +69,10 @@ const Layout = styled.div`
   background: transparent;
   border-left: 1px solid rgba(96, 123, 150, 0.4);
   border-right: 1px solid rgba(96, 123, 150, 0.4);
+  @media (min-width: 1440px) {
+    min-height: 720px;
+    max-height: 720px;
+  }
 `;
 
 const Column = styled.div`
@@ -68,6 +80,10 @@ const Column = styled.div`
   min-height: 720px;
   display: flex;
   background: #011627;
+  @media (min-width: 1440px) {
+    min-height: 720px;
+    max-height: 720px;
+  }
 `;
 
 const Body = styled.div`
@@ -77,6 +93,10 @@ const Body = styled.div`
   background: transparent;
   background-image: url("grid2.png");
   background-color: #011627;
+  @media (min-width: 1440px) {
+    min-height: 720px;
+    max-height: 720px;
+  }
 `;
 
 const LayoutBody = styled.div`
@@ -91,6 +111,10 @@ const TextAreaLayout = styled.div`
   flex-direction: column;
   width: 100%;
   min-height: 720px;
+  @media (min-width: 1440px) {
+    min-height: 720px;
+    max-height: 720px;
+  }
 `;
 
 const ContainerNameSection = styled.div`
@@ -119,7 +143,6 @@ const ContainerCards = styled.div`
   margin-right: 32px;
   max-width: 90%;
   flex-wrap: wrap;
-  max-height: 600px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     width: 26px;
@@ -128,6 +151,9 @@ const ContainerCards = styled.div`
   &::-webkit-scrollbar-thumb {
     background: rgba(96, 123, 150, 0.1);
     height: 20px;
+  }
+  @media (min-width: 1440px) {
+    max-height: 645px;
   }
 `;
 
@@ -174,6 +200,9 @@ const ContainerTags = styled.div`
   &::-webkit-scrollbar-thumb {
     background: rgba(96, 123, 150, 0.1);
     height: 5px;
+  }
+  @media (min-width: 1440px) {
+    min-height: 42px;
   }
 `;
 
@@ -240,9 +269,7 @@ const Project = () => {
   const { isLg, isXs } = useBreakpoints();
   return (
     <Layout>
-      <VisuallyHiddenH1>
-        Projects — React & Next.js Portfolio
-      </VisuallyHiddenH1>
+      <VisuallyHiddenH1>Projects — React & Next.js Portfolio</VisuallyHiddenH1>
       {isLg ? (
         <>
           <Column>

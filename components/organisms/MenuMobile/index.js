@@ -86,6 +86,14 @@ export const MenuMobile = ({ out, onClose, ref }) => {
         </ContainerTag>
       </Link>
       <Link
+        href="/blog"
+        style={{ background: "transparent", textDecoration: "none" }}
+      >
+        <ContainerTag selected={route.startsWith("/blog")} onClick={onClose}>
+          _blog
+        </ContainerTag>
+      </Link>
+      <Link
         href="/contact-me"
         style={{ background: "transparent", textDecoration: "none" }}
       >

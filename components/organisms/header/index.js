@@ -31,7 +31,8 @@ const Layout = styled.div`
 
 const Name = styled.h1`
   padding: 18px 22px;
-  width: 24%;
+  flex: 0 0 auto;
+  min-width: 220px;
   border-right: 1px solid rgba(96, 123, 150, 0.4);
   color: rgba(96, 123, 150, 1);
   font-weight: 500px;
@@ -101,15 +102,17 @@ const MenuEndResume = styled.a`
 const AlignContent = styled.div`
   background-image: url("grid2.png");
   display: flex;
-  width: 59%;
+  flex: 1 1 auto;
+  min-width: 0;
   background-color: transparent;
 `;
 
 const AlignContact = styled.div`
   display: flex;
-  width: 17%;
+  flex: 0 0 auto;
   background-color: transparent;
   justify-content: flex-end;
+  margin-left: auto;
 `;
 
 export const Header = () => {
@@ -152,16 +155,22 @@ export const Header = () => {
         >
           <MenuCenter isSelected={route === "/projects"}>_projects</MenuCenter>
         </Link>
+        <Link
+          href="/blog"
+          style={{ background: "transparent", textDecoration: "none" }}
+        >
+          <MenuCenter isSelected={route.startsWith("/blog")}>_blog</MenuCenter>
+        </Link>
       </AlignContent>
       <AlignContact>
         <MenuEndWp onClick={handleSubmit}>
-          <ImageLogo src="wp.svg" alt="img" />
+          <ImageLogo src="/wp.svg" alt="WhatsApp" />
         </MenuEndWp>
         <MenuEndResume
           href="/ExequielIgnacioSosaResume2026.pdf"
           target="_blank"
         >
-          <ImageLogoResume src="resume2.svg" alt="img" />
+          <ImageLogoResume src="/resume2.svg" alt="Resume" />
         </MenuEndResume>
         <Link
           href="/contact-me"

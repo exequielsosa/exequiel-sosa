@@ -9,3 +9,4 @@ export * from "./SectionProjectCard";
 export * from "./Inputs";
 export * from "./TitleSelectorMobile";
 export * from "./VisuallyHidden";
+export * from "./BlogCard";
