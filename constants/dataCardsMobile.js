@@ -117,3 +117,14 @@ export const dataClaraMobile = [
     link: "https://www.claramuzzio.com.ar",
   },
 ];
+
+export const dataAyuscolMobile = [
+  {
+    nameProject: "Ayuscol",
+    nameDetail: "// _school-management",
+    projectDescription:
+      "Centralizes students, assessments, family communication and reports.",
+    url: 'url("ayuscol.jpg")',
+    link: "https://ayuscol.com.ar/",
+  },
+];

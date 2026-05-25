@@ -28,6 +28,7 @@ import {
   dataHijos,
   dataDanone,
   dataVlex,
+  dataAyuscol,
 } from "../../../constants/dataCards";
 
 import {
@@ -36,6 +37,7 @@ import {
   dataLapzoCardsMobile,
   dataNiditMobile,
   dataVetiMobile,
+  dataAyuscolMobile,
 } from "../../../constants/dataCardsMobile";
 
 const TitleMobile = styled.div`
@@ -243,6 +245,7 @@ const Project = () => {
   const [valueTruman, setCheckboxTruman] = useState(false);
   const [valueHijos, setCheckboxHijos] = useState(false);
   const [valueVlex, setCheckboxVlex] = useState(false);
+  const [valueAyuscol, setCheckboxAyuscol] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -264,7 +267,8 @@ const Project = () => {
     !valueTruman &&
     !valueDanone &&
     !valueHijos &&
-    !valueVlex;
+    !valueVlex &&
+    !valueAyuscol;
 
   const { isLg, isXs } = useBreakpoints();
   return (
@@ -295,6 +299,7 @@ const Project = () => {
                 valueHijos={valueHijos}
                 valueDanone={valueDanone}
                 valueVlex={valueVlex}
+                valueAyuscol={valueAyuscol}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -321,6 +326,9 @@ const Project = () => {
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
                 onChangeVlex={({ target }) => setCheckboxVlex(!valueVlex)}
+                onChangeAyuscol={({ target }) =>
+                  setCheckboxAyuscol(!valueAyuscol)
+                }
               />
             </LayoutMenu>
           </Column>
@@ -474,6 +482,14 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueAyuscol && (
+                      <SectionProjectCard
+                        sectionName="Ayuscol"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxAyuscol(!valueAyuscol)
+                        }
+                      />
+                    )}
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
@@ -547,6 +563,10 @@ const Project = () => {
                         dataCards={valueVlex && dataVlex}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueAyuscol && dataAyuscol}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -584,6 +604,7 @@ const Project = () => {
                 valueTruman={valueTruman}
                 valueHijos={valueHijos}
                 valueVlex={valueVlex}
+                valueAyuscol={valueAyuscol}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -610,6 +631,9 @@ const Project = () => {
                 onChangeTruman={({ target }) => setCheckboxTruman(!valueTruman)}
                 onChangeHijos={({ target }) => setCheckboxHijos(!valueHijos)}
                 onChangeVlex={({ target }) => setCheckboxVlex(!valueVlex)}
+                onChangeAyuscol={({ target }) =>
+                  setCheckboxAyuscol(!valueAyuscol)
+                }
                 isMobile
               />
             </DivMenu>
@@ -653,6 +677,11 @@ const Project = () => {
                 <CardProject dataCards={valueHijos && dataHijos} />
                 <CardProject dataCards={valueDanone && dataDanone} />
                 <CardProject dataCards={valueVlex && dataVlex} />
+                <CardProject
+                  dataCards={
+                    valueAyuscol && (isXs ? dataAyuscolMobile : dataAyuscol)
+                  }
+                />
               </ContainerCardsMobile>
             )}
           </LayoutContainerCardsMobile>

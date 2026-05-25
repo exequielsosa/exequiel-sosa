@@ -177,3 +177,13 @@ export const dataVlex = [
     link: "https://vlex.com/",
   },
 ];
+
+export const dataAyuscol = [
+  {
+    nameProject: "Ayuscol",
+    nameDetail: "// _school-management",
+    projectDescription: "Centralizes students, assessments and reports.",
+    url: 'url("ayuscol.jpg")',
+    link: "https://ayuscol.com.ar/",
+  },
+];

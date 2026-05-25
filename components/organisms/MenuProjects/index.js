@@ -60,6 +60,8 @@ export const MenuProjects = ({
   onChangeHijos,
   valueVlex,
   onChangeVlex,
+  valueAyuscol,
+  onChangeAyuscol,
   isNoMobile,
 }) => {
   return (
@@ -171,6 +173,12 @@ export const MenuProjects = ({
         value={valueVlex}
         checked={valueVlex}
         onChange={onChangeVlex}
+      />
+      <CheckBox
+        label="Ayuscol - custom-xs"
+        value={valueAyuscol}
+        checked={valueAyuscol}
+        onChange={onChangeAyuscol}
       />
     </Layout>
   );
