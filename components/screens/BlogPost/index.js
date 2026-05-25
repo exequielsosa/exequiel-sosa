@@ -248,7 +248,9 @@ const Content = styled.div`
   }
   /* Shiki emits <pre class="shiki ..."> with its own background-color and
      text color inline. We keep those (the github-dark theme matches the
-     site's dark palette) and only add our frame: border, radius, padding. */
+     site's dark palette) and only add our frame: border, radius, padding.
+     width: fit-content + max-width: 100% makes the block shrink to the
+     longest line instead of stretching to the full article width. */
   pre {
     border: 1px solid rgba(96, 123, 150, 0.3);
     border-radius: 6px;
@@ -257,6 +259,8 @@ const Content = styled.div`
     margin: 0 0 18px;
     font-size: 13px;
     line-height: 1.6;
+    width: fit-content;
+    max-width: 100%;
   }
   pre code,
   pre code * {
