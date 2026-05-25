@@ -1,6 +1,7 @@
+import { useMemo, useState } from "react";
 import styled from "styled-components";
 import { BlogList } from "@/components/organisms";
-import { VisuallyHiddenH1 } from "@/components/atoms";
+import { VisuallyHiddenH1, BlogCategoryFilter } from "@/components/atoms";
 
 const Layout = styled.div`
   width: 100%;
@@ -58,6 +59,24 @@ const Subtitle = styled.p`
   }
 `;
 
+// Bottom row of the header: subtitle on the left, category filter chips on
+// the right. Stacks vertically below 1440px; side-by-side at desktop only.
+const SubtitleRow = styled.div`
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+`;
+
 const Body = styled.div`
   background: transparent;
   display: flex;
@@ -77,6 +96,26 @@ const Body = styled.div`
 `;
 
 const Blog = ({ posts = [] }) => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // Derive the available categories (name + count) from the posts that
+  // actually exist. Sorted by count desc, then alphabetically.
+  const categories = useMemo(() => {
+    const counts = new Map();
+    for (const p of posts) {
+      if (!p.category) continue;
+      counts.set(p.category, (counts.get(p.category) || 0) + 1);
+    }
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  }, [posts]);
+
+  const filteredPosts = useMemo(() => {
+    if (!selectedCategory) return posts;
+    return posts.filter((p) => p.category === selectedCategory);
+  }, [posts, selectedCategory]);
+
   return (
     <Layout>
       <VisuallyHiddenH1>
@@ -85,13 +124,21 @@ const Blog = ({ posts = [] }) => {
       <Header>
         <Tag>_blog</Tag>
         <Title>{"// Notes on Front-end engineering"}</Title>
-        <Subtitle>
-          Thoughts and explorations on React, Next.js, TypeScript, performance
-          and the tools I use every day. New post every week.
-        </Subtitle>
+        <SubtitleRow>
+          <Subtitle>
+            Thoughts and explorations on React, Next.js, TypeScript,
+            performance and the tools I use every day. New post every week.
+          </Subtitle>
+          <BlogCategoryFilter
+            categories={categories}
+            selected={selectedCategory}
+            onSelect={setSelectedCategory}
+            totalCount={posts.length}
+          />
+        </SubtitleRow>
       </Header>
       <Body>
-        <BlogList posts={posts} />
+        <BlogList posts={filteredPosts} />
       </Body>
     </Layout>
   );

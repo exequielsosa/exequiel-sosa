@@ -340,7 +340,7 @@ Format requirements (STRICT):
     "title": "60-80 char SEO title in English",
     "description": "140-160 char meta description in English",
     "slug": "kebab-case-slug-30-50-chars",
-    "content": "HTML body, minimum 500 words. Use <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <code>, <pre><code>, <blockquote>. No <h1> (the title is rendered separately). No inline styles. No external image tags.",
+    "content": "HTML body, minimum 500 words. Use <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <code>, <pre><code>, <blockquote>. No <h1> (the title is rendered separately). No inline styles. No external image tags. IMPORTANT: every code block MUST declare its language via a class on the <code> element using this exact format: <pre><code class=\"language-jsx\">...</code></pre>. Use one of: javascript, typescript, jsx, tsx, json, html, css, bash, markdown.",
     ${categoryLine},
     "tags": ["3-5 lowercase tags, no spaces, no #"],
     "image_alt": "Concise descriptive alt text for a hero image (max 100 chars)"

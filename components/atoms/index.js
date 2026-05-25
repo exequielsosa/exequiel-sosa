@@ -10,3 +10,6 @@ export * from "./Inputs";
 export * from "./TitleSelectorMobile";
 export * from "./VisuallyHidden";
 export * from "./BlogCard";
+export * from "./BlogCategoryFilter";
+export * from "./TableOfContents";
+export * from "./SharePost";

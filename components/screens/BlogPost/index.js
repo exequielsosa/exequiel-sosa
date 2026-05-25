@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import { BlogCard } from "@/components/atoms";
+import { BlogCard, TableOfContents, SharePost } from "@/components/atoms";
+import { useCopyCodeButtons } from "../../../hooks/useCopyCodeButtons";
 
 const Layout = styled.div`
   width: 100%;
@@ -50,6 +52,7 @@ const Container = styled.article`
     margin: 24px 0 0 0;
     padding: 0px 32px 64px 0;
     overflow-y: auto;
+    scroll-behavior: smooth;
     &::-webkit-scrollbar {
       width: 26px;
       border: 1px solid #1e2d3d;
@@ -58,6 +61,10 @@ const Container = styled.article`
       background: rgba(96, 123, 150, 0.1);
       height: 20px;
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
   }
 `;
 
@@ -122,16 +129,56 @@ const Description = styled.p`
   margin: 0 0 32px;
 `;
 
+// Wrapper that puts the hero image and the TOC side-by-side on desktop
+// (50/50 split) and stacks them on smaller screens (image on top, TOC below).
+const HeroRow = styled.div`
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+  width: 100%;
+
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+`;
+
+const HeroSide = styled.div`
+  background: transparent;
+  width: 100%;
+  display: flex;
+
+  @media (min-width: 1440px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+`;
+
+const TocSide = styled.div`
+  background: transparent;
+  width: 100%;
+  display: flex;
+
+  @media (min-width: 1440px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-height: 0;
+  }
+`;
+
 const Hero = styled.img`
   background: transparent;
   width: 100%;
   max-height: 420px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 32px;
   border: 1px solid rgba(96, 123, 150, 0.4);
+
   @media (min-width: 1440px) {
-    width: 60%;
+    height: 100%;
+    max-height: none;
   }
 `;
 
@@ -199,18 +246,64 @@ const Content = styled.div`
     border-radius: 4px;
     font-size: 0.9em;
   }
+  /* Shiki emits <pre class="shiki ..."> with its own background-color and
+     text color inline. We keep those (the github-dark theme matches the
+     site's dark palette) and only add our frame: border, radius, padding. */
   pre {
-    background: rgba(1, 22, 39, 0.6);
     border: 1px solid rgba(96, 123, 150, 0.3);
     border-radius: 6px;
     padding: 16px;
     overflow-x: auto;
     margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  pre code,
+  pre code * {
+    /* globals.css applies background to every element via *. We need to
+       neutralize it for every token span inside the code block, otherwise
+       each <span> shows up as a black rectangle behind its token. */
+    background: transparent !important;
   }
   pre code {
-    background: transparent;
     padding: 0;
-    color: #e5e9f0;
+    /* color comes from Shiki's per-token <span> styles */
+  }
+  /* Highlighted line container — Shiki wraps each line in <span class="line"> */
+  pre code .line {
+    display: block;
+  }
+
+  /* Copy button injected by useCopyCodeButtons. Sits in the top-right of
+     each <pre>. The <pre> gets position: relative inline by the hook. */
+  .code-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(96, 123, 150, 0.15);
+    color: #607b96;
+    border: 1px solid rgba(96, 123, 150, 0.4);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-family: Fira Code, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+  .code-copy-btn:hover {
+    color: #43d9ad;
+    border-color: #43d9ad;
+    background: rgba(67, 217, 173, 0.1);
+  }
+  .code-copy-btn[data-copied="true"] {
+    color: #43d9ad;
+    border-color: #43d9ad;
+    background: rgba(67, 217, 173, 0.15);
   }
   a {
     background: transparent;
@@ -323,7 +416,12 @@ const formatDate = (iso) => {
   });
 };
 
-const BlogPost = ({ post, relatedPosts = [] }) => {
+const BlogPost = ({ post, relatedPosts = [], toc = [], readingTime = 0 }) => {
+  const contentRef = useRef(null);
+  // Use the slug as the effect key so the buttons are re-injected when the
+  // user navigates between posts (Next.js keeps the component mounted).
+  useCopyCodeButtons(contentRef, post?.slug);
+
   if (!post) return null;
   return (
     <Layout>
@@ -338,18 +436,32 @@ const BlogPost = ({ post, relatedPosts = [] }) => {
             {post.published_at && (
               <DateLabel>{formatDate(post.published_at)}</DateLabel>
             )}
+            {readingTime > 0 && (
+              <DateLabel>· {readingTime} min read</DateLabel>
+            )}
           </Meta>
 
           <Title>{post.title}</Title>
 
           {post.description && <Description>{post.description}</Description>}
 
-          {post.image_url && (
-            <Hero
-              src={post.image_url}
-              alt={post.image_alt || post.title}
-              loading="eager"
-            />
+          {(post.image_url || toc.length > 0) && (
+            <HeroRow>
+              {post.image_url && (
+                <HeroSide>
+                  <Hero
+                    src={post.image_url}
+                    alt={post.image_alt || post.title}
+                    loading="eager"
+                  />
+                </HeroSide>
+              )}
+              {toc.length > 0 && (
+                <TocSide>
+                  <TableOfContents items={toc} />
+                </TocSide>
+              )}
+            </HeroRow>
           )}
 
           {post.tags?.length > 0 && (
@@ -360,7 +472,10 @@ const BlogPost = ({ post, relatedPosts = [] }) => {
             </Tags>
           )}
 
-          <Content dangerouslySetInnerHTML={{ __html: post.content }} />
+          <Content
+            ref={contentRef}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
 
           {post.source_url && (
             <SourceRow>
@@ -370,6 +485,8 @@ const BlogPost = ({ post, relatedPosts = [] }) => {
               </a>
             </SourceRow>
           )}
+
+          <SharePost post={post} />
         </Container>
 
         {relatedPosts.length > 0 && (

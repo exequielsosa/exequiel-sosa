@@ -1,22 +1,44 @@
 import BlogPost from "../../components/screens/BlogPost";
 import SeoBlogPost from "@/seo/seoBlogPost";
 import { supabasePublic } from "@/lib/supabase";
+import { extractTocAndAugment, calcReadingTime } from "@/lib/blogToc";
+import { highlightCodeBlocks } from "@/lib/blogHighlight";
 import {
   dataBlogMock,
   findMockPostBySlug,
   getRelatedMockPosts,
 } from "@/constants/dataBlogMock";
 
-export default function BlogPostPage({ post, relatedPosts }) {
+export default function BlogPostPage({ post, relatedPosts, toc, readingTime }) {
   if (!post) return null;
   return (
     <>
       <SeoBlogPost post={post} />
       <main>
-        <BlogPost post={post} relatedPosts={relatedPosts} />
+        <BlogPost
+          post={post}
+          relatedPosts={relatedPosts}
+          toc={toc}
+          readingTime={readingTime}
+        />
       </main>
     </>
   );
+}
+
+// Augment the post's HTML in 3 steps:
+//   1. Run syntax highlighting (Shiki) on every <pre><code> block.
+//   2. Inject stable ids on every <h2> and build the TOC index.
+//   3. Pre-compute the reading time from the resulting HTML.
+//
+// Order matters: Shiki runs first so the TOC parser only sees the final
+// HTML (the highlighter doesn't touch h2 anyway, but doing it in this
+// order means the html we measure for reading time matches what we render).
+async function withToc(post) {
+  const highlighted = await highlightCodeBlocks(post.content);
+  const { html, toc } = extractTocAndAugment(highlighted);
+  const readingTime = calcReadingTime(html);
+  return { post: { ...post, content: html }, toc, readingTime };
 }
 
 const POST_DETAIL_FIELDS = "*";
@@ -50,10 +72,16 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   if (!supabasePublic) {
-    const post = findMockPostBySlug(slug);
-    if (!post) return { notFound: true, revalidate: 60 };
+    const found = findMockPostBySlug(slug);
+    if (!found) return { notFound: true, revalidate: 60 };
+    const { post, toc, readingTime } = await withToc(found);
     return {
-      props: { post, relatedPosts: getRelatedMockPosts(slug) },
+      props: {
+        post,
+        relatedPosts: getRelatedMockPosts(slug),
+        toc,
+        readingTime,
+      },
       revalidate: 60,
     };
   }
@@ -97,8 +125,10 @@ export async function getStaticProps({ params }) {
     related = [...related, ...(fill || [])];
   }
 
+  const { post: postWithToc, toc, readingTime } = await withToc(post);
+
   return {
-    props: { post, relatedPosts: related },
+    props: { post: postWithToc, relatedPosts: related, toc, readingTime },
     revalidate: 60,
   };
 }
