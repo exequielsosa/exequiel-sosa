@@ -29,6 +29,11 @@ import {
   dataDanone,
   dataVlex,
   dataAyuscol,
+  dataCall2Santa,
+  dataMegadeth,
+  dataBabyMetal,
+  dataGhost,
+  dataAlinea,
 } from "../../../constants/dataCards";
 
 import {
@@ -38,6 +43,11 @@ import {
   dataNiditMobile,
   dataVetiMobile,
   dataAyuscolMobile,
+  dataCall2SantaMobile,
+  dataMegadethMobile,
+  dataBabyMetalMobile,
+  dataGhostMobile,
+  dataAlineaMobile,
 } from "../../../constants/dataCardsMobile";
 
 const TitleMobile = styled.div`
@@ -246,6 +256,11 @@ const Project = () => {
   const [valueHijos, setCheckboxHijos] = useState(false);
   const [valueVlex, setCheckboxVlex] = useState(false);
   const [valueAyuscol, setCheckboxAyuscol] = useState(false);
+  const [valueCall2Santa, setCheckboxCall2Santa] = useState(false);
+  const [valueMegadeth, setCheckboxMegadeth] = useState(false);
+  const [valueBabyMetal, setCheckboxBabyMetal] = useState(false);
+  const [valueGhost, setCheckboxGhost] = useState(false);
+  const [valueAlinea, setCheckboxAlinea] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -268,7 +283,12 @@ const Project = () => {
     !valueDanone &&
     !valueHijos &&
     !valueVlex &&
-    !valueAyuscol;
+    !valueAyuscol &&
+    !valueCall2Santa &&
+    !valueMegadeth &&
+    !valueBabyMetal &&
+    !valueGhost &&
+    !valueAlinea;
 
   const { isLg, isXs } = useBreakpoints();
   return (
@@ -300,6 +320,11 @@ const Project = () => {
                 valueDanone={valueDanone}
                 valueVlex={valueVlex}
                 valueAyuscol={valueAyuscol}
+                valueCall2Santa={valueCall2Santa}
+                valueMegadeth={valueMegadeth}
+                valueBabyMetal={valueBabyMetal}
+                valueGhost={valueGhost}
+                valueAlinea={valueAlinea}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -329,6 +354,17 @@ const Project = () => {
                 onChangeAyuscol={({ target }) =>
                   setCheckboxAyuscol(!valueAyuscol)
                 }
+                onChangeCall2Santa={({ target }) =>
+                  setCheckboxCall2Santa(!valueCall2Santa)
+                }
+                onChangeMegadeth={({ target }) =>
+                  setCheckboxMegadeth(!valueMegadeth)
+                }
+                onChangeBabyMetal={({ target }) =>
+                  setCheckboxBabyMetal(!valueBabyMetal)
+                }
+                onChangeGhost={({ target }) => setCheckboxGhost(!valueGhost)}
+                onChangeAlinea={({ target }) => setCheckboxAlinea(!valueAlinea)}
               />
             </LayoutMenu>
           </Column>
@@ -490,6 +526,46 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueCall2Santa && (
+                      <SectionProjectCard
+                        sectionName="Call2Santa"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxCall2Santa(!valueCall2Santa)
+                        }
+                      />
+                    )}
+                    {valueMegadeth && (
+                      <SectionProjectCard
+                        sectionName="Megadeth"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxMegadeth(!valueMegadeth)
+                        }
+                      />
+                    )}
+                    {valueBabyMetal && (
+                      <SectionProjectCard
+                        sectionName="BabyMetal"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxBabyMetal(!valueBabyMetal)
+                        }
+                      />
+                    )}
+                    {valueGhost && (
+                      <SectionProjectCard
+                        sectionName="Ghost"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxGhost(!valueGhost)
+                        }
+                      />
+                    )}
+                    {valueAlinea && (
+                      <SectionProjectCard
+                        sectionName="Alinea"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxAlinea(!valueAlinea)
+                        }
+                      />
+                    )}
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
@@ -567,6 +643,26 @@ const Project = () => {
                         dataCards={valueAyuscol && dataAyuscol}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueCall2Santa && dataCall2Santa}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueMegadeth && dataMegadeth}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueBabyMetal && dataBabyMetal}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueGhost && dataGhost}
+                        isNoMobile
+                      />
+                      <CardProject
+                        dataCards={valueAlinea && dataAlinea}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -605,6 +701,11 @@ const Project = () => {
                 valueHijos={valueHijos}
                 valueVlex={valueVlex}
                 valueAyuscol={valueAyuscol}
+                valueCall2Santa={valueCall2Santa}
+                valueMegadeth={valueMegadeth}
+                valueBabyMetal={valueBabyMetal}
+                valueGhost={valueGhost}
+                valueAlinea={valueAlinea}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -634,6 +735,17 @@ const Project = () => {
                 onChangeAyuscol={({ target }) =>
                   setCheckboxAyuscol(!valueAyuscol)
                 }
+                onChangeCall2Santa={({ target }) =>
+                  setCheckboxCall2Santa(!valueCall2Santa)
+                }
+                onChangeMegadeth={({ target }) =>
+                  setCheckboxMegadeth(!valueMegadeth)
+                }
+                onChangeBabyMetal={({ target }) =>
+                  setCheckboxBabyMetal(!valueBabyMetal)
+                }
+                onChangeGhost={({ target }) => setCheckboxGhost(!valueGhost)}
+                onChangeAlinea={({ target }) => setCheckboxAlinea(!valueAlinea)}
                 isMobile
               />
             </DivMenu>
@@ -680,6 +792,33 @@ const Project = () => {
                 <CardProject
                   dataCards={
                     valueAyuscol && (isXs ? dataAyuscolMobile : dataAyuscol)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueCall2Santa &&
+                    (isXs ? dataCall2SantaMobile : dataCall2Santa)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueMegadeth && (isXs ? dataMegadethMobile : dataMegadeth)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueBabyMetal &&
+                    (isXs ? dataBabyMetalMobile : dataBabyMetal)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueGhost && (isXs ? dataGhostMobile : dataGhost)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueAlinea && (isXs ? dataAlineaMobile : dataAlinea)
                   }
                 />
               </ContainerCardsMobile>

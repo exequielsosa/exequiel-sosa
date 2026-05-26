@@ -11,7 +11,14 @@ const LayoutCard = styled.div`
 `;
 
 const LayoutImage = styled.div`
-  background: ${(props) => props.url};
+  /* Solid fallback color for images with transparency (logos with alpha
+     channel) so the corner gets a uniform dark background instead of
+     showing whatever is behind. */
+  background-color: #011627;
+  background-image: ${(props) => props.url};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 145px;
   opacity: 0.9;
   border-radius: 15px 15px 0px 0px;

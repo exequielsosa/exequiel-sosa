@@ -128,3 +128,54 @@ export const dataAyuscolMobile = [
     link: "https://ayuscol.com.ar/",
   },
 ];
+
+export const dataCall2SantaMobile = [
+  {
+    nameProject: "Call2Santa",
+    nameDetail: "// _christmas",
+    projectDescription: "Write a free letter to Santa Claus online.",
+    url: 'url("logoCallToSantaHeader.png")',
+    link: "https://www.call2santa.com/",
+  },
+];
+
+export const dataMegadethMobile = [
+  {
+    nameProject: "Megadeth",
+    nameDetail: "// _music",
+    projectDescription: "Fan site of the legendary metal band.",
+    url: 'url("megadeth.avif")',
+    link: "https://megadeth.com.ar/",
+  },
+];
+
+export const dataBabyMetalMobile = [
+  {
+    nameProject: "BabyMetal",
+    nameDetail: "// _music",
+    projectDescription: "Fan site of the Kawaii Metal band.",
+    url: 'url("babymetal.avif")',
+    link: "https://babymetal.com.ar/",
+  },
+];
+
+export const dataGhostMobile = [
+  {
+    nameProject: "Ghost",
+    nameDetail: "// _music",
+    projectDescription: "Swedish theatrical rock band fan site.",
+    url: 'url("ghost.avif")',
+    link: "https://ghostband.com.ar/",
+  },
+];
+
+// TODO: add the live link when Alinea-App is published.
+export const dataAlineaMobile = [
+  {
+    nameProject: "Alinea-App",
+    nameDetail: "// _accounting-system",
+    projectDescription: "Accounting management system.",
+    url: 'url("alinea-logo.png")',
+    link: "#",
+  },
+];

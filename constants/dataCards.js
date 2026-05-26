@@ -187,3 +187,54 @@ export const dataAyuscol = [
     link: "https://ayuscol.com.ar/",
   },
 ];
+
+export const dataCall2Santa = [
+  {
+    nameProject: "Call2Santa",
+    nameDetail: "// _christmas",
+    projectDescription: "Write a free letter to Santa Claus online.",
+    url: 'url("logoCallToSantaHeader.png")',
+    link: "https://www.call2santa.com/",
+  },
+];
+
+export const dataMegadeth = [
+  {
+    nameProject: "Megadeth",
+    nameDetail: "// _music",
+    projectDescription: "Fan site of the legendary metal band.",
+    url: 'url("megadeth.avif")',
+    link: "https://megadeth.com.ar/",
+  },
+];
+
+export const dataBabyMetal = [
+  {
+    nameProject: "BabyMetal",
+    nameDetail: "// _music",
+    projectDescription: "Fan site of the Kawaii Metal band.",
+    url: 'url("babymetal.avif")',
+    link: "https://babymetal.com.ar/",
+  },
+];
+
+export const dataGhost = [
+  {
+    nameProject: "Ghost",
+    nameDetail: "// _music",
+    projectDescription: "Everything about the Swedish theatrical rock band.",
+    url: 'url("ghost.avif")',
+    link: "https://ghostband.com.ar/",
+  },
+];
+
+// TODO: add the live link when Alinea-App is published.
+export const dataAlinea = [
+  {
+    nameProject: "Alinea-App",
+    nameDetail: "// _accounting-system",
+    projectDescription: "Accounting management system.",
+    url: 'url("alinea-logo.png")',
+    link: "https://www.alinea-app.com/",
+  },
+];

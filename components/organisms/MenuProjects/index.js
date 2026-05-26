@@ -62,6 +62,16 @@ export const MenuProjects = ({
   onChangeVlex,
   valueAyuscol,
   onChangeAyuscol,
+  valueCall2Santa,
+  onChangeCall2Santa,
+  valueMegadeth,
+  onChangeMegadeth,
+  valueBabyMetal,
+  onChangeBabyMetal,
+  valueGhost,
+  onChangeGhost,
+  valueAlinea,
+  onChangeAlinea,
   isNoMobile,
 }) => {
   return (
@@ -179,6 +189,36 @@ export const MenuProjects = ({
         value={valueAyuscol}
         checked={valueAyuscol}
         onChange={onChangeAyuscol}
+      />
+      <CheckBox
+        label="Call2Santa"
+        value={valueCall2Santa}
+        checked={valueCall2Santa}
+        onChange={onChangeCall2Santa}
+      />
+      <CheckBox
+        label="Megadeth"
+        value={valueMegadeth}
+        checked={valueMegadeth}
+        onChange={onChangeMegadeth}
+      />
+      <CheckBox
+        label="BabyMetal"
+        value={valueBabyMetal}
+        checked={valueBabyMetal}
+        onChange={onChangeBabyMetal}
+      />
+      <CheckBox
+        label="Ghost"
+        value={valueGhost}
+        checked={valueGhost}
+        onChange={onChangeGhost}
+      />
+      <CheckBox
+        label="Alinea-App"
+        value={valueAlinea}
+        checked={valueAlinea}
+        onChange={onChangeAlinea}
       />
     </Layout>
   );
