@@ -72,6 +72,8 @@ export const MenuProjects = ({
   onChangeGhost,
   valueAlinea,
   onChangeAlinea,
+  valueMisFiguritas,
+  onChangeMisFiguritas,
   isNoMobile,
 }) => {
   return (
@@ -219,6 +221,12 @@ export const MenuProjects = ({
         value={valueAlinea}
         checked={valueAlinea}
         onChange={onChangeAlinea}
+      />
+      <CheckBox
+        label="MisFiguritas.com.ar"
+        value={valueMisFiguritas}
+        checked={valueMisFiguritas}
+        onChange={onChangeMisFiguritas}
       />
     </Layout>
   );

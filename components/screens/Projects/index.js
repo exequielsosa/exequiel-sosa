@@ -34,6 +34,7 @@ import {
   dataBabyMetal,
   dataGhost,
   dataAlinea,
+  dataMisFiguritas,
 } from "../../../constants/dataCards";
 
 import {
@@ -48,6 +49,7 @@ import {
   dataBabyMetalMobile,
   dataGhostMobile,
   dataAlineaMobile,
+  dataMisFiguritasMobile,
 } from "../../../constants/dataCardsMobile";
 
 const TitleMobile = styled.div`
@@ -261,6 +263,7 @@ const Project = () => {
   const [valueBabyMetal, setCheckboxBabyMetal] = useState(false);
   const [valueGhost, setCheckboxGhost] = useState(false);
   const [valueAlinea, setCheckboxAlinea] = useState(false);
+  const [valueMisFiguritas, setCheckboxMisFiguritas] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const toogleOpen = () => setIsOpen(!isOpen);
 
@@ -288,7 +291,8 @@ const Project = () => {
     !valueMegadeth &&
     !valueBabyMetal &&
     !valueGhost &&
-    !valueAlinea;
+    !valueAlinea &&
+    !valueMisFiguritas;
 
   const { isLg, isXs } = useBreakpoints();
   return (
@@ -325,6 +329,7 @@ const Project = () => {
                 valueBabyMetal={valueBabyMetal}
                 valueGhost={valueGhost}
                 valueAlinea={valueAlinea}
+                valueMisFiguritas={valueMisFiguritas}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -365,6 +370,9 @@ const Project = () => {
                 }
                 onChangeGhost={({ target }) => setCheckboxGhost(!valueGhost)}
                 onChangeAlinea={({ target }) => setCheckboxAlinea(!valueAlinea)}
+                onChangeMisFiguritas={({ target }) =>
+                  setCheckboxMisFiguritas(!valueMisFiguritas)
+                }
               />
             </LayoutMenu>
           </Column>
@@ -566,6 +574,14 @@ const Project = () => {
                         }
                       />
                     )}
+                    {valueMisFiguritas && (
+                      <SectionProjectCard
+                        sectionName="MisFiguritas"
+                        handleClickButtonClose={({ target }) =>
+                          setCheckboxMisFiguritas(!valueMisFiguritas)
+                        }
+                      />
+                    )}
                   </ContainerTags>
                 </ContainerNameSection>
                 <LayoutContainerCards>
@@ -663,6 +679,10 @@ const Project = () => {
                         dataCards={valueAlinea && dataAlinea}
                         isNoMobile
                       />
+                      <CardProject
+                        dataCards={valueMisFiguritas && dataMisFiguritas}
+                        isNoMobile
+                      />
                     </ContainerCards>
                   )}
                 </LayoutContainerCards>
@@ -706,6 +726,7 @@ const Project = () => {
                 valueBabyMetal={valueBabyMetal}
                 valueGhost={valueGhost}
                 valueAlinea={valueAlinea}
+                valueMisFiguritas={valueMisFiguritas}
                 onChangeFpay={({ target }) => setCheckboxFpay(!valueFpay)}
                 onChangeLandings={({ target }) =>
                   setCheckboxLandings(!valueLandings)
@@ -746,6 +767,9 @@ const Project = () => {
                 }
                 onChangeGhost={({ target }) => setCheckboxGhost(!valueGhost)}
                 onChangeAlinea={({ target }) => setCheckboxAlinea(!valueAlinea)}
+                onChangeMisFiguritas={({ target }) =>
+                  setCheckboxMisFiguritas(!valueMisFiguritas)
+                }
                 isMobile
               />
             </DivMenu>
@@ -819,6 +843,12 @@ const Project = () => {
                 <CardProject
                   dataCards={
                     valueAlinea && (isXs ? dataAlineaMobile : dataAlinea)
+                  }
+                />
+                <CardProject
+                  dataCards={
+                    valueMisFiguritas &&
+                    (isXs ? dataMisFiguritasMobile : dataMisFiguritas)
                   }
                 />
               </ContainerCardsMobile>

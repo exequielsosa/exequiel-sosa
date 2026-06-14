@@ -238,3 +238,13 @@ export const dataAlinea = [
     link: "https://www.alinea-app.com/",
   },
 ];
+
+export const dataMisFiguritas = [
+  {
+    nameProject: "MisFiguritas.com.ar",
+    nameDetail: "// _stickers",
+    projectDescription: "FIFA World Cup 2026 sticker album tracking database.",
+    url: 'url("logo_branding.png")',
+    link: "https://misfiguritas.com.ar",
+  },
+];
