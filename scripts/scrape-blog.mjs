@@ -9,7 +9,7 @@
  * Pipeline:
  *   1. Pull recent items from RSS feeds matching the day's track
  *   2. Filter for relevance to the target nicho (front-end OR AI applied to web dev)
- *   3. Generate an original English article with Groq (Llama 3.3 70B)
+ *   3. Generate an original English article with Groq (gpt-oss-120b)
  *   4. POST to /api/blog/create with x-api-key auth
  *
  * Triggered by:
@@ -294,8 +294,15 @@ Snippet: ${snippet.substring(0, 400)}`;
 
   try {
     const completion = await groq.chat.completions.create({
-      model: "llama-3.3-70b-versatile",
-      max_tokens: 5,
+      // gpt-oss-120b is a reasoning model: it emits "reasoning tokens" before
+      // the final answer, and those count toward max_tokens. A 5-token budget
+      // (which worked fine on llama-3.3) would consume itself in reasoning
+      // and return an empty message here. 1000 is safe for a yes/no answer.
+      // reasoning_effort: "low" keeps this cheap — a relevance filter doesn't
+      // need deep thinking.
+      model: "openai/gpt-oss-120b",
+      max_tokens: 1000,
+      reasoning_effort: "low",
       temperature: 0,
       messages: [{ role: "user", content: prompt }],
     });
@@ -340,7 +347,7 @@ Format requirements (STRICT):
     "title": "60-80 char SEO title in English",
     "description": "140-160 char meta description in English",
     "slug": "kebab-case-slug-30-50-chars",
-    "content": "HTML body, minimum 500 words. Use <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <code>, <pre><code>, <blockquote>. No <h1> (the title is rendered separately). No inline styles. No external image tags. IMPORTANT: every code block MUST declare its language via a class on the <code> element using this exact format: <pre><code class=\"language-jsx\">...</code></pre>. Use one of: javascript, typescript, jsx, tsx, json, html, css, bash, markdown.",
+    "content": "HTML body, 500-700 words TOTAL. Use 4-6 <h2> sections MAX. Keep code snippets short (10-25 lines each) and use at most 2-3 of them in the whole article. Allowed tags: <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <code>, <pre><code>, <blockquote>. No <h1> (the title is rendered separately). No inline styles. No external image tags. IMPORTANT: every code block MUST declare its language via a class on the <code> element using this exact format: <pre><code class=\"language-jsx\">...</code></pre>. Use one of: javascript, typescript, jsx, tsx, json, html, css, bash, markdown.",
     ${categoryLine},
     "tags": ["3-5 lowercase tags, no spaces, no #"],
     "image_alt": "Concise descriptive alt text for a hero image (max 100 chars)"
@@ -364,8 +371,14 @@ Source snippet: ${sourceSnippet.substring(0, 800)}
 Remember: return ONLY the JSON object, nothing else.`;
 
   const completion = await groq.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
-    max_tokens: 3500,
+    // gpt-oss-120b is a reasoning model. Budget breakdown at 8000 tokens:
+    //   - ~1500-2500 reasoning tokens (Groq default effort)
+    //   - ~4000-5000 output tokens (roughly 600-800 words of HTML)
+    // We started at 5000 and hit truncation when the model went off-script
+    // and wrote 15 sections with long TSX snippets. 8000 is a safety margin;
+    // the prompt itself now caps the article at 4-6 sections / ~700 words.
+    model: "openai/gpt-oss-120b",
+    max_tokens: 8000,
     temperature: 0.7,
     response_format: { type: "json_object" },
     messages: [
