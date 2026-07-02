@@ -373,17 +373,16 @@ Source snippet: ${sourceSnippet.substring(0, 800)}
 Remember: return ONLY the JSON object, nothing else.`;
 
   const completion = await groq.chat.completions.create({
-    // gpt-oss-120b free tier has a hard 8000 TPM (tokens per minute) cap
-    // per organization. In one run we spend tokens on 2× isRelevant + this
-    // generation call, so max_tokens here must be low enough that the whole
-    // batch stays under 8000. Budget at 6000:
-    //   - ~1500 reasoning tokens
-    //   - ~4500 output tokens = ~600-700 words of HTML (matches prompt cap)
-    // reasoning_effort: "medium" trims reasoning use vs the default without
-    // sacrificing structural quality of the article.
+    // gpt-oss-120b free tier: 8000 TPM cap per organization.
+    // Budget at 6000 tokens with reasoning_effort "low":
+    //   - ~500-1000 reasoning tokens
+    //   - ~5000-5500 output tokens = ~750 words of HTML (fits the prompt cap)
+    // We tried "medium" but it burned 2000+ reasoning tokens and truncated
+    // the article mid-tag. "low" trades some structural planning for
+    // completion — the prompt itself carries most of the structure.
     model: "openai/gpt-oss-120b",
     max_tokens: 6000,
-    reasoning_effort: "medium",
+    reasoning_effort: "low",
     temperature: 0.7,
     response_format: { type: "json_object" },
     messages: [
