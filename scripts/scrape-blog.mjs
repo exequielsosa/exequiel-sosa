@@ -297,11 +297,13 @@ Snippet: ${snippet.substring(0, 400)}`;
       // gpt-oss-120b is a reasoning model: it emits "reasoning tokens" before
       // the final answer, and those count toward max_tokens. A 5-token budget
       // (which worked fine on llama-3.3) would consume itself in reasoning
-      // and return an empty message here. 1000 is safe for a yes/no answer.
-      // reasoning_effort: "low" keeps this cheap — a relevance filter doesn't
-      // need deep thinking.
+      // and return an empty message here. 500 covers a yes/no answer with a
+      // little slack for the model's low-effort reasoning trace. Kept low
+      // deliberately: we may run this call 5× per invocation and the free
+      // tier's 8000 TPM cap forces us to reserve most of that budget for the
+      // article-generation call downstream.
       model: "openai/gpt-oss-120b",
-      max_tokens: 1000,
+      max_tokens: 500,
       reasoning_effort: "low",
       temperature: 0,
       messages: [{ role: "user", content: prompt }],
@@ -371,14 +373,17 @@ Source snippet: ${sourceSnippet.substring(0, 800)}
 Remember: return ONLY the JSON object, nothing else.`;
 
   const completion = await groq.chat.completions.create({
-    // gpt-oss-120b is a reasoning model. Budget breakdown at 8000 tokens:
-    //   - ~1500-2500 reasoning tokens (Groq default effort)
-    //   - ~4000-5000 output tokens (roughly 600-800 words of HTML)
-    // We started at 5000 and hit truncation when the model went off-script
-    // and wrote 15 sections with long TSX snippets. 8000 is a safety margin;
-    // the prompt itself now caps the article at 4-6 sections / ~700 words.
+    // gpt-oss-120b free tier has a hard 8000 TPM (tokens per minute) cap
+    // per organization. In one run we spend tokens on 2× isRelevant + this
+    // generation call, so max_tokens here must be low enough that the whole
+    // batch stays under 8000. Budget at 6000:
+    //   - ~1500 reasoning tokens
+    //   - ~4500 output tokens = ~600-700 words of HTML (matches prompt cap)
+    // reasoning_effort: "medium" trims reasoning use vs the default without
+    // sacrificing structural quality of the article.
     model: "openai/gpt-oss-120b",
-    max_tokens: 8000,
+    max_tokens: 6000,
+    reasoning_effort: "medium",
     temperature: 0.7,
     response_format: { type: "json_object" },
     messages: [
