@@ -64,7 +64,9 @@ const Description = styled.div`
   line-height: 150%;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
+  display: inline-block;
+  text-decoration: none;
   background: transparent;
   border-radius: 8px;
   background: #1c2b3a;
@@ -90,6 +92,8 @@ const LayoutGral = styled.div`
   margin-right: ${(props) => props.isNoMobile && "40px"};
   margin-bottom: 40px;
   width: 291px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 380px;
   @media (min-width: 600px) {
     width: 370px;
   }
@@ -140,12 +144,16 @@ export const CardProject = ({ dataCards, isNoMobile }) => {
             <LayoutCard>
               <LayoutImage url={item.url}>
                 <LayoutIcon>
-                  <ImageIcon src="/reactIcon.svg" />
+                  <ImageIcon src="/reactIcon.svg" alt="" />
                 </LayoutIcon>
               </LayoutImage>
               <LayoutDescription>
                 <Description>{item.projectDescription}</Description>
-                <Button onClick={() => window.open(`${item.link}`, "_blank")}>
+                <Button
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   view-project
                 </Button>
               </LayoutDescription>

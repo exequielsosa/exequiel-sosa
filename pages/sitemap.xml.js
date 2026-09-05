@@ -4,14 +4,33 @@ import { dataBlogMock } from "@/constants/dataBlogMock";
 const SITE = "https://www.exequielsosa.com.ar";
 
 // Static, top-level pages. Add new ones here.
+//
+// `lastmod` is a hardcoded date per page, NOT `new Date()`: a lastmod that
+// changes on every request is a lastmod Google stops trusting. Bump the date
+// by hand when the page's content actually changes.
 const STATIC_PAGES = [
-  { loc: "/", changefreq: "weekly", priority: "1.0" },
-  { loc: "/about-me", changefreq: "monthly", priority: "0.9" },
-  { loc: "/projects", changefreq: "monthly", priority: "0.9" },
-  { loc: "/contact-me", changefreq: "monthly", priority: "0.8" },
-  { loc: "/blog", changefreq: "weekly", priority: "0.9" },
+  { loc: "/", lastmod: "2026-09-04", changefreq: "weekly", priority: "1.0" },
+  {
+    loc: "/about-me",
+    lastmod: "2026-09-04",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
+    loc: "/projects",
+    lastmod: "2026-09-04",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
+    loc: "/contact-me",
+    lastmod: "2026-05-21",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
   {
     loc: "/ExequielIgnacioSosaResume2026.pdf",
+    lastmod: "2026-05-21",
     changefreq: "yearly",
     priority: "0.7",
   },
@@ -61,11 +80,9 @@ export default function Sitemap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const today = new Date().toISOString().split("T")[0];
-
   const staticUrls = STATIC_PAGES.map((page) => ({
     loc: `${SITE}${page.loc}`,
-    lastmod: today,
+    lastmod: page.lastmod,
     changefreq: page.changefreq,
     priority: page.priority,
   }));
@@ -89,6 +106,19 @@ export async function getServerSideProps({ res }) {
     posts = dataBlogMock;
   }
 
+  // /blog's real lastmod is the date of its newest post.
+  const newestPost = posts.reduce((newest, p) => {
+    const d = formatDate(p.updated_at || p.published_at);
+    return d > newest ? d : newest;
+  }, "1970-01-01");
+
+  const blogIndexUrl = {
+    loc: `${SITE}/blog`,
+    lastmod: newestPost,
+    changefreq: "weekly",
+    priority: "0.9",
+  };
+
   const postUrls = posts.map((p) => ({
     loc: `${SITE}/blog/${p.slug}`,
     lastmod: formatDate(p.updated_at || p.published_at),
@@ -104,7 +134,7 @@ export async function getServerSideProps({ res }) {
       : null,
   }));
 
-  const xml = buildSitemap([...staticUrls, ...postUrls]);
+  const xml = buildSitemap([...staticUrls, blogIndexUrl, ...postUrls]);
 
   res.setHeader("Content-Type", "application/xml");
   res.setHeader(

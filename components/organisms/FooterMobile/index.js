@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { useBreakpoints } from "../../../hooks/useBreakpoints";
 
 const Layout = styled.div`
@@ -8,10 +9,36 @@ const Layout = styled.div`
   display: flex;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  flex-direction: column;
+  background-image: url("grid.png");
+`;
+
+const SocialRow = styled.div`
+  width: 100%;
+  background-color: transparent;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-image: url("grid.png");
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 14px 18px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(96, 123, 150, 0.4);
+`;
+
+const NavLink = styled(Link)`
+  color: rgba(96, 123, 150, 1);
+  font-size: 14px;
+  text-decoration: none;
+  background-color: transparent;
+  &:hover {
+    color: #fff;
+  }
 `;
 
 const Name = styled.div`
@@ -71,44 +98,53 @@ export const FooterMobile = () => {
   const { isXs } = useBreakpoints();
   return (
     <Layout>
-      <Name small={!isXs}>find me in:</Name>
-      <LayoutSocial>
-        <Logo
-          rigth
-          left
-          onClick={() =>
-            window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
-          }
-        >
-          <ImageLn src="/linkedin.svg" alt="linkedin" />
-        </Logo>
+      <Nav aria-label="Footer">
+        <NavLink href="/">Home</NavLink>
+        <NavLink href="/about-me">About Exequiel Sosa</NavLink>
+        <NavLink href="/projects">Front-end projects</NavLink>
+        <NavLink href="/blog">React &amp; Next.js blog</NavLink>
+        <NavLink href="/contact-me">Hire me</NavLink>
+      </Nav>
+      <SocialRow>
+        <Name small={!isXs}>find me in:</Name>
+        <LayoutSocial>
+          <Logo
+            rigth
+            left
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/exequielsosa/", "_blank")
+            }
+          >
+            <ImageLn src="/linkedin.svg" alt="linkedin" />
+          </Logo>
 
-        <Logo
-          rigth
-          left
-          onClick={() =>
-            window.open("https://twitter.com/soyexequielsosa", "_blank")
-          }
-        >
-          <ImageX src="/twitter.svg" alt="X" />
-        </Logo>
-        <Logo
-          rigth
-          onClick={() =>
-            window.open("https://facebook.com/exequiel.sosa", "_blank")
-          }
-        >
-          <ImageLogo src="/facebook.svg" alt="facebook" />
-        </Logo>
+          <Logo
+            rigth
+            left
+            onClick={() =>
+              window.open("https://twitter.com/soyexequielsosa", "_blank")
+            }
+          >
+            <ImageX src="/twitter.svg" alt="X" />
+          </Logo>
+          <Logo
+            rigth
+            onClick={() =>
+              window.open("https://facebook.com/exequiel.sosa", "_blank")
+            }
+          >
+            <ImageLogo src="/facebook.svg" alt="facebook" />
+          </Logo>
 
-        <Logo
-          onClick={() =>
-            window.open("https://github.com/exequielsosa", "_blank")
-          }
-        >
-          <ImageGit src="/github2.svg" />
-        </Logo>
-      </LayoutSocial>
+          <Logo
+            onClick={() =>
+              window.open("https://github.com/exequielsosa", "_blank")
+            }
+          >
+            <ImageGit src="/github2.svg" alt="GitHub" />
+          </Logo>
+        </LayoutSocial>
+      </SocialRow>
     </Layout>
   );
 };

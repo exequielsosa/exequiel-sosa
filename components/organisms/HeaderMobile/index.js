@@ -105,20 +105,25 @@ export const HeaderMobile = () => {
         <LayoutMenu>
           <Name>exequiel-sosa</Name>
           <FinalLayout>
-            <ImageLogo src="/wp.svg" alt="al" onClick={handleSubmit} />
+            <ImageLogo
+              src="/wp.svg"
+              alt="Chat on WhatsApp"
+              onClick={handleSubmit}
+            />
             <LinkResume
               href="/ExequielIgnacioSosaResume2026.pdf"
               target="_blank"
             >
-              <ImageResume src="/resume2.svg" alt="al" />
+              <ImageResume src="/resume2.svg" alt="Download resume (PDF)" />
             </LinkResume>
             <MenuBtn
               src={open ? "/cruz.svg" : "/menuBtn.svg"}
+              alt={open ? "Close menu" : "Open menu"}
               onClick={toogleOpen}
             />
           </FinalLayout>
         </LayoutMenu>
-        {open && <MenuMobile out={!open} onClose={() => setOpen(false)} />}
+        <MenuMobile out={!open} onClose={() => setOpen(false)} />
       </Layout>
     </LayoutGral>
   );

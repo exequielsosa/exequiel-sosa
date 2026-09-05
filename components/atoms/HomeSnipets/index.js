@@ -25,11 +25,26 @@ const LayoutSnipet = styled.div`
 export const HomeSnipets = () => {
   return (
     <LayoutSnipet>
-      <ImageSnipet src="/code-snippet0.png" alt="exequielsosa.com.ar" />
-      <ImageSnipetCenter src="/code-snippet1.png" alt="exequielsosa.com.ar" />
-      <ImageSnipetCenter src="/code-snippet2.png" alt="exequielsosa.com.ar" />
-      <ImageSnipetCenter src="/code-snippet3.png" alt="exequielsosa.com.ar" />
-      <ImageSnipet src="/code-snippet4.png" alt="exequielsosa.com.ar" />
+      <ImageSnipet
+        src="/code-snippet0.png"
+        alt="React component code snippet"
+      />
+      <ImageSnipetCenter
+        src="/code-snippet1.png"
+        alt="Next.js data fetching code snippet"
+      />
+      <ImageSnipetCenter
+        src="/code-snippet2.png"
+        alt="TypeScript types code snippet"
+      />
+      <ImageSnipetCenter
+        src="/code-snippet3.png"
+        alt="React hooks code snippet"
+      />
+      <ImageSnipet
+        src="/code-snippet4.png"
+        alt="CSS-in-JS styling code snippet"
+      />
     </LayoutSnipet>
   );
 };

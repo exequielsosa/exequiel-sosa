@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const Layout = styled.div`
   width: 100%;
@@ -117,6 +118,25 @@ const NoneArea = styled.div`
   color: #1b1423;
 `;
 
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 22px;
+  background-color: transparent;
+`;
+
+const NavLink = styled(Link)`
+  color: rgba(96, 123, 150, 1);
+  font-size: 14px;
+  text-decoration: none;
+  background-color: transparent;
+  white-space: nowrap;
+  &:hover {
+    color: #fff;
+  }
+`;
+
 export const Footer = () => {
   return (
     <Layout>
@@ -146,7 +166,15 @@ export const Footer = () => {
           <ImageLogoLnk src="/linkedin.svg" alt="linkedin" />
         </LogoIn>
       </AlignContent>
-      <NoneArea>.</NoneArea>
+      <NoneArea>
+        <Nav aria-label="Footer">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/about-me">About Exequiel Sosa</NavLink>
+          <NavLink href="/projects">Front-end projects</NavLink>
+          <NavLink href="/blog">React &amp; Next.js blog</NavLink>
+          <NavLink href="/contact-me">Hire me</NavLink>
+        </Nav>
+      </NoneArea>
       <AlignContact>
         <MenuEnd
           onClick={() =>

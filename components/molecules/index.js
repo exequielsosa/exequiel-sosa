@@ -6,3 +6,4 @@ export * from "./CardProyect";
 export * from "./ThankYou";
 export * from "./ImagesContacts";
 export * from "./Loader";
+export * from "./HomeIntro";

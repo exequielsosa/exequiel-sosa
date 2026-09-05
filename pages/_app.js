@@ -46,12 +46,10 @@ export default function App({ Component, pageProps }) {
         }}
       />
       <GralLayout>
-        <span data-aos="zoom-in">
-          <LayoutMenuAndFooter>
-            <Component {...pageProps} />
-            <Analytics />
-          </LayoutMenuAndFooter>
-        </span>
+        <LayoutMenuAndFooter>
+          <Component {...pageProps} />
+          <Analytics />
+        </LayoutMenuAndFooter>
       </GralLayout>
     </>
   );
