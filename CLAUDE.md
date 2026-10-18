@@ -148,8 +148,8 @@ El flujo del formulario de contacto está partido en tres archivos:
 - Applied to components using `data-aos="[animation-type]"` attribute
 - Common animations: `zoom-in`, `fade-up`, `slide-left`, etc.
 
-### Splash Loader inicial (importante)
-[pages/_app.js](pages/_app.js) monta un `<Loader />` durante 3500ms al primer render del cliente (`setTimeout` en useEffect) antes de renderizar el contenido real. Es intencional, no un bug. Si una página parece "no cargar" al hacer cambios, considerar que ese delay sigue activo. Para desactivarlo en desarrollo, bajar el timer o saltearlo con un flag.
+### Animaciones AOS y renderizado inicial (importante)
+`_app.js` ya **no** monta un splash `<Loader />` (esa sección quedó obsoleta) y tampoco envuelve la app en `<span data-aos="zoom-in">`: ese wrapper aplicaba `opacity: 0` a todo el árbol hasta que hidrataba el JS, degradando el LCP. AOS sigue inicializado porque [ThankYou](components/molecules/ThankYou/index.js) lo usa. **No volver a poner `data-aos` en un contenedor global.**
 
 ### Path aliases
 [jsconfig.json](jsconfig.json) define `@/*` apuntando a la raíz del proyecto. Ejemplos en uso:
@@ -233,4 +233,32 @@ Portfolio completamente funcional con:
 - ✅ Analytics (Google + Vercel)
 - ✅ Responsive design (hook `useBreakpoints` + media queries en styled-components)
 - ✅ Security headers y optimizaciones de rendimiento
-- ✅ Splash inicial de 3.5s con `<Loader />` antes del primer render
+- ✅ Blog con ISR desde Supabase, TOC, related posts y sitemap dinámico
+
+### Trabajo SEO en curso (sesión 2026-09-04)
+
+Auditoría del HTML real servido a Googlebot. Ver [BRIEF-SEO.md](BRIEF-SEO.md) para el contexto de negocio.
+
+Hecho:
+- ✅ **LCP**: eliminado el `<span data-aos="zoom-in">` global de `_app.js` que dejaba el sitio entero en `opacity: 0` hasta la hidratación.
+- ✅ **Enlaces internos**: `MenuMobile` ahora se monta siempre (su contenedor ya se ocultaba solo vía `visibility`, el `{open &&}` era redundante) y se agregó una `<nav>` con anchor text descriptivo en `Footer` y `FooterMobile`. Las 5 páginas pasaron de 1 enlace interno (el PDF del CV) a 5 enlaces de navegación en el HTML prerenderizado. Esto ataca las 13 URLs "descubierta sin indexar" de GSC.
+
+Pendiente:
+- ⏳ **Contenido SSR**: `useBreakpoints` devuelve `false` en SSR, así que el crawler siempre recibe la rama mobile → `/` sirve ~300 caracteres y `/projects` ~193. Mover el switch desktop/mobile de JS a media queries CSS y renderizar contenido real en la home.
+- ⏳ Redes sociales del footer son `<div onClick>`: pasarlas a `<a rel="me">` para reforzar el `sameAs` del schema.
+- ⏳ `lastmod` del sitemap usa la fecha de hoy en cada request para las páginas estáticas; conviene una fecha fija por página.
+
+### Mejoras generales del repo (sesión 2026-10-18)
+
+Hecho:
+- ✅ `pages/api/contact.js`: escape de HTML del input en el mail, solo se procesan los campos conocidos, se quitó el `console.log` con datos personales y el error ya no expone `err.message` (devuelve 500 genérico).
+- ✅ `hooks/useBreakpoints.js`: el cleanup de `useMediaQuery` quitaba el listener de `window` en vez de `media` (fuga de listeners).
+
+Pendiente:
+- ⏳ Anti-spam en el form de contacto (honeypot).
+- ✅ `logo_branding.png` (3.7 MB, 1940px) → `logo_branding.avif` (47 KB, 800px) en `dataCards`/`dataCardsMobile`. El PNG original quedó en `public/` sin referencias (borrar junto con la limpieza).
+- ⏳ Ninguna imagen usa `next/image` (las cards usan `background-image`).
+- ⏳ Quitar `react-device-detect` (lo usan `header` y `HeaderMobile`, duplica `useBreakpoints`).
+- ⏳ Limpieza: `pages/api/hello.js`, CVs 2024/2025 sin referencias en `public/`, deps de lint/postcss a `devDependencies`.
+- ⏳ `timingSafeEqual` para la API key en `pages/api/blog/create.js`.
+- ⏳ Este CLAUDE.md está desactualizado: dice Next 13.4.4 (es 14.2.35), babel plugin (es SWC) y que el mail usa `templates/email.html` (el HTML está inline en `contact.js`).

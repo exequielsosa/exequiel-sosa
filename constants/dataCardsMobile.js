@@ -185,7 +185,7 @@ export const dataMisFiguritasMobile = [
     nameProject: "MisFiguritas",
     nameDetail: "// _stickers",
     projectDescription: "FIFA World Cup 2026 sticker album tracker.",
-    url: 'url("logo_branding.png")',
+    url: 'url("logo_branding.avif")',
     link: "https://misfiguritas.com.ar",
   },
 ];

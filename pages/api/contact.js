@@ -7,15 +7,30 @@ const CONTACT_MESSAGE_FIELDS = {
   message: "Mensaje",
 };
 
+// Escapa el input del usuario antes de insertarlo en el HTML del mail
+const escapeHtml = (value) =>
+  String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
 const generateEmailContent = (data) => {
-  const stringData = Object.entries(data).reduce(
+  // Solo se recorren los campos conocidos: ignora claves extra que mande el cliente
+  const fields = Object.keys(CONTACT_MESSAGE_FIELDS).map((key) => [
+    key,
+    data[key],
+  ]);
+
+  const stringData = fields.reduce(
     (str, [key, val]) =>
       (str += `${CONTACT_MESSAGE_FIELDS[key]}: \n${val} \n \n`),
     ""
   );
 
-  const htmlData = Object.entries(data).reduce((str, [key, val]) => {
-    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="left">${val}</p>`);
+  const htmlData = fields.reduce((str, [key, val]) => {
+    return (str += `<h3 class="form-heading" align="left">${CONTACT_MESSAGE_FIELDS[key]}</h3><p class="form-answer" align="left">${escapeHtml(val)}</p>`);
   }, "");
 
   return {
@@ -27,7 +42,6 @@ const generateEmailContent = (data) => {
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
-    console.log(data);
     if (!data || !data.name || !data.email || !data.subject || !data.message) {
       return res.status(400).send({ message: "Bad request" });
     }
@@ -41,8 +55,8 @@ const handler = async (req, res) => {
 
       return res.status(200).json({ success: true });
     } catch (err) {
-      console.log(err);
-      return res.status(400).json({ message: err.message });
+      console.error("Error enviando mail de contacto:", err);
+      return res.status(500).json({ message: "Error sending message" });
     }
   }
   return res.status(400).json({ message: "Bad request" });
