@@ -31,13 +31,16 @@ export async function getStaticProps() {
     .order("published_at", { ascending: false })
     .limit(60);
 
+  // Throw instead of returning [] so ISR keeps serving the last good version
+  // rather than caching an empty blog when Supabase fails.
   if (error) {
-    console.error("Supabase /blog list error:", error.message);
-    return { props: { posts: [] }, revalidate: 60 };
+    throw new Error(`Supabase /blog list error: ${error.message}`);
   }
 
+  // 1 h keeps Supabase egress flat regardless of traffic (it was 60 s);
+  // /api/blog/create revalidates on demand so new posts show up right away.
   return {
     props: { posts: data || [] },
-    revalidate: 60,
+    revalidate: 3600,
   };
 }

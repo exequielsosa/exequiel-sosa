@@ -248,6 +248,21 @@ Pendiente:
 - ⏳ Redes sociales del footer son `<div onClick>`: pasarlas a `<a rel="me">` para reforzar el `sameAs` del schema.
 - ⏳ `lastmod` del sitemap usa la fecha de hoy en cada request para las páginas estáticas; conviene una fecha fija por página.
 
+### Egress de Supabase (sesión 2026-10-24, rama `fix/egress-supabase`)
+
+Contexto: la org vieja de Supabase (megadeth + Call 2 Santa) quedó restringida por egress (cuota Free de 5 GB/mes **por organización**). Este blog ya usaba ISR, pero con `revalidate: 60`: con bots pidiendo cada página una vez por minuto, el peor caso era ~14 GB/mes.
+
+Hecho:
+- ✅ `pages/blog/index.js` → `revalidate: 3600` (antes 60). Si Supabase falla lanza error para que ISR conserve la última versión buena (antes cacheaba un blog vacío).
+- ✅ `pages/blog/[slug].js` → `revalidate: 86400` (404 con 3600). `.maybeSingle()`: un error real de Supabase lanza (antes cacheaba un 404 de un post existente).
+- ✅ `pages/api/blog/create.js` → `res.revalidate("/blog")` y `/blog/<slug>` después del insert: el post aparece al instante. Probado en local con la config `i18n` (`locales: ['en']`), también para un slug nuevo.
+- ✅ `public/robots.txt` → Disallow para crawlers de IA (meta-externalagent, GPTBot, ClaudeBot, CCBot...). facebookexternalhit sigue permitido.
+- ✅ Verificado con `next start` + logger de fetch: 70 cargas = 0 consultas; un post viejo (no pre-renderizado) consulta solo en la primera visita; pasado el viejo minuto no regenera.
+
+Pendiente:
+- ⏳ Después del merge: regla de firewall en Vercel (User Agent contains `meta-externalagent` → Deny; nunca por ASN 32934).
+- ⏳ Ubicar en qué cuenta/org de Supabase está `djrjumhquubhyrgatrfo`. El 2026-10-23 a las 13:00 hubo un timeout de 15 s en `/en/blog` al mismo minuto que en estudio-dillon (`icubtpzgnrxridpanqnt`): probablemente comparten org, y entonces cuota.
+
 ### Mejoras generales del repo (sesión 2026-10-18)
 
 Hecho:

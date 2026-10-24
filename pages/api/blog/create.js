@@ -59,6 +59,15 @@ const handler = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 
+  // Regenerate the ISR pages so the post shows up without waiting for the
+  // revalidate window. If it fails the post is already saved: it shows in ≤ 1 h.
+  try {
+    await res.revalidate("/blog");
+    await res.revalidate(`/blog/${inserted.slug}`);
+  } catch (err) {
+    console.error("Blog revalidate error:", err.message);
+  }
+
   return res.status(201).json({ success: true, id: inserted.id, slug: inserted.slug });
 };
 
