@@ -256,7 +256,7 @@ Hecho:
 - ✅ `pages/blog/index.js` → `revalidate: 3600` (antes 60). Si Supabase falla lanza error para que ISR conserve la última versión buena (antes cacheaba un blog vacío).
 - ✅ `pages/blog/[slug].js` → `revalidate: 86400` (404 con 3600). `.maybeSingle()`: un error real de Supabase lanza (antes cacheaba un 404 de un post existente).
 - ✅ `pages/api/blog/create.js` → `res.revalidate("/blog")` y `/blog/<slug>` después del insert: el post aparece al instante. Probado en local con la config `i18n` (`locales: ['en']`), también para un slug nuevo.
-- ✅ `public/robots.txt` → Disallow para crawlers de IA (meta-externalagent, GPTBot, ClaudeBot, CCBot...). facebookexternalhit sigue permitido.
+- ✅ `public/robots.txt` → Disallow solo para crawlers de **entrenamiento** de IA (meta-externalagent, GPTBot, ClaudeBot, CCBot, Bytespider...). Permitidos a propósito: facebookexternalhit y los bots de búsqueda de IA (OAI-SearchBot, ChatGPT-User, PerplexityBot), para que ChatGPT/Perplexity puedan encontrar y citar el portfolio (decisión del usuario; en los otros sitios sí están bloqueados).
 - ✅ Verificado con `next start` + logger de fetch: 70 cargas = 0 consultas; un post viejo (no pre-renderizado) consulta solo en la primera visita; pasado el viejo minuto no regenera.
 
 Pendiente:
