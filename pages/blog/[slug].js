@@ -91,10 +91,16 @@ export async function getStaticProps({ params }) {
     .select(POST_DETAIL_FIELDS)
     .eq("slug", slug)
     .eq("is_published", true)
-    .single();
+    .maybeSingle();
 
-  if (error || !post) {
-    return { notFound: true, revalidate: 60 };
+  // A real Supabase error throws so ISR keeps the previous version instead
+  // of caching a 404 for a post that exists.
+  if (error) {
+    throw new Error(`Supabase /blog/${slug} error: ${error.message}`);
+  }
+
+  if (!post) {
+    return { notFound: true, revalidate: 3600 };
   }
 
   // Related: same category, exclude current. Top up with latest from any
@@ -127,8 +133,10 @@ export async function getStaticProps({ params }) {
 
   const { post: postWithToc, toc, readingTime } = await withToc(post);
 
+  // 24 h: posts barely change after publishing and crawlers walk all of them
+  // (it was 60 s). New related posts may take up to a day to show up here.
   return {
     props: { post: postWithToc, relatedPosts: related, toc, readingTime },
-    revalidate: 60,
+    revalidate: 86400,
   };
 }
